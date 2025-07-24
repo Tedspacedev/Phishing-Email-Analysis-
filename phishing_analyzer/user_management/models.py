@@ -194,7 +194,7 @@ class ActivityLog(models.Model):
             activity_type=activity_type,
             description=description,
             ip_address=ip_address,
-            user_agent=user_agent,
+            user_agent=user_agent or '',
             content_object=content_object,
             additional_data=additional_data or {},
             severity=severity,

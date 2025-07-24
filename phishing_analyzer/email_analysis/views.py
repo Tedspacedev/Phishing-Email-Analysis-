@@ -380,7 +380,7 @@ class EmailHeaderViewSet(viewsets.ReadOnlyModelViewSet):
 def dashboard(request):
     """Dashboard view showing analysis overview"""
     if not request.user.is_authenticated:
-        return redirect('login')
+        return redirect('user_management:user_login')
     
     # Get recent analyses
     recent_analyses = EmailAnalysis.objects.filter(

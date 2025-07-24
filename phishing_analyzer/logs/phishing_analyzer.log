@@ -31,3 +31,11 @@ Traceback (most recent call last):
 AttributeError: type object 'Token' has no attribute 'objects'
 ERROR 2025-07-24 11:52:12,944 basehttp 7257 140339098789568 "POST /api/v1/users/api/auth/login/ HTTP/1.1" 500 93057
 INFO 2025-07-24 12:02:09,732 autoreload 8690 139895983337728 Watching for file changes with StatReloader
+INFO 2025-07-24 12:54:49,987 autoreload 8690 139895983337728 /workspace/phishing_analyzer/email_analysis/views.py changed, reloading.
+INFO 2025-07-24 12:54:50,366 autoreload 12214 140435696021760 Watching for file changes with StatReloader
+INFO 2025-07-24 12:55:07,657 autoreload 12214 140435696021760 /workspace/phishing_analyzer/user_management/models.py changed, reloading.
+INFO 2025-07-24 12:55:07,936 autoreload 12516 140375820357888 Watching for file changes with StatReloader
+INFO 2025-07-24 12:55:34,273 autoreload 12516 140375820357888 /workspace/phishing_analyzer/phishing_analyzer/urls.py changed, reloading.
+INFO 2025-07-24 12:55:34,535 autoreload 12604 140214016295168 Watching for file changes with StatReloader
+INFO 2025-07-24 12:55:49,819 autoreload 12604 140214016295168 /workspace/phishing_analyzer/user_management/urls.py changed, reloading.
+INFO 2025-07-24 12:55:50,071 autoreload 12734 140531916783872 Watching for file changes with StatReloader

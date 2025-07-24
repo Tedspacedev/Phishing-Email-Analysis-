@@ -1,0 +1,15 @@
+<form method="get" class="form">
+    <div class="well">
+        <h4 style="margin-top: 0">Filter</h4>
+        {% for field in form %}
+            <div class="form-group">
+                {{ field.label_tag }}
+                {% if field.help_text %}
+                    <p class="help-block">{{ field.help_text }}</p>
+                {% endif %}
+                {{ field }}
+            </div>
+        {% endfor %}
+        <button type="submit" class="btn btn-primary">Submit</button>
+    </div>
+</form>

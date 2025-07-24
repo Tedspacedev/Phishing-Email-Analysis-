@@ -17,7 +17,7 @@ urlpatterns = [
     path('api/', include(router.urls)),
     
     # Web Interface URLs
-    path('login/', views.login_view, name='login'),
+    path('login/', views.login_view, name='user_login'),
     path('logout/', views.logout_view, name='logout'),
     path('profile/', views.profile_view, name='profile'),
 ]
