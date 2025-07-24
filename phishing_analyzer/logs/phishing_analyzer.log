@@ -1,0 +1,4 @@
+ERROR 2025-07-24 11:44:37,266 whois 6204 140604676899072 Error trying to connect to socket: closing socket - timed out
+ERROR 2025-07-24 11:44:37,340 services 6204 140604676899072 DNS resolution failed for suspicious-domain.tk: The DNS query name does not exist: suspicious-domain.tk.
+ERROR 2025-07-24 11:44:37,411 services 6204 140604676899072 MX lookup failed for suspicious-domain.tk: The DNS query name does not exist: suspicious-domain.tk.
+ERROR 2025-07-24 11:44:37,412 services 6204 140604676899072 Domain analysis failed for suspicious-domain.tk: NOT NULL constraint failed: threat_intelligence_domainreputation.registrar

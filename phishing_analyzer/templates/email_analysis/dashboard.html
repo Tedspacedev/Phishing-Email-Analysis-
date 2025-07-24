@@ -1,0 +1,296 @@
+{% extends 'base.html' %}
+
+{% block title %}Dashboard - {{ block.super }}{% endblock %}
+
+{% block page_title %}Dashboard{% endblock %}
+
+{% block header_actions %}
+<div class="btn-group" role="group">
+    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#analyzeEmailModal">
+        <i class="fas fa-plus me-2"></i>Analyze Email
+    </button>
+    <button type="button" class="btn btn-outline-secondary">
+        <i class="fas fa-download me-2"></i>Export Report
+    </button>
+</div>
+{% endblock %}
+
+{% block content %}
+<!-- Statistics Cards -->
+<div class="row mb-4">
+    <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card border-left-primary shadow h-100 py-2 stats-card">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">Total Analyses</div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">{{ total_analyses|default:0 }}</div>
+                    </div>
+                    <div class="col-auto">
+                        <i class="fas fa-envelope fa-2x text-gray-300"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card border-left-danger shadow h-100 py-2 stats-card">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">High Risk</div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">{{ high_risk_count|default:0 }}</div>
+                    </div>
+                    <div class="col-auto">
+                        <i class="fas fa-exclamation-triangle fa-2x text-gray-300"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card border-left-warning shadow h-100 py-2 stats-card">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-warning text-uppercase mb-1">Medium Risk</div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">{{ medium_risk_count|default:0 }}</div>
+                    </div>
+                    <div class="col-auto">
+                        <i class="fas fa-exclamation-circle fa-2x text-gray-300"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-xl-3 col-md-6 mb-4">
+        <div class="card border-left-success shadow h-100 py-2 stats-card">
+            <div class="card-body">
+                <div class="row no-gutters align-items-center">
+                    <div class="col mr-2">
+                        <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Low Risk</div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">{{ low_risk_count|default:0 }}</div>
+                    </div>
+                    <div class="col-auto">
+                        <i class="fas fa-check-circle fa-2x text-gray-300"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Charts Row -->
+<div class="row mb-4">
+    <div class="col-xl-8 col-lg-7">
+        <div class="card shadow mb-4">
+            <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                <h6 class="m-0 font-weight-bold text-primary">Analysis Trends</h6>
+            </div>
+            <div class="card-body">
+                <canvas id="analysisChart" width="400" height="200"></canvas>
+            </div>
+        </div>
+    </div>
+    
+    <div class="col-xl-4 col-lg-5">
+        <div class="card shadow mb-4">
+            <div class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
+                <h6 class="m-0 font-weight-bold text-primary">Risk Distribution</h6>
+            </div>
+            <div class="card-body">
+                <canvas id="riskChart" width="400" height="400"></canvas>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Recent Analyses -->
+<div class="card shadow mb-4">
+    <div class="card-header py-3">
+        <h6 class="m-0 font-weight-bold text-primary">Recent Email Analyses</h6>
+    </div>
+    <div class="card-body">
+        {% if recent_analyses %}
+        <div class="table-responsive">
+            <table class="table table-bordered" width="100%" cellspacing="0">
+                <thead>
+                    <tr>
+                        <th>Subject</th>
+                        <th>Sender</th>
+                        <th>Risk Level</th>
+                        <th>Phishing Score</th>
+                        <th>Analyzed</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for analysis in recent_analyses %}
+                    <tr>
+                        <td>{{ analysis.email_subject|truncatechars:50 }}</td>
+                        <td>{{ analysis.sender_email }}</td>
+                        <td>
+                            <span class="badge bg-{% if analysis.risk_level == 'HIGH' %}danger{% elif analysis.risk_level == 'MEDIUM' %}warning{% else %}success{% endif %}">
+                                {{ analysis.get_risk_level_display }}
+                            </span>
+                        </td>
+                        <td>{{ analysis.phishing_score|floatformat:1 }}%</td>
+                        <td>{{ analysis.created_at|timesince }} ago</td>
+                        <td>
+                            <a href="{% url 'email_analysis:analysis_detail' analysis.id %}" class="btn btn-sm btn-primary">
+                                <i class="fas fa-eye"></i> View
+                            </a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        {% else %}
+        <div class="text-center py-4">
+            <i class="fas fa-inbox fa-3x text-muted mb-3"></i>
+            <p class="text-muted">No email analyses yet. Start by analyzing your first email!</p>
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#analyzeEmailModal">
+                <i class="fas fa-plus me-2"></i>Analyze Email
+            </button>
+        </div>
+        {% endif %}
+    </div>
+</div>
+
+<!-- Analyze Email Modal -->
+<div class="modal fade" id="analyzeEmailModal" tabindex="-1" aria-labelledby="analyzeEmailModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="analyzeEmailModalLabel">Analyze Email</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <form id="analyzeEmailForm" method="post" action="{% url 'email_analysis:emailanalysis-list' %}">
+                <div class="modal-body">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        <label for="email_subject" class="form-label">Email Subject</label>
+                        <input type="text" class="form-control" id="email_subject" name="email_subject" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="sender_email" class="form-label">Sender Email</label>
+                        <input type="email" class="form-control" id="sender_email" name="sender_email" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="recipient_email" class="form-label">Recipient Email</label>
+                        <input type="email" class="form-control" id="recipient_email" name="recipient_email" required>
+                    </div>
+                    <div class="mb-3">
+                        <label for="email_body" class="form-label">Email Body</label>
+                        <textarea class="form-control" id="email_body" name="email_body" rows="5" required></textarea>
+                    </div>
+                    <div class="mb-3">
+                        <label for="raw_email" class="form-label">Raw Email (Optional)</label>
+                        <textarea class="form-control" id="raw_email" name="raw_email" rows="3" placeholder="Paste raw email headers and content here..."></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                    <button type="submit" class="btn btn-primary">
+                        <i class="fas fa-search me-2"></i>Analyze Email
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+// Analysis Trends Chart
+const analysisCtx = document.getElementById('analysisChart').getContext('2d');
+const analysisChart = new Chart(analysisCtx, {
+    type: 'line',
+    data: {
+        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+        datasets: [{
+            label: 'Total Analyses',
+            data: [12, 19, 3, 5, 2, 3],
+            borderColor: 'rgb(75, 192, 192)',
+            backgroundColor: 'rgba(75, 192, 192, 0.2)',
+            tension: 0.1
+        }, {
+            label: 'High Risk',
+            data: [2, 3, 1, 2, 1, 1],
+            borderColor: 'rgb(255, 99, 132)',
+            backgroundColor: 'rgba(255, 99, 132, 0.2)',
+            tension: 0.1
+        }]
+    },
+    options: {
+        responsive: true,
+        plugins: {
+            legend: {
+                position: 'top',
+            },
+            title: {
+                display: true,
+                text: 'Email Analysis Trends'
+            }
+        }
+    }
+});
+
+// Risk Distribution Chart
+const riskCtx = document.getElementById('riskChart').getContext('2d');
+const riskChart = new Chart(riskCtx, {
+    type: 'doughnut',
+    data: {
+        labels: ['High Risk', 'Medium Risk', 'Low Risk'],
+        datasets: [{
+            data: [{{ high_risk_count|default:0 }}, {{ medium_risk_count|default:0 }}, {{ low_risk_count|default:0 }}],
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.8)',
+                'rgba(255, 206, 86, 0.8)',
+                'rgba(75, 192, 192, 0.8)'
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        responsive: true,
+        plugins: {
+            legend: {
+                position: 'bottom',
+            },
+            title: {
+                display: true,
+                text: 'Risk Level Distribution'
+            }
+        }
+    }
+});
+
+// Form submission handling
+document.getElementById('analyzeEmailForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+    
+    // Show loading state
+    const submitBtn = this.querySelector('button[type="submit"]');
+    const originalText = submitBtn.innerHTML;
+    submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Analyzing...';
+    submitBtn.disabled = true;
+    
+    // Simulate API call (replace with actual API call)
+    setTimeout(() => {
+        alert('Email analysis started! You will be redirected to the results page.');
+        window.location.reload();
+    }, 2000);
+});
+</script>
+{% endblock %}
