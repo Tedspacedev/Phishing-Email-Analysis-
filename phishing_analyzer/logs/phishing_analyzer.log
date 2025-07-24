@@ -1014,3 +1014,83 @@ INFO 2025-07-24 22:05:21,819 autoreload 8556 16172 Watching for file changes wit
 INFO 2025-07-24 22:05:29,962 basehttp 8556 9432 "GET /email-analysis/ HTTP/1.1" 200 24944
 INFO 2025-07-24 22:05:59,858 basehttp 8556 14024 "POST /api/v1/email-analysis/analyses/generate_report/ HTTP/1.1" 200 56
 INFO 2025-07-24 22:06:01,857 basehttp 8556 13664 "GET /media/reports/report-1753383959-admin.pdf HTTP/1.1" 200 1853
+INFO 2025-07-24 22:31:36,251 autoreload 21044 11976 Watching for file changes with StatReloader
+INFO 2025-07-24 22:31:44,436 basehttp 21044 3468 "GET / HTTP/1.1" 302 0
+INFO 2025-07-24 22:31:44,838 basehttp 21044 3468 "GET /email-analysis/ HTTP/1.1" 200 24945
+WARNING 2025-07-24 22:31:45,948 log 21044 6724 Not Found: /favicon.ico
+WARNING 2025-07-24 22:31:45,966 basehttp 21044 6724 "GET /favicon.ico HTTP/1.1" 404 3473
+INFO 2025-07-24 22:32:06,026 basehttp 21044 2404 "POST /api/v1/email-analysis/analyses/generate_report/ HTTP/1.1" 200 56
+INFO 2025-07-24 22:32:06,635 basehttp 21044 1276 "GET /media/reports/report-1753385526-admin.pdf HTTP/1.1" 200 1816
+INFO 2025-07-24 22:42:22,178 autoreload 24452 4460 Watching for file changes with StatReloader
+INFO 2025-07-24 22:42:57,205 basehttp 24452 16212 "POST /api/v1/email-analysis/analyses/generate_report/ HTTP/1.1" 200 56
+INFO 2025-07-24 22:43:00,078 basehttp 24452 22512 "GET /media/reports/report-1753386177-admin.pdf HTTP/1.1" 200 1873
+INFO 2025-07-24 22:43:44,626 basehttp 24452 15544 "POST /api/v1/email-analysis/analyses/generate_report/ HTTP/1.1" 200 56
+INFO 2025-07-24 22:43:45,293 basehttp 24452 24160 "GET /media/reports/report-1753386224-admin.pdf HTTP/1.1" 200 2207
+INFO 2025-07-24 22:46:49,576 autoreload 24452 4460 C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\email_analysis\views.py changed, reloading.
+INFO 2025-07-24 22:46:52,717 autoreload 3472 8604 Watching for file changes with StatReloader
+INFO 2025-07-24 22:47:58,062 basehttp 3472 8556 "POST /api/v1/email-analysis/analyses/generate_report/ HTTP/1.1" 200 56
+INFO 2025-07-24 22:48:00,282 basehttp 3472 14052 "GET /media/reports/report-1753386478-admin.pdf HTTP/1.1" 200 2206
+INFO 2025-07-24 22:48:20,309 basehttp 3472 22960 "POST /api/v1/email-analysis/analyses/generate_report/ HTTP/1.1" 200 56
+INFO 2025-07-24 22:48:20,693 basehttp 3472 15232 "GET /media/reports/report-1753386500-admin.pdf HTTP/1.1" 200 2207
+INFO 2025-07-24 22:50:30,178 autoreload 3472 8604 C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\email_analysis\views.py changed, reloading.
+INFO 2025-07-24 22:50:53,674 autoreload 22224 2216 Watching for file changes with StatReloader
+INFO 2025-07-24 22:52:20,433 basehttp 22224 376 "POST /api/v1/email-analysis/analyses/generate_report/ HTTP/1.1" 200 54
+WARNING 2025-07-24 22:52:20,853 log 22224 21852 Not Found: /reports/pdf/report-1753386740-admin.pdf
+INFO 2025-07-24 22:52:20,857 basehttp 22224 21852 - Broken pipe from ('127.0.0.1', 60193)
+WARNING 2025-07-24 22:52:20,877 log 22224 5844 Not Found: /reports/pdf/report-1753386740-admin.pdf
+INFO 2025-07-24 22:52:20,944 basehttp 22224 5844 - Broken pipe from ('127.0.0.1', 60194)
+WARNING 2025-07-24 22:52:21,001 log 22224 11632 Not Found: /reports/pdf/report-1753386740-admin.pdf
+INFO 2025-07-24 22:52:21,022 basehttp 22224 11632 - Broken pipe from ('127.0.0.1', 60195)
+WARNING 2025-07-24 22:52:21,092 log 22224 16156 Not Found: /reports/pdf/report-1753386740-admin.pdf
+WARNING 2025-07-24 22:52:21,093 basehttp 22224 16156 "GET /reports/pdf/report-1753386740-admin.pdf HTTP/1.1" 404 3557
+INFO 2025-07-24 22:52:21,203 basehttp 22224 16156 - Broken pipe from ('127.0.0.1', 60196)
+WARNING 2025-07-24 22:52:21,279 log 22224 376 Not Found: /reports/pdf/report-1753386740-admin.pdf
+WARNING 2025-07-24 22:52:21,280 basehttp 22224 376 "GET /reports/pdf/report-1753386740-admin.pdf HTTP/1.1" 404 3557
+INFO 2025-07-24 22:52:36,129 basehttp 22224 20696 "GET /email-analysis/ HTTP/1.1" 200 24945
+INFO 2025-07-24 22:52:51,615 basehttp 22224 20696 "POST /api/v1/email-analysis/analyses/generate_report/ HTTP/1.1" 200 54
+WARNING 2025-07-24 22:52:52,229 log 22224 21072 Not Found: /reports/pdf/report-1753386771-admin.pdf
+INFO 2025-07-24 22:52:52,245 basehttp 22224 21072 - Broken pipe from ('127.0.0.1', 60231)
+WARNING 2025-07-24 22:52:52,296 log 22224 19644 Not Found: /reports/pdf/report-1753386771-admin.pdf
+INFO 2025-07-24 22:52:52,306 basehttp 22224 19644 - Broken pipe from ('127.0.0.1', 60232)
+WARNING 2025-07-24 22:52:52,389 log 22224 12292 Not Found: /reports/pdf/report-1753386771-admin.pdf
+INFO 2025-07-24 22:52:52,394 basehttp 22224 12292 - Broken pipe from ('127.0.0.1', 60233)
+WARNING 2025-07-24 22:52:52,481 log 22224 8992 Not Found: /reports/pdf/report-1753386771-admin.pdf
+WARNING 2025-07-24 22:52:52,483 basehttp 22224 8992 "GET /reports/pdf/report-1753386771-admin.pdf HTTP/1.1" 404 3557
+INFO 2025-07-24 22:52:52,492 basehttp 22224 8992 - Broken pipe from ('127.0.0.1', 60234)
+WARNING 2025-07-24 22:52:52,584 log 22224 20696 Not Found: /reports/pdf/report-1753386771-admin.pdf
+WARNING 2025-07-24 22:52:52,591 basehttp 22224 20696 "GET /reports/pdf/report-1753386771-admin.pdf HTTP/1.1" 404 3557
+INFO 2025-07-24 22:53:19,349 autoreload 22224 2216 C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\email_analysis\urls.py changed, reloading.
+INFO 2025-07-24 22:53:27,751 autoreload 20872 20896 Watching for file changes with StatReloader
+INFO 2025-07-24 22:53:42,484 basehttp 20872 20752 "POST /api/v1/email-analysis/analyses/generate_report/ HTTP/1.1" 200 56
+INFO 2025-07-24 22:53:43,070 basehttp 20872 12708 "GET /media/reports/report-1753386822-admin.pdf HTTP/1.1" 200 1854
+INFO 2025-07-24 22:54:27,453 basehttp 20872 4448 "GET /email-analysis/ HTTP/1.1" 200 24945
+INFO 2025-07-24 22:57:16,040 basehttp 20872 4448 "POST /api/v1/email-analysis/analyses/generate_report/ HTTP/1.1" 200 56
+INFO 2025-07-24 22:57:16,544 basehttp 20872 15016 "GET /media/reports/report-1753387036-admin.pdf HTTP/1.1" 200 1854
+INFO 2025-07-24 23:00:03,830 autoreload 20872 20896 C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\email_analysis\views.py changed, reloading.
+INFO 2025-07-24 23:00:07,452 autoreload 8032 2428 Watching for file changes with StatReloader
+INFO 2025-07-24 23:00:58,507 basehttp 8032 14952 "POST /api/v1/email-analysis/analyses/generate_report/ HTTP/1.1" 200 56
+INFO 2025-07-24 23:00:59,612 basehttp 8032 7028 "GET /media/reports/report-1753387258-admin.pdf HTTP/1.1" 200 2207
+INFO 2025-07-24 23:03:49,349 autoreload 8032 2428 C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\email_analysis\views.py changed, reloading.
+INFO 2025-07-24 23:04:25,085 autoreload 2960 11736 Watching for file changes with StatReloader
+INFO 2025-07-24 23:04:38,309 basehttp 2960 6244 "POST /api/v1/email-analysis/analyses/generate_report/ HTTP/1.1" 200 54
+WARNING 2025-07-24 23:04:39,651 log 2960 14100 Not Found: /reports/pdf/report-1753387478-admin.pdf
+INFO 2025-07-24 23:04:39,653 basehttp 2960 14100 - Broken pipe from ('127.0.0.1', 61098)
+WARNING 2025-07-24 23:04:39,738 log 2960 24036 Not Found: /reports/pdf/report-1753387478-admin.pdf
+INFO 2025-07-24 23:04:39,756 basehttp 2960 24036 - Broken pipe from ('127.0.0.1', 61099)
+WARNING 2025-07-24 23:04:39,890 log 2960 13252 Not Found: /reports/pdf/report-1753387478-admin.pdf
+INFO 2025-07-24 23:04:39,950 basehttp 2960 13252 - Broken pipe from ('127.0.0.1', 61100)
+WARNING 2025-07-24 23:04:40,020 log 2960 18744 Not Found: /reports/pdf/report-1753387478-admin.pdf
+WARNING 2025-07-24 23:04:40,022 basehttp 2960 18744 "GET /reports/pdf/report-1753387478-admin.pdf HTTP/1.1" 404 3557
+INFO 2025-07-24 23:04:40,535 basehttp 2960 18744 - Broken pipe from ('127.0.0.1', 61101)
+WARNING 2025-07-24 23:04:40,622 log 2960 6244 Not Found: /reports/pdf/report-1753387478-admin.pdf
+WARNING 2025-07-24 23:04:40,630 basehttp 2960 6244 "GET /reports/pdf/report-1753387478-admin.pdf HTTP/1.1" 404 3557
+INFO 2025-07-24 23:07:04,823 autoreload 2960 11736 C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\email_analysis\views.py changed, reloading.
+INFO 2025-07-24 23:07:25,503 autoreload 376 20328 Watching for file changes with StatReloader
+INFO 2025-07-24 23:07:50,913 basehttp 376 23564 "POST /api/v1/email-analysis/analyses/generate_report/ HTTP/1.1" 200 56
+INFO 2025-07-24 23:07:51,732 basehttp 376 21068 "GET /media/reports/report-1753387670-admin.pdf HTTP/1.1" 200 2207
+INFO 2025-07-24 23:08:22,310 autoreload 376 20328 C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\email_analysis\views.py changed, reloading.
+INFO 2025-07-24 23:08:35,926 autoreload 14448 18016 Watching for file changes with StatReloader
+INFO 2025-07-24 23:08:52,218 autoreload 14448 18016 C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\email_analysis\urls.py changed, reloading.
+INFO 2025-07-24 23:08:54,889 autoreload 20028 2056 Watching for file changes with StatReloader
+INFO 2025-07-24 23:09:09,676 basehttp 20028 5956 "POST /api/v1/email-analysis/analyses/generate_report/ HTTP/1.1" 200 56
+INFO 2025-07-24 23:09:10,264 basehttp 20028 12988 "GET /media/reports/report-1753387749-admin.pdf HTTP/1.1" 200 2208
