@@ -185,8 +185,21 @@ class PhishingAnalyzer:
             raise
     
     def _analyze_sender_reputation(self):
-        """Analyze sender reputation and domain"""
-        sender_domain = self.email_analysis.sender_email.split('@')[1]
+        """Analyze sender's domain reputation and authentication"""
+        import logging
+        logger = logging.getLogger(__name__)
+        sender_email = self.email_analysis.sender_email or ''
+        if '@' in sender_email:
+            sender_domain = sender_email.split('@')[1]
+        else:
+            logger.warning(f"[PhishingAnalyzer] Malformed sender_email: '{sender_email}' for EmailAnalysis ID: {self.email_analysis.id}")
+            # Optionally, add a threat indicator for malformed sender
+            self._add_threat_indicator(
+                'MALFORMED_SENDER',
+                f"Sender email '{sender_email}' is malformed.",
+                'MEDIUM'
+            )
+            return  # Skip further domain analysis
         
         # Check if sender domain is suspicious
         suspicious_domains = [
@@ -374,7 +387,20 @@ class PhishingAnalyzer:
     
     def _check_typosquatting(self):
         """Check for typosquatting in sender domain"""
-        sender_domain = self.email_analysis.sender_email.split('@')[1]
+        import logging
+        logger = logging.getLogger(__name__)
+        sender_email = self.email_analysis.sender_email or ''
+        if '@' in sender_email:
+            sender_domain = sender_email.split('@')[1]
+        else:
+            logger.warning(f"[PhishingAnalyzer] Malformed sender_email in _check_typosquatting: '{sender_email}' for EmailAnalysis ID: {self.email_analysis.id}")
+            # Optionally, add a threat indicator for malformed sender
+            self._add_threat_indicator(
+                'MALFORMED_SENDER',
+                f"Sender email '{sender_email}' is malformed (typosquatting check skipped).",
+                'MEDIUM'
+            )
+            return  # Skip further typosquatting check
         
         # Common legitimate domains to check against
         legitimate_domains = [

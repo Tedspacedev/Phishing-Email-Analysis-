@@ -479,3 +479,302 @@ INFO 2025-07-24 17:39:18,178 basehttp 23932 3932 "GET /email-analysis/analysis/1
 INFO 2025-07-24 17:39:23,329 basehttp 23932 3932 "GET /email-analysis/ HTTP/1.1" 200 16823
 INFO 2025-07-24 17:47:16,919 basehttp 23932 24364 "GET /email-analysis/ HTTP/1.1" 200 17280
 INFO 2025-07-24 17:47:33,072 basehttp 23932 24364 "GET /email-analysis/analysis/1/ HTTP/1.1" 200 9275
+INFO 2025-07-24 17:59:58,531 autoreload 10660 10644 Watching for file changes with StatReloader
+INFO 2025-07-24 18:00:33,092 basehttp 10660 9200 "GET / HTTP/1.1" 302 0
+INFO 2025-07-24 18:00:33,727 basehttp 10660 9200 "GET /email-analysis/ HTTP/1.1" 200 17288
+INFO 2025-07-24 18:00:46,549 basehttp 10660 9200 "GET /email-analysis/ HTTP/1.1" 200 17288
+INFO 2025-07-24 18:00:47,564 basehttp 10660 9200 "GET /email-analysis/api/analyses/ HTTP/1.1" 200 15023
+INFO 2025-07-24 18:00:47,687 basehttp 10660 13012 "GET /static/rest_framework/css/default.css HTTP/1.1" 304 0
+INFO 2025-07-24 18:00:47,690 basehttp 10660 4492 "GET /static/rest_framework/css/prettify.css HTTP/1.1" 304 0
+INFO 2025-07-24 18:00:47,724 basehttp 10660 9200 "GET /static/rest_framework/css/bootstrap-tweaks.css HTTP/1.1" 304 0
+INFO 2025-07-24 18:00:47,911 basehttp 10660 4492 "GET /static/rest_framework/js/jquery-3.7.1.min.js HTTP/1.1" 304 0
+INFO 2025-07-24 18:00:47,912 basehttp 10660 9200 "GET /static/rest_framework/js/csrf.js HTTP/1.1" 304 0
+INFO 2025-07-24 18:00:47,914 basehttp 10660 13012 "GET /static/rest_framework/css/bootstrap.min.css HTTP/1.1" 304 0
+INFO 2025-07-24 18:00:48,123 basehttp 10660 4492 "GET /static/rest_framework/js/bootstrap.min.js HTTP/1.1" 304 0
+INFO 2025-07-24 18:00:48,168 basehttp 10660 13012 "GET /static/rest_framework/js/default.js HTTP/1.1" 304 0
+INFO 2025-07-24 18:00:48,195 basehttp 10660 9200 "GET /static/rest_framework/js/prettify-min.js HTTP/1.1" 304 0
+INFO 2025-07-24 18:00:48,374 basehttp 10660 9200 "GET /static/rest_framework/img/grid.png HTTP/1.1" 304 0
+INFO 2025-07-24 18:00:48,375 basehttp 10660 10560 "GET /static/rest_framework/js/ajax-form.js HTTP/1.1" 304 0
+INFO 2025-07-24 18:00:48,375 basehttp 10660 11132 "GET /static/rest_framework/js/load-ajax-form.js HTTP/1.1" 304 0
+INFO 2025-07-24 18:00:48,729 basehttp 10660 11132 "GET /static/rest_framework/fonts/glyphicons-halflings-regular.woff2 HTTP/1.1" 304 0
+INFO 2025-07-24 18:01:18,062 basehttp 10660 6376 "GET /email-analysis/ HTTP/1.1" 200 17288
+INFO 2025-07-24 18:02:46,074 basehttp 10660 14428 "GET /email-analysis/ HTTP/1.1" 200 17288
+INFO 2025-07-24 18:05:03,293 basehttp 10660 14428 "GET /email-analysis/ HTTP/1.1" 200 17289
+INFO 2025-07-24 18:05:06,546 basehttp 10660 14428 "GET /email-analysis/api/analyses/ HTTP/1.1" 200 15023
+INFO 2025-07-24 18:05:21,509 basehttp 10660 14428 "GET /email-analysis/api/analyses/statistics/ HTTP/1.1" 200 8363
+INFO 2025-07-24 18:05:31,673 basehttp 10660 14428 "GET /email-analysis/api/analyses/ HTTP/1.1" 200 15023
+INFO 2025-07-24 18:05:38,032 basehttp 10660 14428 "GET /users/profile/ HTTP/1.1" 200 10868
+INFO 2025-07-24 18:05:42,186 basehttp 10660 14428 "GET /users/logout/ HTTP/1.1" 302 0
+INFO 2025-07-24 18:05:42,372 basehttp 10660 14428 "GET /users/login/ HTTP/1.1" 200 4301
+INFO 2025-07-24 18:06:06,874 basehttp 10660 23740 "POST /users/login/ HTTP/1.1" 200 4468
+INFO 2025-07-24 18:06:42,692 autoreload 5308 22244 Watching for file changes with StatReloader
+INFO 2025-07-24 18:07:13,078 basehttp 5308 15684 "POST /users/login/ HTTP/1.1" 200 4468
+INFO 2025-07-24 18:07:24,038 basehttp 5308 15684 "POST /users/login/ HTTP/1.1" 200 4468
+INFO 2025-07-24 18:07:35,053 basehttp 5308 15684 "POST /users/login/ HTTP/1.1" 302 0
+INFO 2025-07-24 18:07:35,184 basehttp 5308 15684 "GET /email-analysis/ HTTP/1.1" 200 17289
+INFO 2025-07-24 18:08:04,255 basehttp 5308 2580 "GET /email-analysis/ HTTP/1.1" 200 17289
+INFO 2025-07-24 18:10:35,308 autoreload 5308 22244 C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\email_analysis\views.py changed, reloading.
+INFO 2025-07-24 18:10:47,528 autoreload 23672 18772 Watching for file changes with StatReloader
+INFO 2025-07-24 18:11:03,091 basehttp 23672 15048 "GET /email-analysis/ HTTP/1.1" 200 17289
+INFO 2025-07-24 18:12:52,474 basehttp 23672 11224 "GET /admin/ HTTP/1.1" 200 18157
+INFO 2025-07-24 18:12:52,571 basehttp 23672 11224 "GET /static/admin/css/base.css HTTP/1.1" 304 0
+INFO 2025-07-24 18:12:52,578 basehttp 23672 13576 "GET /static/admin/css/dark_mode.css HTTP/1.1" 304 0
+INFO 2025-07-24 18:12:52,747 basehttp 23672 11224 "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 304 0
+INFO 2025-07-24 18:12:52,747 basehttp 23672 13576 "GET /static/admin/js/theme.js HTTP/1.1" 304 0
+INFO 2025-07-24 18:12:52,751 basehttp 23672 14908 "GET /static/admin/css/dashboard.css HTTP/1.1" 304 0
+INFO 2025-07-24 18:12:52,774 basehttp 23672 13576 "GET /static/admin/css/responsive.css HTTP/1.1" 304 0
+INFO 2025-07-24 18:12:52,904 basehttp 23672 13576 "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 304 0
+INFO 2025-07-24 18:12:52,950 basehttp 23672 11224 "GET /static/admin/img/icon-viewlink.svg HTTP/1.1" 304 0
+INFO 2025-07-24 18:12:52,951 basehttp 23672 14908 "GET /static/admin/img/icon-changelink.svg HTTP/1.1" 304 0
+INFO 2025-07-24 18:12:52,969 basehttp 23672 13576 "GET /static/admin/img/icon-addlink.svg HTTP/1.1" 304 0
+INFO 2025-07-24 18:12:56,112 basehttp 23672 20116 "GET /admin/email_analysis/emailanalysis/ HTTP/1.1" 200 23895
+INFO 2025-07-24 18:12:56,232 basehttp 23672 21112 "GET /static/admin/js/prepopulate.js HTTP/1.1" 304 0
+INFO 2025-07-24 18:12:56,338 basehttp 23672 20116 "GET /static/admin/css/changelists.css HTTP/1.1" 304 0
+INFO 2025-07-24 18:12:56,352 basehttp 23672 15368 "GET /static/admin/js/core.js HTTP/1.1" 304 0
+INFO 2025-07-24 18:12:56,352 basehttp 23672 21112 "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 304 0
+INFO 2025-07-24 18:12:56,423 basehttp 23672 15368 "GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 304 0
+INFO 2025-07-24 18:12:56,430 basehttp 23672 20116 "GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 304 0
+INFO 2025-07-24 18:12:56,463 basehttp 23672 15368 "GET /static/admin/js/jquery.init.js HTTP/1.1" 304 0
+INFO 2025-07-24 18:12:56,463 basehttp 23672 20116 "GET /static/admin/js/urlify.js HTTP/1.1" 304 0
+INFO 2025-07-24 18:12:56,519 basehttp 23672 20116 "GET /static/admin/img/search.svg HTTP/1.1" 304 0
+INFO 2025-07-24 18:12:56,524 basehttp 23672 15368 "GET /static/admin/js/actions.js HTTP/1.1" 304 0
+INFO 2025-07-24 18:12:56,631 basehttp 23672 21112 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-07-24 18:12:56,697 basehttp 23672 21112 "GET /static/admin/js/filters.js HTTP/1.1" 304 0
+INFO 2025-07-24 18:12:56,944 basehttp 23672 15368 "GET /static/admin/img/tooltag-add.svg HTTP/1.1" 304 0
+INFO 2025-07-24 18:12:57,909 basehttp 23672 7048 "GET /static/admin/img/icon-no.svg HTTP/1.1" 200 560
+INFO 2025-07-24 18:12:57,913 basehttp 23672 21112 "GET /static/admin/img/sorting-icons.svg HTTP/1.1" 200 1097
+INFO 2025-07-24 18:13:14,155 basehttp 23672 5508 "POST /admin/email_analysis/emailanalysis/ HTTP/1.1" 200 16711
+INFO 2025-07-24 18:13:14,412 basehttp 23672 5508 "GET /static/admin/js/cancel.js HTTP/1.1" 200 884
+INFO 2025-07-24 18:13:15,967 basehttp 23672 5508 "POST /admin/email_analysis/emailanalysis/ HTTP/1.1" 302 0
+INFO 2025-07-24 18:13:16,192 basehttp 23672 5508 "GET /admin/email_analysis/emailanalysis/ HTTP/1.1" 200 20516
+INFO 2025-07-24 18:13:16,313 basehttp 23672 5508 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-07-24 18:13:16,377 basehttp 23672 5508 "GET /static/admin/img/icon-yes.svg HTTP/1.1" 200 436
+WARNING 2025-07-24 18:13:35,750 log 23672 22840 Forbidden (CSRF token from POST incorrect.): /users/login/
+WARNING 2025-07-24 18:13:35,753 basehttp 23672 22840 "POST /users/login/ HTTP/1.1" 403 2503
+INFO 2025-07-24 18:13:42,083 basehttp 23672 15676 "GET /users/login/ HTTP/1.1" 200 4301
+INFO 2025-07-24 18:13:49,310 basehttp 23672 13280 "GET /users/login/ HTTP/1.1" 200 4301
+INFO 2025-07-24 18:13:59,143 basehttp 23672 13280 "POST /users/login/ HTTP/1.1" 302 0
+INFO 2025-07-24 18:13:59,323 basehttp 23672 13280 "GET /email-analysis/ HTTP/1.1" 200 16441
+INFO 2025-07-24 18:14:20,481 basehttp 23672 12780 "GET /email-analysis/ HTTP/1.1" 200 16441
+INFO 2025-07-24 18:14:49,984 basehttp 23672 20108 "GET /admin/email_analysis/emailanalysis/ HTTP/1.1" 200 20372
+INFO 2025-07-24 18:14:50,213 basehttp 23672 20108 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-07-24 18:18:43,023 autoreload 10564 988 Watching for file changes with StatReloader
+INFO 2025-07-24 18:19:05,524 basehttp 10564 1492 "GET /email-analysis/ HTTP/1.1" 200 17076
+ERROR 2025-07-24 18:19:18,113 services 10564 10936 Error during phishing analysis: list index out of range
+ERROR 2025-07-24 18:19:18,128 views 10564 10936 Analysis failed for email 2: list index out of range
+Traceback (most recent call last):
+  File "C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\email_analysis\views.py", line 143, in trigger_analysis
+    analyzer.analyze()
+  File "C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\email_analysis\services.py", line 158, in analyze
+    self._analyze_sender_reputation()
+  File "C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\email_analysis\services.py", line 189, in _analyze_sender_reputation
+    sender_domain = self.email_analysis.sender_email.split('@')[1]
+                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^
+IndexError: list index out of range
+ERROR 2025-07-24 18:19:18,190 views 10564 10936 Error triggering analysis for 2: list index out of range
+Traceback (most recent call last):
+  File "C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\email_analysis\views.py", line 108, in perform_create
+    self.trigger_analysis(email_analysis)
+  File "C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\email_analysis\views.py", line 143, in trigger_analysis
+    analyzer.analyze()
+  File "C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\email_analysis\services.py", line 158, in analyze
+    self._analyze_sender_reputation()
+  File "C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\email_analysis\services.py", line 189, in _analyze_sender_reputation
+    sender_domain = self.email_analysis.sender_email.split('@')[1]
+                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^
+IndexError: list index out of range
+INFO 2025-07-24 18:19:18,309 basehttp 10564 10936 "POST /email-analysis/api/analyses/ HTTP/1.1" 201 120
+INFO 2025-07-24 18:19:21,474 basehttp 10564 13480 "GET /email-analysis/ HTTP/1.1" 200 17914
+ERROR 2025-07-24 18:19:36,980 services 10564 15996 Error during phishing analysis: list index out of range
+ERROR 2025-07-24 18:19:37,090 views 10564 15996 Analysis failed for email 3: list index out of range
+Traceback (most recent call last):
+  File "C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\email_analysis\views.py", line 143, in trigger_analysis
+    analyzer.analyze()
+  File "C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\email_analysis\services.py", line 158, in analyze
+    self._analyze_sender_reputation()
+  File "C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\email_analysis\services.py", line 189, in _analyze_sender_reputation
+    sender_domain = self.email_analysis.sender_email.split('@')[1]
+                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^
+IndexError: list index out of range
+ERROR 2025-07-24 18:19:37,132 views 10564 15996 Error triggering analysis for 3: list index out of range
+Traceback (most recent call last):
+  File "C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\email_analysis\views.py", line 108, in perform_create
+    self.trigger_analysis(email_analysis)
+  File "C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\email_analysis\views.py", line 143, in trigger_analysis
+    analyzer.analyze()
+  File "C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\email_analysis\services.py", line 158, in analyze
+    self._analyze_sender_reputation()
+  File "C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\email_analysis\services.py", line 189, in _analyze_sender_reputation
+    sender_domain = self.email_analysis.sender_email.split('@')[1]
+                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^
+IndexError: list index out of range
+INFO 2025-07-24 18:19:37,242 basehttp 10564 15996 "POST /email-analysis/api/analyses/ HTTP/1.1" 201 112
+INFO 2025-07-24 18:19:38,971 basehttp 10564 15996 "GET /email-analysis/ HTTP/1.1" 200 18590
+INFO 2025-07-24 18:19:44,362 basehttp 10564 23364 "GET /email-analysis/analysis/2/ HTTP/1.1" 200 9278
+INFO 2025-07-24 18:22:30,106 basehttp 10564 13580 "GET /email-analysis/ HTTP/1.1" 200 23302
+WARNING 2025-07-24 18:22:53,593 log 10564 6208 Not Found: /api/v1/email-analysis/analyses/generate_report/
+WARNING 2025-07-24 18:22:53,597 basehttp 10564 6208 "POST /api/v1/email-analysis/analyses/generate_report/ HTTP/1.1" 404 5052
+INFO 2025-07-24 18:24:06,511 autoreload 10564 988 C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\email_analysis\services.py changed, reloading.
+INFO 2025-07-24 18:25:28,341 autoreload 10844 18956 Watching for file changes with StatReloader
+INFO 2025-07-24 18:32:47,577 autoreload 24304 11912 Watching for file changes with StatReloader
+WARNING 2025-07-24 18:33:17,349 services 24304 16548 [PhishingAnalyzer] Malformed sender_email: '' for EmailAnalysis ID: 4
+ERROR 2025-07-24 18:33:17,351 services 24304 16548 Error during phishing analysis: list index out of range
+ERROR 2025-07-24 18:33:17,385 views 24304 16548 Analysis failed for email 4: list index out of range
+Traceback (most recent call last):
+  File "C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\email_analysis\views.py", line 143, in trigger_analysis
+    analyzer.analyze()
+  File "C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\email_analysis\services.py", line 165, in analyze
+    self._check_typosquatting()
+  File "C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\email_analysis\services.py", line 390, in _check_typosquatting
+    sender_domain = self.email_analysis.sender_email.split('@')[1]
+                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^
+IndexError: list index out of range
+ERROR 2025-07-24 18:33:17,485 views 24304 16548 Error triggering analysis for 4: list index out of range
+Traceback (most recent call last):
+  File "C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\email_analysis\views.py", line 108, in perform_create
+    self.trigger_analysis(email_analysis)
+  File "C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\email_analysis\views.py", line 143, in trigger_analysis
+    analyzer.analyze()
+  File "C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\email_analysis\services.py", line 165, in analyze
+    self._check_typosquatting()
+  File "C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\email_analysis\services.py", line 390, in _check_typosquatting
+    sender_domain = self.email_analysis.sender_email.split('@')[1]
+                    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^
+IndexError: list index out of range
+INFO 2025-07-24 18:33:17,529 basehttp 24304 16548 "POST /email-analysis/api/analyses/ HTTP/1.1" 201 116
+INFO 2025-07-24 18:33:20,280 basehttp 24304 16548 "GET /email-analysis/ HTTP/1.1" 200 23980
+INFO 2025-07-24 18:35:44,204 autoreload 24304 11912 C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\email_analysis\services.py changed, reloading.
+INFO 2025-07-24 18:35:52,958 autoreload 3816 18600 Watching for file changes with StatReloader
+INFO 2025-07-24 18:39:29,930 autoreload 3816 18600 C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\email_analysis\views.py changed, reloading.
+INFO 2025-07-24 18:40:25,172 autoreload 9856 11604 Watching for file changes with StatReloader
+INFO 2025-07-24 18:42:06,399 basehttp 9856 13504 "GET /email-analysis/ HTTP/1.1" 200 23980
+INFO 2025-07-24 18:42:21,292 services 9856 13504 Analysis completed for email 5 in 0.00s
+INFO 2025-07-24 18:42:21,298 basehttp 9856 13504 "POST /email-analysis/api/analyses/ HTTP/1.1" 201 172
+INFO 2025-07-24 18:42:23,416 basehttp 9856 13504 "GET /email-analysis/ HTTP/1.1" 200 24686
+INFO 2025-07-24 18:42:32,578 basehttp 9856 13504 "GET /email-analysis/analysis/5/ HTTP/1.1" 200 10220
+INFO 2025-07-24 18:43:17,728 basehttp 9856 13504 "GET /email-analysis/ HTTP/1.1" 200 24687
+INFO 2025-07-24 18:43:30,505 basehttp 9856 13504 "GET /users/logout/ HTTP/1.1" 302 0
+INFO 2025-07-24 18:43:30,519 basehttp 9856 13504 "GET /users/login/ HTTP/1.1" 200 4301
+INFO 2025-07-24 18:43:45,137 basehttp 9856 13504 "POST /users/login/ HTTP/1.1" 200 4468
+INFO 2025-07-24 18:44:12,792 basehttp 9856 13504 "POST /users/login/ HTTP/1.1" 302 0
+INFO 2025-07-24 18:44:12,908 basehttp 9856 13504 "GET /email-analysis/ HTTP/1.1" 200 21787
+INFO 2025-07-24 18:44:35,284 services 9856 13504 Analysis completed for email 6 in 0.00s
+INFO 2025-07-24 18:44:35,286 basehttp 9856 13504 "POST /email-analysis/api/analyses/ HTTP/1.1" 201 198
+INFO 2025-07-24 18:44:36,344 basehttp 9856 13504 "GET /email-analysis/ HTTP/1.1" 200 22655
+INFO 2025-07-24 18:44:47,300 basehttp 9856 13504 "GET /email-analysis/analysis/6/ HTTP/1.1" 200 10232
+INFO 2025-07-24 18:46:20,321 autoreload 9856 11604 C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\email_analysis\views.py changed, reloading.
+INFO 2025-07-24 18:46:53,592 autoreload 16048 9480 Watching for file changes with StatReloader
+INFO 2025-07-24 18:48:32,329 autoreload 16048 9480 C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\email_analysis\views.py changed, reloading.
+INFO 2025-07-24 18:49:13,395 autoreload 22696 4200 Watching for file changes with StatReloader
+INFO 2025-07-24 18:50:11,402 basehttp 22696 17040 "GET /email-analysis/ HTTP/1.1" 200 22655
+INFO 2025-07-24 18:50:31,919 services 22696 17040 Analysis completed for email 7 in 0.00s
+INFO 2025-07-24 18:50:31,926 basehttp 22696 17040 "POST /email-analysis/api/analyses/ HTTP/1.1" 201 176
+INFO 2025-07-24 18:50:34,388 basehttp 22696 17040 "GET /email-analysis/ HTTP/1.1" 200 23361
+WARNING 2025-07-24 18:56:09,522 log 22696 14560 Not Found: /api/v1/email-analysis/analyses/generate_report/
+WARNING 2025-07-24 18:56:09,524 basehttp 22696 14560 "POST /api/v1/email-analysis/analyses/generate_report/ HTTP/1.1" 404 5052
+INFO 2025-07-24 18:58:33,172 autoreload 22696 4200 C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\email_analysis\urls.py changed, reloading.
+INFO 2025-07-24 18:58:40,272 autoreload 1116 19872 Watching for file changes with StatReloader
+INFO 2025-07-24 19:00:46,940 basehttp 1116 10776 "GET /email-analysis/ HTTP/1.1" 200 6607
+INFO 2025-07-24 19:00:47,160 basehttp 1116 10776 "GET /static/rest_framework/css/bootstrap.min.css HTTP/1.1" 304 0
+INFO 2025-07-24 19:00:47,183 basehttp 1116 11488 "GET /static/rest_framework/css/default.css HTTP/1.1" 304 0
+INFO 2025-07-24 19:00:47,275 basehttp 1116 6692 "GET /static/rest_framework/js/jquery-3.7.1.min.js HTTP/1.1" 304 0
+INFO 2025-07-24 19:00:47,286 basehttp 1116 10776 "GET /static/rest_framework/css/prettify.css HTTP/1.1" 304 0
+INFO 2025-07-24 19:00:47,294 basehttp 1116 11488 "GET /static/rest_framework/css/bootstrap-tweaks.css HTTP/1.1" 304 0
+INFO 2025-07-24 19:00:47,384 basehttp 1116 6692 "GET /static/rest_framework/js/ajax-form.js HTTP/1.1" 304 0
+INFO 2025-07-24 19:00:47,432 basehttp 1116 10776 "GET /static/rest_framework/js/csrf.js HTTP/1.1" 304 0
+INFO 2025-07-24 19:00:47,475 basehttp 1116 11488 "GET /static/rest_framework/js/bootstrap.min.js HTTP/1.1" 304 0
+INFO 2025-07-24 19:00:47,555 basehttp 1116 21480 "GET /static/rest_framework/js/prettify-min.js HTTP/1.1" 304 0
+INFO 2025-07-24 19:00:47,621 basehttp 1116 10388 "GET /static/rest_framework/js/default.js HTTP/1.1" 304 0
+INFO 2025-07-24 19:00:47,637 basehttp 1116 11488 "GET /static/rest_framework/img/grid.png HTTP/1.1" 304 0
+INFO 2025-07-24 19:00:47,681 basehttp 1116 7956 "GET /static/rest_framework/js/load-ajax-form.js HTTP/1.1" 304 0
+INFO 2025-07-24 19:00:53,716 basehttp 1116 7956 "GET /email-analysis/ HTTP/1.1" 200 6607
+INFO 2025-07-24 19:01:06,096 basehttp 1116 7956 "GET /email-analysis/analyses/ HTTP/1.1" 200 18994
+INFO 2025-07-24 19:01:06,304 basehttp 1116 7956 "GET /static/rest_framework/fonts/glyphicons-halflings-regular.woff2 HTTP/1.1" 304 0
+INFO 2025-07-24 19:01:15,382 autoreload 1116 19872 C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\email_analysis\urls.py changed, reloading.
+INFO 2025-07-24 19:01:18,899 autoreload 10560 9964 Watching for file changes with StatReloader
+WARNING 2025-07-24 19:01:47,764 log 10560 14368 Not Found: /email-analysis/analyses/
+WARNING 2025-07-24 19:01:47,765 basehttp 10560 14368 "GET /email-analysis/analyses/ HTTP/1.1" 404 4177
+WARNING 2025-07-24 19:02:00,212 log 10560 14368 Forbidden (CSRF token from POST incorrect.): /users/login/
+WARNING 2025-07-24 19:02:00,232 basehttp 10560 14368 "POST /users/login/ HTTP/1.1" 403 2503
+INFO 2025-07-24 19:02:03,017 basehttp 10560 14368 "GET /users/login/ HTTP/1.1" 200 4301
+INFO 2025-07-24 19:02:11,760 basehttp 10560 14368 "POST /users/login/ HTTP/1.1" 302 0
+INFO 2025-07-24 19:02:11,941 basehttp 10560 14368 "GET /email-analysis/ HTTP/1.1" 200 23363
+WARNING 2025-07-24 19:02:28,172 log 10560 14368 Not Found: /api/v1/email-analysis/analyses/generate_report/
+WARNING 2025-07-24 19:02:28,173 basehttp 10560 14368 "POST /api/v1/email-analysis/analyses/generate_report/ HTTP/1.1" 404 5052
+INFO 2025-07-24 19:05:38,756 basehttp 10560 20032 "GET /email-analysis/analysis/7/ HTTP/1.1" 200 10221
+INFO 2025-07-24 19:05:58,714 basehttp 10560 20032 "GET /email-analysis/api/analyses/ HTTP/1.1" 200 19078
+INFO 2025-07-24 19:21:25,841 autoreload 10560 9964 C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\email_analysis\urls.py changed, reloading.
+INFO 2025-07-24 19:21:34,174 autoreload 22636 15680 Watching for file changes with StatReloader
+INFO 2025-07-24 19:21:48,410 basehttp 22636 2384 "GET /email-analysis/ HTTP/1.1" 200 6607
+INFO 2025-07-24 19:21:48,650 basehttp 22636 2384 "GET /static/rest_framework/css/bootstrap.min.css HTTP/1.1" 304 0
+INFO 2025-07-24 19:21:48,650 basehttp 22636 3056 "GET /static/rest_framework/css/bootstrap-tweaks.css HTTP/1.1" 304 0
+INFO 2025-07-24 19:21:48,705 basehttp 22636 20752 "GET /static/rest_framework/css/prettify.css HTTP/1.1" 304 0
+INFO 2025-07-24 19:21:48,804 basehttp 22636 3056 "GET /static/rest_framework/css/default.css HTTP/1.1" 304 0
+INFO 2025-07-24 19:21:48,851 basehttp 22636 2384 "GET /static/rest_framework/js/jquery-3.7.1.min.js HTTP/1.1" 304 0
+INFO 2025-07-24 19:21:48,984 basehttp 22636 20752 "GET /static/rest_framework/js/ajax-form.js HTTP/1.1" 304 0
+INFO 2025-07-24 19:21:49,157 basehttp 22636 3056 "GET /static/rest_framework/js/csrf.js HTTP/1.1" 304 0
+INFO 2025-07-24 19:21:49,158 basehttp 22636 5504 "GET /static/rest_framework/js/load-ajax-form.js HTTP/1.1" 304 0
+INFO 2025-07-24 19:21:49,250 basehttp 22636 2384 "GET /static/rest_framework/js/bootstrap.min.js HTTP/1.1" 304 0
+INFO 2025-07-24 19:21:49,254 basehttp 22636 21460 "GET /static/rest_framework/js/default.js HTTP/1.1" 304 0
+INFO 2025-07-24 19:21:49,266 basehttp 22636 20752 "GET /static/rest_framework/img/grid.png HTTP/1.1" 304 0
+INFO 2025-07-24 19:21:49,354 basehttp 22636 15752 "GET /static/rest_framework/js/prettify-min.js HTTP/1.1" 304 0
+INFO 2025-07-24 19:22:19,737 basehttp 22636 15752 "GET / HTTP/1.1" 302 0
+INFO 2025-07-24 19:22:20,125 basehttp 22636 15752 "GET /email-analysis/ HTTP/1.1" 200 6607
+INFO 2025-07-24 19:22:27,804 basehttp 22636 15752 "POST /api-auth/logout/?next=/email-analysis/ HTTP/1.1" 302 0
+WARNING 2025-07-24 19:22:28,050 log 22636 15752 Forbidden: /email-analysis/
+WARNING 2025-07-24 19:22:28,059 basehttp 22636 15752 "GET /email-analysis/ HTTP/1.1" 403 5006
+INFO 2025-07-24 19:22:29,786 basehttp 22636 15752 "GET /api-auth/login/?next=/email-analysis/ HTTP/1.1" 200 2716
+INFO 2025-07-24 19:23:29,071 autoreload 22636 15680 C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\email_analysis\urls.py changed, reloading.
+INFO 2025-07-24 19:23:36,005 autoreload 9548 3388 Watching for file changes with StatReloader
+INFO 2025-07-24 19:23:46,727 basehttp 9548 11608 "GET /api-auth/login/?next=/email-analysis/ HTTP/1.1" 200 2716
+INFO 2025-07-24 19:23:49,202 basehttp 9548 11608 "GET /api-auth/login/?next=/email-analysis/ HTTP/1.1" 200 2716
+INFO 2025-07-24 19:24:08,010 autoreload 24380 10480 Watching for file changes with StatReloader
+INFO 2025-07-24 19:24:36,485 basehttp 24380 3424 "GET /api-auth/login/?next=/email-analysis/ HTTP/1.1" 200 2716
+INFO 2025-07-24 19:24:50,927 basehttp 24380 3424 "GET /admin/ HTTP/1.1" 302 0
+INFO 2025-07-24 19:24:51,030 basehttp 24380 3424 "GET /admin/login/?next=/admin/ HTTP/1.1" 200 4173
+INFO 2025-07-24 19:24:51,128 basehttp 24380 3424 "GET /static/admin/css/base.css HTTP/1.1" 304 0
+INFO 2025-07-24 19:24:51,128 basehttp 24380 17816 "GET /static/admin/js/theme.js HTTP/1.1" 304 0
+INFO 2025-07-24 19:24:51,129 basehttp 24380 3752 "GET /static/admin/css/dark_mode.css HTTP/1.1" 304 0
+INFO 2025-07-24 19:24:51,141 basehttp 24380 3424 "GET /static/admin/css/responsive.css HTTP/1.1" 304 0
+INFO 2025-07-24 19:24:51,160 basehttp 24380 17816 "GET /static/admin/css/login.css HTTP/1.1" 304 0
+INFO 2025-07-24 19:24:51,162 basehttp 24380 3424 "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 304 0
+INFO 2025-07-24 19:24:51,163 basehttp 24380 3752 "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 304 0
+INFO 2025-07-24 19:25:04,762 basehttp 24380 3752 "GET / HTTP/1.1" 302 0
+INFO 2025-07-24 19:25:05,413 basehttp 24380 3752 "GET /email-analysis/ HTTP/1.1" 302 0
+INFO 2025-07-24 19:25:05,579 basehttp 24380 3752 "GET /users/login/ HTTP/1.1" 200 4301
+INFO 2025-07-24 19:25:28,707 basehttp 24380 3752 "POST /users/login/ HTTP/1.1" 302 0
+INFO 2025-07-24 19:25:28,947 basehttp 24380 3752 "GET /email-analysis/ HTTP/1.1" 200 23355
+ERROR 2025-07-24 19:25:44,875 log 24380 264 Not Implemented: /api/v1/email-analysis/analyses/generate_report/
+ERROR 2025-07-24 19:25:44,882 basehttp 24380 264 "POST /api/v1/email-analysis/analyses/generate_report/ HTTP/1.1" 501 61
+ERROR 2025-07-24 19:25:52,047 log 24380 264 Not Implemented: /api/v1/email-analysis/analyses/generate_report/
+ERROR 2025-07-24 19:25:52,050 basehttp 24380 264 "POST /api/v1/email-analysis/analyses/generate_report/ HTTP/1.1" 501 61
+ERROR 2025-07-24 19:28:17,921 log 24380 22500 Not Implemented: /api/v1/email-analysis/analyses/generate_report/
+ERROR 2025-07-24 19:28:17,921 basehttp 24380 22500 "POST /api/v1/email-analysis/analyses/generate_report/ HTTP/1.1" 501 61
+INFO 2025-07-24 19:28:22,701 basehttp 24380 22500 "GET /email-analysis/ HTTP/1.1" 200 23355
+INFO 2025-07-24 19:28:33,761 basehttp 24380 22500 "POST /api/v1/email-analysis/analyses/generate_report/ HTTP/1.1" 200 568
+ERROR 2025-07-24 19:28:52,610 log 24380 20300 Not Implemented: /api/v1/email-analysis/analyses/generate_report/
+ERROR 2025-07-24 19:28:52,616 basehttp 24380 20300 "POST /api/v1/email-analysis/analyses/generate_report/ HTTP/1.1" 501 61
+INFO 2025-07-24 19:29:01,977 basehttp 24380 20300 "GET /email-analysis/ HTTP/1.1" 200 23355
+INFO 2025-07-24 19:29:17,930 basehttp 24380 20300 "POST /api/v1/email-analysis/analyses/generate_report/ HTTP/1.1" 200 1271
+ERROR 2025-07-24 19:29:36,178 log 24380 6912 Not Implemented: /api/v1/email-analysis/analyses/generate_report/
+ERROR 2025-07-24 19:29:36,179 basehttp 24380 6912 "POST /api/v1/email-analysis/analyses/generate_report/ HTTP/1.1" 501 61
+INFO 2025-07-24 19:29:59,782 autoreload 6864 17388 Watching for file changes with StatReloader
+INFO 2025-07-24 19:30:10,711 basehttp 6864 9368 "GET /email-analysis/ HTTP/1.1" 200 23355
+INFO 2025-07-24 19:30:19,160 basehttp 6864 11076 "POST /api/v1/email-analysis/analyses/generate_report/ HTTP/1.1" 200 568
+ERROR 2025-07-24 19:30:25,291 log 6864 12632 Not Implemented: /api/v1/email-analysis/analyses/generate_report/
+ERROR 2025-07-24 19:30:25,293 basehttp 6864 12632 "POST /api/v1/email-analysis/analyses/generate_report/ HTTP/1.1" 501 61
+INFO 2025-07-24 19:32:29,877 autoreload 22480 23140 Watching for file changes with StatReloader
+INFO 2025-07-24 19:32:45,225 basehttp 22480 21216 "GET /email-analysis/ HTTP/1.1" 200 23278
+INFO 2025-07-24 19:36:28,423 autoreload 22480 23140 C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\email_analysis\views.py changed, reloading.
+INFO 2025-07-24 19:36:41,188 autoreload 23996 15460 Watching for file changes with StatReloader
+INFO 2025-07-24 19:36:50,369 basehttp 23996 5824 "GET /email-analysis/ HTTP/1.1" 200 23278
+INFO 2025-07-24 19:37:28,107 basehttp 23996 5824 "GET /users/logout/ HTTP/1.1" 302 0
+INFO 2025-07-24 19:37:28,165 basehttp 23996 5824 "GET /users/login/ HTTP/1.1" 200 4301
+INFO 2025-07-24 19:37:38,593 basehttp 23996 5824 "POST /users/login/ HTTP/1.1" 302 0
+INFO 2025-07-24 19:37:38,894 basehttp 23996 5824 "GET /email-analysis/ HTTP/1.1" 200 24629
+WARNING 2025-07-24 19:39:54,025 log 23996 12168 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-07-24 19:39:54,085 basehttp 23996 12168 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 3584
+INFO 2025-07-24 19:45:24,486 basehttp 23996 23684 "GET /email-analysis/ HTTP/1.1" 200 24928
+WARNING 2025-07-24 19:45:37,472 log 23996 23684 Bad Request: /api/v1/email-analysis/analyses/generate_report/
+WARNING 2025-07-24 19:45:37,473 basehttp 23996 23684 "POST /api/v1/email-analysis/analyses/generate_report/ HTTP/1.1" 400 63
+INFO 2025-07-24 19:45:54,645 basehttp 23996 23684 "GET /email-analysis/analysis/5/ HTTP/1.1" 200 10216

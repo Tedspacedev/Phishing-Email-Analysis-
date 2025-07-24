@@ -13,10 +13,10 @@ router.register(r'headers', views.EmailHeaderViewSet, basename='emailheader')
 app_name = 'email_analysis'
 
 urlpatterns = [
-    # API URLs
-    path('api/', include(router.urls)),
-    
-    # Web Interface URLs
+    # Web Interface URLs (put these first!)
     path('', views.dashboard, name='dashboard'),
     path('analysis/<int:analysis_id>/', views.analysis_detail, name='analysis_detail'),
+
+    # API URLs
+    path('', include(router.urls)),
 ]

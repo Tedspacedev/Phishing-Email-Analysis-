@@ -86,7 +86,11 @@ class EmailAnalysisViewSet(viewsets.ModelViewSet):
     
     def perform_create(self, serializer):
         """Create email analysis and trigger analysis process"""
+        import logging
+        logger = logging.getLogger(__name__)
+        logger.debug(f"[perform_create] User: {self.request.user}, Data: {serializer.validated_data if hasattr(serializer, 'validated_data') else 'N/A'}")
         email_analysis = serializer.save(analyzed_by=self.request.user)
+        logger.debug(f"[perform_create] Created EmailAnalysis ID: {email_analysis.id}")
         
         # Log the activity
         ActivityLog.log_activity(
@@ -100,23 +104,35 @@ class EmailAnalysisViewSet(viewsets.ModelViewSet):
         
         # Trigger analysis process (could be moved to a background task)
         try:
+            logger.debug(f"[perform_create] Triggering analysis for EmailAnalysis ID: {email_analysis.id}")
             self.trigger_analysis(email_analysis)
         except Exception as e:
-            logger.error(f"Error triggering analysis for {email_analysis.id}: {str(e)}")
+            logger.error(f"Error triggering analysis for {email_analysis.id}: {str(e)}", exc_info=True)
             email_analysis.status = 'FAILED'
             email_analysis.save()
     
+    def create(self, request, *args, **kwargs):
+        print(f"[API] Analyze Email request received. User: {request.user}, Data: {request.data}")
+        response = super().create(request, *args, **kwargs)
+        print(f"[API] Analyze Email response status: {response.status_code}, data: {getattr(response, 'data', None)}")
+        return response
+    
     def trigger_analysis(self, email_analysis):
         """Trigger the phishing analysis process"""
+        import logging
+        logger = logging.getLogger(__name__)
         try:
+            logger.debug(f"[trigger_analysis] Parsing email for EmailAnalysis ID: {email_analysis.id}")
             # Parse email content
             parser = EmailParser(email_analysis.raw_email)
             parsed_data = parser.parse_email()
-            
+            logger.debug(f"[trigger_analysis] Parsed data: {parsed_data}")
             # Update email analysis with parsed data
             email_analysis.email_subject = parsed_data.get('subject', email_analysis.email_subject)
-            email_analysis.sender_email = parsed_data.get('sender', email_analysis.sender_email)
-            email_analysis.recipient_email = parsed_data.get('recipient', email_analysis.recipient_email)
+            if parsed_data.get('sender'):
+                email_analysis.sender_email = parsed_data['sender']
+            if parsed_data.get('recipient'):
+                email_analysis.recipient_email = parsed_data['recipient']
             email_analysis.email_body = parsed_data.get('body', email_analysis.email_body)
             email_analysis.status = 'PROCESSING'
             email_analysis.save()
@@ -128,13 +144,14 @@ class EmailAnalysisViewSet(viewsets.ModelViewSet):
                 message_id=parsed_data.get('message_id', ''),
                 received_headers=parsed_data.get('received_headers', [])
             )
+            logger.debug(f"[trigger_analysis] Created EmailHeader for EmailAnalysis ID: {email_analysis.id}")
             
             # Run phishing analysis
             analyzer = PhishingAnalyzer(email_analysis)
             analyzer.analyze()
-            
+            logger.debug(f"[trigger_analysis] Completed phishing analysis for EmailAnalysis ID: {email_analysis.id}")
         except Exception as e:
-            logger.error(f"Analysis failed for email {email_analysis.id}: {str(e)}")
+            logger.error(f"Analysis failed for email {email_analysis.id}: {str(e)}", exc_info=True)
             email_analysis.status = 'FAILED'
             email_analysis.save()
             raise
@@ -323,9 +340,13 @@ class EmailAnalysisViewSet(viewsets.ModelViewSet):
             response = HttpResponse(content_type='text/csv')
             response['Content-Disposition'] = 'attachment; filename="email_analysis_report.csv"'
             writer = csv.writer(response)
-            writer.writerow(['ID', 'Subject', 'Sender', 'Recipient', 'Risk Level', 'Phishing Score', 'Status', 'Created At'])
+            header = ['ID', 'Subject', 'Sender', 'Recipient', 'Risk Level', 'Phishing Score', 'Status', 'Created At']
+            print('[CSV Export] Header:', header)
+            writer.writerow(header)
             for a in analyses:
-                writer.writerow([a.id, a.email_subject, a.sender_email, a.recipient_email, a.risk_level, a.phishing_score, a.status, a.created_at])
+                row = [a.id, a.email_subject, a.sender_email, a.recipient_email, a.risk_level, a.phishing_score, a.status, a.created_at]
+                print('[CSV Export] Row:', row)
+                writer.writerow(row)
             return response
 
         # JSON Export
@@ -342,6 +363,7 @@ class EmailAnalysisViewSet(viewsets.ModelViewSet):
                     'status': a.status,
                     'created_at': a.created_at,
                 })
+            print('[JSON Export] Data:', data)
             return JsonResponse({'analyses': data}, safe=False)
 
         # PDF Export (simple placeholder)
@@ -353,7 +375,9 @@ class EmailAnalysisViewSet(viewsets.ModelViewSet):
             p.drawString(100, 800, "Email Analysis Report")
             y = 780
             for a in analyses:
-                p.drawString(100, y, f"ID: {a.id} | Subject: {a.email_subject} | Risk: {a.risk_level}")
+                line = f"ID: {a.id} | Subject: {a.email_subject} | Risk: {a.risk_level}"
+                print('[PDF Export] Line:', line)
+                p.drawString(100, y, line)
                 y -= 20
                 if y < 50:
                     p.showPage()
