@@ -30,3 +30,4 @@ Traceback (most recent call last):
                      ^^^^^^^^^^^^^
 AttributeError: type object 'Token' has no attribute 'objects'
 ERROR 2025-07-24 11:52:12,944 basehttp 7257 140339098789568 "POST /api/v1/users/api/auth/login/ HTTP/1.1" 500 93057
+INFO 2025-07-24 12:02:09,732 autoreload 8690 139895983337728 Watching for file changes with StatReloader
