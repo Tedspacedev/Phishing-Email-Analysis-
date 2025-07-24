@@ -26,7 +26,7 @@ class EmailAnalysis(models.Model):
     sender_email = models.EmailField()
     recipient_email = models.EmailField()
     email_body = models.TextField()
-    raw_email = models.TextField(help_text="Raw email content")
+    raw_email = models.TextField(blank=True, null=True, help_text="Raw email content")
     
     # Analysis Results
     risk_level = models.CharField(max_length=10, choices=RISK_LEVELS, default='LOW')

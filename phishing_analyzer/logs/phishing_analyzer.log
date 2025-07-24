@@ -1114,3 +1114,38 @@ INFO 2025-07-25 00:38:25,761 basehttp 7660 15716 "GET /static/rest_framework/img
 INFO 2025-07-25 00:38:30,045 basehttp 7660 15716 "GET /email-analysis/analyses/ HTTP/1.1" 200 14944
 INFO 2025-07-25 00:38:44,130 basehttp 7660 22340 "GET /email-analysis/ HTTP/1.1" 200 24946
 INFO 2025-07-25 00:38:45,843 basehttp 7660 22340 "GET /email-analysis/analyses/ HTTP/1.1" 200 14944
+INFO 2025-07-25 01:00:05,792 autoreload 24240 14784 Watching for file changes with StatReloader
+INFO 2025-07-25 01:00:19,723 basehttp 24240 10684 "GET / HTTP/1.1" 302 0
+INFO 2025-07-25 01:00:20,049 basehttp 24240 10684 "GET /email-analysis/ HTTP/1.1" 200 24945
+WARNING 2025-07-25 01:00:49,045 log 24240 24296 Bad Request: /email-analysis/analyses/
+WARNING 2025-07-25 01:00:49,050 basehttp 24240 24296 "POST /email-analysis/analyses/ HTTP/1.1" 400 46
+INFO 2025-07-25 01:03:23,033 autoreload 24240 14784 C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\email_analysis\views.py changed, reloading.
+INFO 2025-07-25 01:03:44,182 autoreload 17076 18736 Watching for file changes with StatReloader
+WARNING 2025-07-25 01:04:28,437 log 17076 10836 Bad Request: /email-analysis/analyses/
+WARNING 2025-07-25 01:04:28,438 basehttp 17076 10836 "POST /email-analysis/analyses/ HTTP/1.1" 400 46
+INFO 2025-07-25 01:06:08,699 autoreload 17076 18736 C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\email_analysis\models.py changed, reloading.
+INFO 2025-07-25 01:06:17,617 autoreload 13512 15232 Watching for file changes with StatReloader
+INFO 2025-07-25 01:06:31,929 services 13512 14916 Analysis completed for email 10 in 0.00s
+INFO 2025-07-25 01:06:31,942 basehttp 13512 14916 "POST /email-analysis/analyses/ HTTP/1.1" 201 148
+INFO 2025-07-25 01:06:35,625 basehttp 13512 14916 "GET /email-analysis/ HTTP/1.1" 200 25661
+INFO 2025-07-25 01:06:51,582 basehttp 13512 14916 "GET /email-analysis/analysis/10/ HTTP/1.1" 200 9917
+INFO 2025-07-25 01:15:07,000 autoreload 15836 16968 Watching for file changes with StatReloader
+INFO 2025-07-25 01:15:16,469 services 15836 6512 Analysis completed for email 11 in 0.00s
+INFO 2025-07-25 01:15:16,483 basehttp 15836 6512 "POST /email-analysis/analyses/ HTTP/1.1" 201 148
+INFO 2025-07-25 01:15:19,179 basehttp 15836 6512 "GET /email-analysis/ HTTP/1.1" 200 26378
+INFO 2025-07-25 01:15:25,728 basehttp 15836 6512 "GET /email-analysis/analysis/11/ HTTP/1.1" 200 9917
+INFO 2025-07-25 01:16:12,763 basehttp 15836 12324 "POST /api/v1/email-analysis/analyses/generate_report/ HTTP/1.1" 200 56
+INFO 2025-07-25 01:16:13,422 basehttp 15836 14340 "GET /media/reports/report-1753395372-admin.pdf HTTP/1.1" 200 2373
+INFO 2025-07-25 01:25:10,428 autoreload 15836 16968 C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\email_analysis\views.py changed, reloading.
+INFO 2025-07-25 01:25:23,694 autoreload 15820 11132 Watching for file changes with StatReloader
+INFO 2025-07-25 01:25:49,508 basehttp 15820 14444 "POST /api/v1/email-analysis/analyses/generate_report/ HTTP/1.1" 200 56
+INFO 2025-07-25 01:25:49,963 basehttp 15820 19916 "GET /media/reports/report-1753395949-admin.pdf HTTP/1.1" 200 2451
+INFO 2025-07-25 01:31:00,428 autoreload 15820 11132 C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\email_analysis\views.py changed, reloading.
+INFO 2025-07-25 01:31:10,037 autoreload 4188 16332 Watching for file changes with StatReloader
+INFO 2025-07-25 01:31:56,740 basehttp 4188 23456 "POST /api/v1/email-analysis/analyses/generate_report/ HTTP/1.1" 200 56
+INFO 2025-07-25 01:31:57,519 basehttp 4188 7728 "GET /media/reports/report-1753396316-admin.pdf HTTP/1.1" 200 2402
+INFO 2025-07-25 01:36:02,950 services 4188 2800 Analysis completed for email 12 in 0.02s
+INFO 2025-07-25 01:36:02,964 basehttp 4188 2800 "POST /email-analysis/analyses/ HTTP/1.1" 201 2028
+INFO 2025-07-25 01:36:05,033 basehttp 4188 2800 "GET /email-analysis/ HTTP/1.1" 200 27096
+INFO 2025-07-25 01:36:11,863 basehttp 4188 2800 "GET /email-analysis/analysis/12/ HTTP/1.1" 200 10869
+INFO 2025-07-25 01:36:35,430 basehttp 4188 2800 "GET /email-analysis/ HTTP/1.1" 200 27096

@@ -27,9 +27,10 @@ MIDDLEWARE = [
 ]
 
 STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
-STATICFILES_DIRS = [
-    BASE_DIR / 'static',
-]
+## Commented out to avoid staticfiles.W004 warning. Uncomment if you add a static directory.
+# STATICFILES_DIRS = [
+#     BASE_DIR / 'static',
+# ]
 
 # WhiteNoise static files storage
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
