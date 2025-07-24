@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Email Analysis Report</title>
+    <style>
+        body { font-family: 'DejaVu Sans', Arial, sans-serif; margin: 40px; }
+        h1 { text-align: center; margin-bottom: 10px; }
+        .date-range { text-align: center; margin-bottom: 30px; font-size: 14px; color: #555; }
+        table { width: 100%; border-collapse: collapse; margin-bottom: 20px; }
+        th, td { border: 1px solid #888; padding: 8px 6px; font-size: 13px; }
+        th { background: #f0f0f0; font-weight: bold; }
+        tr:nth-child(even) { background: #fafafa; }
+        .no-results { text-align: center; color: #a00; font-size: 16px; margin-top: 40px; }
+    </style>
+</head>
+<body>
+    <h1>Email Analysis Report</h1>
+    <div class="date-range">
+        Date Range: {{ date_from|date:"Y-m-d H:i" }} to {{ date_to|date:"Y-m-d H:i" }}
+    </div>
+    {% if no_results %}
+        <div class="no-results">No analyses found for the selected range.</div>
+    {% else %}
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Subject</th>
+                <th>Sender</th>
+                <th>Recipient</th>
+                <th>Risk</th>
+                <th>Score</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for a in analyses %}
+            <tr>
+                <td>{{ a.id }}</td>
+                <td>{{ a.email_subject|default:"-" }}</td>
+                <td>{{ a.sender_email|default:"-" }}</td>
+                <td>{{ a.recipient_email|default:"-" }}</td>
+                <td>{{ a.risk_level|default:"-" }}</td>
+                <td>{{ a.phishing_score|default:"-" }}</td>
+                <td>{{ a.status|default:"-" }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    {% endif %}
+</body>
+</html> 

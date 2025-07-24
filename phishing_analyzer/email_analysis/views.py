@@ -12,12 +12,16 @@ import logging
 from django.http import HttpResponse, JsonResponse
 import csv
 import io
+import os
+import time
+from django.conf import settings
 try:
     from reportlab.pdfgen import canvas
+    from reportlab.lib.pagesizes import A4
     PDF_AVAILABLE = True
 except ImportError:
     PDF_AVAILABLE = False
-
+# Remove WeasyPrint import and template usage
 from .models import (
     EmailAnalysis, EmailHeader, URLAnalysis, 
     AttachmentAnalysis, PhishingTechnique
@@ -321,10 +325,14 @@ class EmailAnalysisViewSet(viewsets.ModelViewSet):
     @action(detail=False, methods=['post'])
     def generate_report(self, request):
         """Generate analysis report (CSV, JSON, PDF)"""
+        print('[generate_report] Incoming data:', dict(request.data))
         serializer = EmailAnalysisReportSerializer(data=request.data)
         if not serializer.is_valid():
+            print('[generate_report] Validation errors:', serializer.errors)
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
         validated_data = serializer.validated_data
+        print('[generate_report] Validated data:', validated_data)
+        print('[generate_report] Requested format:', validated_data['report_format'])
 
         # Get analyses
         if validated_data.get('analysis_ids'):
@@ -337,6 +345,7 @@ class EmailAnalysisViewSet(viewsets.ModelViewSet):
 
         # CSV Export
         if validated_data['report_format'] == 'CSV':
+            print('[generate_report] Entering CSV export branch')
             response = HttpResponse(content_type='text/csv')
             response['Content-Disposition'] = 'attachment; filename="email_analysis_report.csv"'
             writer = csv.writer(response)
@@ -351,6 +360,7 @@ class EmailAnalysisViewSet(viewsets.ModelViewSet):
 
         # JSON Export
         if validated_data['report_format'] == 'JSON':
+            print('[generate_report] Entering JSON export branch')
             data = []
             for a in analyses:
                 data.append({
@@ -366,29 +376,81 @@ class EmailAnalysisViewSet(viewsets.ModelViewSet):
             print('[JSON Export] Data:', data)
             return JsonResponse({'analyses': data}, safe=False)
 
-        # PDF Export (simple placeholder)
+        # PDF Export (save to file, return URL)
         if validated_data['report_format'] == 'PDF':
+            print('[generate_report] Entering PDF export branch (reportlab, save to file)')
             if not PDF_AVAILABLE:
                 return Response({'error': 'PDF export requires reportlab. Please install it.'}, status=501)
             buffer = io.BytesIO()
-            p = canvas.Canvas(buffer)
-            p.drawString(100, 800, "Email Analysis Report")
-            y = 780
-            for a in analyses:
-                line = f"ID: {a.id} | Subject: {a.email_subject} | Risk: {a.risk_level}"
-                print('[PDF Export] Line:', line)
-                p.drawString(100, y, line)
-                y -= 20
-                if y < 50:
-                    p.showPage()
-                    y = 800
+            p = canvas.Canvas(buffer, pagesize=A4)
+            width, height = A4
+            def draw_border():
+                p.setStrokeColorRGB(0.8, 0.2, 0.2)
+                p.rect(30, 30, width-60, height-60, stroke=1, fill=0)
+                p.setStrokeColorRGB(0, 0, 0)
+            draw_border()
+            p.setFont("Helvetica-Bold", 20)
+            p.drawString(150, height-60, "Email Analysis Report")
+            y = height-100
+            p.setFont("Helvetica", 12)
+            date_range = f"Date Range: {validated_data['date_from'].strftime('%Y-%m-%d %H:%M')} to {validated_data['date_to'].strftime('%Y-%m-%d %H:%M')}"
+            p.drawString(40, y, date_range)
+            y -= 30
+            p.setFont("Helvetica-Bold", 12)
+            header = ["ID", "Subject", "Sender", "Recipient", "Risk", "Score", "Status"]
+            col_x = [40, 80, 200, 320, 440, 510, 580]
+            for i, h in enumerate(header):
+                p.drawString(col_x[i], y, h)
+            y -= 20
+            p.setFont("Helvetica", 11)
+            pdf_lines = []
+            analyses_list = list(analyses)
+            if not analyses_list:
+                p.drawString(40, y, "No analyses found for the selected range.")
+                pdf_lines.append("No analyses found for the selected range.")
+            else:
+                for a in analyses_list:
+                    row = [
+                        str(a.id),
+                        str(a.email_subject or '-')[:25],
+                        str(a.sender_email or '-')[:25],
+                        str(a.recipient_email or '-')[:25],
+                        str(a.risk_level or '-'),
+                        str(a.phishing_score or '-'),
+                        str(a.status or '-')
+                    ]
+                    pdf_lines.append(row)
+                    for i, val in enumerate(row):
+                        p.drawString(col_x[i], y, val)
+                    y -= 20
+                    if y < 50:
+                        p.showPage()
+                        draw_border()
+                        p.setFont("Helvetica-Bold", 20)
+                        p.drawString(150, height-60, "Email Analysis Report (cont.)")
+                        y = height-100
+                        p.setFont("Helvetica-Bold", 12)
+                        for i, h in enumerate(header):
+                            p.drawString(col_x[i], y, h)
+                        y -= 20
+                        p.setFont("Helvetica", 11)
+            print('[PDF Export] All lines:', pdf_lines)
             p.save()
             buffer.seek(0)
-            response = HttpResponse(buffer, content_type='application/pdf')
-            response['Content-Disposition'] = 'attachment; filename="email_analysis_report.pdf"'
-            return response
+            # Save PDF to file
+            timestamp = int(time.time())
+            user_str = str(request.user.username or 'anon').replace(' ', '_')
+            filename = f"report-{timestamp}-{user_str}.pdf"
+            reports_dir = os.path.join(settings.BASE_DIR, 'phishing_analyzer', 'media', 'reports')
+            os.makedirs(reports_dir, exist_ok=True)
+            file_path = os.path.join(reports_dir, filename)
+            with open(file_path, 'wb') as f:
+                f.write(buffer.read())
+            # Return the URL to the PDF
+            pdf_url = f"/media/reports/{filename}"
+            return Response({'pdf_url': pdf_url}, status=200)
 
-        # Not implemented
+        print('[generate_report] Not implemented branch hit for format:', validated_data['report_format'])
         return Response({'error': f"Format {validated_data['report_format']} not implemented."}, status=501)
     
     def get_client_ip(self):

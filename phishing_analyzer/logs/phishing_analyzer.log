@@ -778,3 +778,239 @@ INFO 2025-07-24 19:45:24,486 basehttp 23996 23684 "GET /email-analysis/ HTTP/1.1
 WARNING 2025-07-24 19:45:37,472 log 23996 23684 Bad Request: /api/v1/email-analysis/analyses/generate_report/
 WARNING 2025-07-24 19:45:37,473 basehttp 23996 23684 "POST /api/v1/email-analysis/analyses/generate_report/ HTTP/1.1" 400 63
 INFO 2025-07-24 19:45:54,645 basehttp 23996 23684 "GET /email-analysis/analysis/5/ HTTP/1.1" 200 10216
+INFO 2025-07-24 20:22:29,241 autoreload 3140 16748 Watching for file changes with StatReloader
+INFO 2025-07-24 20:23:05,117 basehttp 3140 10876 "GET / HTTP/1.1" 302 0
+INFO 2025-07-24 20:23:05,608 basehttp 3140 10876 "GET /email-analysis/ HTTP/1.1" 302 0
+INFO 2025-07-24 20:23:05,661 basehttp 3140 10876 "GET /users/login/ HTTP/1.1" 200 4301
+WARNING 2025-07-24 20:23:07,969 log 3140 10876 Not Found: /favicon.ico
+WARNING 2025-07-24 20:23:07,971 basehttp 3140 10876 "GET /favicon.ico HTTP/1.1" 404 3473
+INFO 2025-07-24 20:23:22,466 basehttp 3140 10876 "POST /users/login/ HTTP/1.1" 302 0
+INFO 2025-07-24 20:23:22,750 basehttp 3140 10876 "GET /email-analysis/ HTTP/1.1" 200 24929
+WARNING 2025-07-24 20:23:44,431 log 3140 10876 Bad Request: /api/v1/email-analysis/analyses/generate_report/
+WARNING 2025-07-24 20:23:44,431 basehttp 3140 10876 "POST /api/v1/email-analysis/analyses/generate_report/ HTTP/1.1" 400 63
+WARNING 2025-07-24 20:25:35,272 log 3140 10876 Bad Request: /api/v1/email-analysis/analyses/generate_report/
+WARNING 2025-07-24 20:25:35,276 basehttp 3140 10876 "POST /api/v1/email-analysis/analyses/generate_report/ HTTP/1.1" 400 63
+WARNING 2025-07-24 20:25:40,021 log 3140 10876 Bad Request: /api/v1/email-analysis/analyses/generate_report/
+WARNING 2025-07-24 20:25:40,023 basehttp 3140 10876 "POST /api/v1/email-analysis/analyses/generate_report/ HTTP/1.1" 400 63
+INFO 2025-07-24 20:25:45,968 basehttp 3140 10876 "GET /email-analysis/analysis/5/ HTTP/1.1" 200 10216
+INFO 2025-07-24 20:25:51,978 basehttp 3140 10876 "GET /email-analysis/ HTTP/1.1" 200 24929
+WARNING 2025-07-24 20:27:27,285 log 3140 10876 Bad Request: /email-analysis/analyses/
+WARNING 2025-07-24 20:27:27,288 basehttp 3140 10876 "POST /email-analysis/analyses/ HTTP/1.1" 400 46
+INFO 2025-07-24 20:44:41,037 autoreload 9984 7432 Watching for file changes with StatReloader
+INFO 2025-07-24 20:45:28,844 basehttp 9984 12928 "GET / HTTP/1.1" 302 0
+INFO 2025-07-24 20:45:29,203 basehttp 9984 12928 "GET /email-analysis/ HTTP/1.1" 302 0
+INFO 2025-07-24 20:45:29,246 basehttp 9984 12928 "GET /users/login/ HTTP/1.1" 200 4301
+INFO 2025-07-24 20:45:34,301 basehttp 9984 3432 "POST /users/login/ HTTP/1.1" 302 0
+INFO 2025-07-24 20:45:34,572 basehttp 9984 3432 "GET /email-analysis/ HTTP/1.1" 200 24078
+WARNING 2025-07-24 20:45:56,294 log 9984 16728 Bad Request: /api/v1/email-analysis/analyses/generate_report/
+WARNING 2025-07-24 20:45:56,298 basehttp 9984 16728 "POST /api/v1/email-analysis/analyses/generate_report/ HTTP/1.1" 400 63
+INFO 2025-07-24 20:46:32,391 basehttp 9984 15868 "GET /email-analysis/analysis/7/ HTTP/1.1" 200 10217
+INFO 2025-07-24 20:47:11,546 services 9984 11728 Analysis completed for email 8 in 0.00s
+INFO 2025-07-24 20:47:11,578 basehttp 9984 11728 "POST /email-analysis/analyses/ HTTP/1.1" 201 178
+INFO 2025-07-24 20:47:15,390 basehttp 9984 11728 "GET /email-analysis/ HTTP/1.1" 200 24783
+INFO 2025-07-24 20:47:23,831 basehttp 9984 16244 "GET /email-analysis/analysis/8/ HTTP/1.1" 200 10205
+INFO 2025-07-24 20:47:29,961 basehttp 9984 14480 "GET /email-analysis/ HTTP/1.1" 200 24783
+INFO 2025-07-24 20:48:35,543 autoreload 9984 7432 C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\email_analysis\views.py changed, reloading.
+INFO 2025-07-24 20:49:08,507 autoreload 14592 17828 Watching for file changes with StatReloader
+WARNING 2025-07-24 20:49:37,414 log 14592 23264 Bad Request: /api/v1/email-analysis/analyses/generate_report/
+WARNING 2025-07-24 20:49:37,416 basehttp 14592 23264 "POST /api/v1/email-analysis/analyses/generate_report/ HTTP/1.1" 400 63
+INFO 2025-07-24 20:51:37,207 basehttp 14592 23264 "GET /email-analysis/ HTTP/1.1" 200 25019
+INFO 2025-07-24 20:51:40,658 basehttp 14592 23264 "GET /email-analysis/ HTTP/1.1" 200 25019
+WARNING 2025-07-24 20:51:56,395 log 14592 23264 Bad Request: /api/v1/email-analysis/analyses/generate_report/
+WARNING 2025-07-24 20:51:56,398 basehttp 14592 23264 "POST /api/v1/email-analysis/analyses/generate_report/ HTTP/1.1" 400 63
+INFO 2025-07-24 20:52:26,424 autoreload 1708 636 Watching for file changes with StatReloader
+INFO 2025-07-24 20:52:48,704 basehttp 1708 19792 "GET /admin/ HTTP/1.1" 302 0
+INFO 2025-07-24 20:52:48,962 basehttp 1708 19792 "GET /admin/login/?next=/admin/ HTTP/1.1" 200 3690
+INFO 2025-07-24 20:52:49,488 basehttp 1708 19792 "GET /static/admin/css/base.css HTTP/1.1" 200 22120
+INFO 2025-07-24 20:52:49,494 basehttp 1708 13568 "GET /static/admin/css/login.css HTTP/1.1" 200 951
+INFO 2025-07-24 20:52:49,509 basehttp 1708 23276 "GET /static/admin/css/dark_mode.css HTTP/1.1" 200 2808
+INFO 2025-07-24 20:52:49,579 basehttp 1708 9864 "GET /static/admin/css/responsive.css HTTP/1.1" 200 16565
+INFO 2025-07-24 20:52:49,651 basehttp 1708 9104 "GET /static/admin/js/theme.js HTTP/1.1" 200 1653
+INFO 2025-07-24 20:52:49,851 basehttp 1708 9104 "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 200 3063
+INFO 2025-07-24 20:52:49,960 basehttp 1708 11420 "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 200 2810
+INFO 2025-07-24 20:52:58,918 basehttp 1708 11420 "POST /admin/login/?next=/admin/ HTTP/1.1" 302 0
+INFO 2025-07-24 20:52:59,105 basehttp 1708 11420 "GET /admin/ HTTP/1.1" 200 18516
+INFO 2025-07-24 20:52:59,219 basehttp 1708 11420 "GET /static/admin/css/dashboard.css HTTP/1.1" 200 441
+INFO 2025-07-24 20:52:59,408 basehttp 1708 9864 "GET /static/admin/img/icon-viewlink.svg HTTP/1.1" 200 581
+INFO 2025-07-24 20:52:59,458 basehttp 1708 9104 "GET /static/admin/img/icon-changelink.svg HTTP/1.1" 200 380
+INFO 2025-07-24 20:52:59,460 basehttp 1708 23276 "GET /static/admin/img/icon-deletelink.svg HTTP/1.1" 200 392
+INFO 2025-07-24 20:52:59,518 basehttp 1708 11420 "GET /static/admin/img/icon-addlink.svg HTTP/1.1" 200 331
+INFO 2025-07-24 20:53:06,906 basehttp 1708 11420 "GET /admin/user_management/apikey/ HTTP/1.1" 200 19588
+INFO 2025-07-24 20:53:07,076 basehttp 1708 13568 "GET /static/admin/js/core.js HTTP/1.1" 200 6208
+INFO 2025-07-24 20:53:07,081 basehttp 1708 11420 "GET /static/admin/css/changelists.css HTTP/1.1" 200 6878
+INFO 2025-07-24 20:53:07,152 basehttp 1708 9864 "GET /static/admin/js/jquery.init.js HTTP/1.1" 200 347
+INFO 2025-07-24 20:53:07,154 basehttp 1708 19792 "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 200 9777
+INFO 2025-07-24 20:53:07,205 basehttp 1708 13568 "GET /static/admin/js/actions.js HTTP/1.1" 200 8076
+INFO 2025-07-24 20:53:07,214 basehttp 1708 11420 "GET /static/admin/js/prepopulate.js HTTP/1.1" 200 1531
+INFO 2025-07-24 20:53:07,263 basehttp 1708 9864 "GET /static/admin/js/urlify.js HTTP/1.1" 200 7887
+INFO 2025-07-24 20:53:07,309 basehttp 1708 23276 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-07-24 20:53:07,418 basehttp 1708 9104 "GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 200 285314
+INFO 2025-07-24 20:53:07,557 basehttp 1708 23276 "GET /static/admin/img/search.svg HTTP/1.1" 200 458
+INFO 2025-07-24 20:53:07,578 basehttp 1708 19792 "GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 200 325171
+INFO 2025-07-24 20:53:07,594 basehttp 1708 23276 "GET /static/admin/js/filters.js HTTP/1.1" 200 978
+INFO 2025-07-24 20:53:07,814 basehttp 1708 23276 "GET /static/admin/img/tooltag-add.svg HTTP/1.1" 200 331
+INFO 2025-07-24 20:53:10,316 basehttp 1708 23276 "GET /admin/ HTTP/1.1" 200 18516
+INFO 2025-07-24 20:53:12,418 basehttp 1708 23276 "GET /admin/user_management/activitylog/ HTTP/1.1" 200 48346
+INFO 2025-07-24 20:53:12,656 basehttp 1708 23276 "GET /static/admin/img/icon-yes.svg HTTP/1.1" 200 436
+INFO 2025-07-24 20:53:12,659 basehttp 1708 19792 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-07-24 20:53:12,972 basehttp 1708 19792 "GET /static/admin/img/sorting-icons.svg HTTP/1.1" 200 1097
+INFO 2025-07-24 20:53:21,926 basehttp 1708 19792 "GET /admin/user_management/userprofile/ HTTP/1.1" 200 23051
+INFO 2025-07-24 20:53:22,047 basehttp 1708 23276 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-07-24 20:53:22,183 basehttp 1708 19792 "GET /static/admin/img/icon-no.svg HTTP/1.1" 200 560
+INFO 2025-07-24 20:53:24,704 basehttp 1708 19792 "GET /admin/user_management/usersession/ HTTP/1.1" 200 19553
+INFO 2025-07-24 20:53:24,930 basehttp 1708 19792 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-07-24 20:53:28,705 basehttp 1708 19792 "GET /admin/threat_intelligence/threatfeed/ HTTP/1.1" 200 19607
+INFO 2025-07-24 20:53:28,954 basehttp 1708 19792 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-07-24 20:53:31,281 basehttp 1708 19792 "GET /admin/threat_intelligence/threatintelligencereport/ HTTP/1.1" 200 19595
+INFO 2025-07-24 20:53:31,488 basehttp 1708 19792 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-07-24 20:53:34,234 basehttp 1708 19792 "GET /admin/threat_intelligence/domainreputation/ HTTP/1.1" 200 22766
+INFO 2025-07-24 20:53:34,386 basehttp 1708 19792 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-07-24 20:53:35,420 basehttp 1708 19792 "GET /admin/threat_intelligence/ipreputation/ HTTP/1.1" 200 23062
+INFO 2025-07-24 20:53:35,566 basehttp 1708 19792 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-07-24 20:53:42,939 basehttp 1708 19792 "GET /admin/threat_intelligence/domainreputation/ HTTP/1.1" 200 22766
+INFO 2025-07-24 20:53:43,070 basehttp 1708 19792 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-07-24 20:53:52,319 basehttp 1708 19792 "GET /admin/email_analysis/urlanalysis/ HTTP/1.1" 200 19358
+INFO 2025-07-24 20:53:52,467 basehttp 1708 19792 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-07-24 20:54:05,769 basehttp 1708 19792 "GET / HTTP/1.1" 302 0
+INFO 2025-07-24 20:54:08,035 basehttp 1708 19792 "GET /email-analysis/ HTTP/1.1" 200 25674
+INFO 2025-07-24 20:54:13,276 basehttp 1708 19792 "GET /users/logout/ HTTP/1.1" 302 0
+INFO 2025-07-24 20:54:13,295 basehttp 1708 19792 "GET /users/login/ HTTP/1.1" 200 4301
+INFO 2025-07-24 20:54:19,380 basehttp 1708 19792 "POST /users/login/ HTTP/1.1" 302 0
+INFO 2025-07-24 20:54:19,555 basehttp 1708 19792 "GET /email-analysis/ HTTP/1.1" 200 25020
+WARNING 2025-07-24 20:54:33,640 log 1708 19792 Bad Request: /api/v1/email-analysis/analyses/generate_report/
+WARNING 2025-07-24 20:54:33,657 basehttp 1708 19792 "POST /api/v1/email-analysis/analyses/generate_report/ HTTP/1.1" 400 63
+INFO 2025-07-24 20:55:57,680 basehttp 1708 14568 "GET /admin/user_management/activitylog/ HTTP/1.1" 302 0
+INFO 2025-07-24 20:55:57,727 basehttp 1708 14568 "GET /admin/login/?next=/admin/user_management/activitylog/ HTTP/1.1" 200 3746
+INFO 2025-07-24 20:56:03,618 basehttp 1708 14568 "POST /admin/login/?next=/admin/user_management/activitylog/ HTTP/1.1" 302 0
+INFO 2025-07-24 20:56:04,173 basehttp 1708 14568 "GET /admin/user_management/activitylog/ HTTP/1.1" 200 49737
+INFO 2025-07-24 20:56:04,399 basehttp 1708 14568 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-07-24 20:56:13,978 basehttp 1708 14568 "GET /admin/threat_intelligence/ipreputation/ HTTP/1.1" 200 23062
+INFO 2025-07-24 20:56:14,071 basehttp 1708 14568 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-07-24 20:56:19,041 basehttp 1708 14568 "GET /admin/threat_intelligence/threatfeed/ HTTP/1.1" 200 19607
+INFO 2025-07-24 20:56:19,115 basehttp 1708 14568 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-07-24 20:56:20,831 basehttp 1708 14568 "GET /admin/threat_intelligence/threatintelligencereport/ HTTP/1.1" 200 19595
+INFO 2025-07-24 20:56:20,958 basehttp 1708 14568 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-07-24 20:56:25,015 basehttp 1708 14568 "GET /admin/user_management/usersession/ HTTP/1.1" 200 19553
+INFO 2025-07-24 20:56:25,104 basehttp 1708 14568 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-07-24 20:56:37,119 basehttp 1708 14568 "GET /admin/email_analysis/emailanalysis/ HTTP/1.1" 200 28539
+INFO 2025-07-24 20:56:37,240 basehttp 1708 14568 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-07-24 20:56:54,871 basehttp 1708 14568 "POST /admin/email_analysis/emailanalysis/ HTTP/1.1" 200 18697
+INFO 2025-07-24 20:56:55,077 basehttp 1708 14568 "GET /static/admin/js/cancel.js HTTP/1.1" 200 884
+INFO 2025-07-24 20:56:57,514 basehttp 1708 14568 "POST /admin/email_analysis/emailanalysis/ HTTP/1.1" 302 0
+INFO 2025-07-24 20:56:57,735 basehttp 1708 14568 "GET /admin/email_analysis/emailanalysis/ HTTP/1.1" 200 20516
+INFO 2025-07-24 20:56:57,835 basehttp 1708 14568 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-07-24 20:56:59,494 basehttp 1708 14568 "GET /admin/email_analysis/emailheader/ HTTP/1.1" 200 18696
+INFO 2025-07-24 20:56:59,567 basehttp 1708 14568 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-07-24 20:57:06,222 basehttp 1708 14568 "GET /email-analysis/ HTTP/1.1" 200 22734
+INFO 2025-07-24 20:57:22,612 services 1708 14568 Analysis completed for email 9 in 0.01s
+INFO 2025-07-24 20:57:22,637 basehttp 1708 14568 "POST /email-analysis/analyses/ HTTP/1.1" 201 152
+INFO 2025-07-24 20:57:25,874 basehttp 1708 14568 "GET /email-analysis/ HTTP/1.1" 200 23589
+WARNING 2025-07-24 20:57:53,970 log 1708 14568 Bad Request: /api/v1/email-analysis/analyses/generate_report/
+WARNING 2025-07-24 20:57:53,973 basehttp 1708 14568 "POST /api/v1/email-analysis/analyses/generate_report/ HTTP/1.1" 400 63
+WARNING 2025-07-24 20:57:57,380 log 1708 14568 Bad Request: /api/v1/email-analysis/analyses/generate_report/
+WARNING 2025-07-24 20:57:57,406 basehttp 1708 14568 "POST /api/v1/email-analysis/analyses/generate_report/ HTTP/1.1" 400 63
+INFO 2025-07-24 21:01:32,797 autoreload 16580 9984 Watching for file changes with StatReloader
+WARNING 2025-07-24 21:01:47,119 log 16580 17776 Bad Request: /api/v1/email-analysis/analyses/generate_report/
+WARNING 2025-07-24 21:01:47,136 basehttp 16580 17776 "POST /api/v1/email-analysis/analyses/generate_report/ HTTP/1.1" 400 63
+INFO 2025-07-24 21:01:50,431 basehttp 16580 17776 "GET /email-analysis/ HTTP/1.1" 200 24165
+INFO 2025-07-24 21:01:53,230 basehttp 16580 11848 "GET /users/logout/ HTTP/1.1" 302 0
+INFO 2025-07-24 21:01:53,279 basehttp 16580 11848 "GET /users/login/ HTTP/1.1" 200 4301
+INFO 2025-07-24 21:01:57,037 basehttp 16580 11848 "POST /users/login/ HTTP/1.1" 302 0
+INFO 2025-07-24 21:01:57,222 basehttp 16580 11848 "GET /email-analysis/ HTTP/1.1" 200 24165
+INFO 2025-07-24 21:02:24,915 basehttp 16580 11848 "POST /api/v1/email-analysis/analyses/generate_report/ HTTP/1.1" 200 158
+INFO 2025-07-24 21:02:27,075 basehttp 16580 11848 "POST /api/v1/email-analysis/analyses/generate_report/ HTTP/1.1" 200 158
+INFO 2025-07-24 21:02:27,781 basehttp 16580 11848 "POST /api/v1/email-analysis/analyses/generate_report/ HTTP/1.1" 200 158
+INFO 2025-07-24 21:02:28,210 basehttp 16580 11848 "POST /api/v1/email-analysis/analyses/generate_report/ HTTP/1.1" 200 158
+INFO 2025-07-24 21:02:28,855 basehttp 16580 11848 "POST /api/v1/email-analysis/analyses/generate_report/ HTTP/1.1" 200 158
+INFO 2025-07-24 21:02:29,082 basehttp 16580 11848 "POST /api/v1/email-analysis/analyses/generate_report/ HTTP/1.1" 200 158
+ERROR 2025-07-24 21:02:31,382 log 16580 11848 Not Implemented: /api/v1/email-analysis/analyses/generate_report/
+ERROR 2025-07-24 21:02:31,437 basehttp 16580 11848 "POST /api/v1/email-analysis/analyses/generate_report/ HTTP/1.1" 501 61
+INFO 2025-07-24 21:02:35,472 basehttp 16580 11848 "POST /api/v1/email-analysis/analyses/generate_report/ HTTP/1.1" 200 226
+INFO 2025-07-24 21:03:47,770 autoreload 16580 9984 C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\email_analysis\views.py changed, reloading.
+INFO 2025-07-24 21:04:16,691 autoreload 7776 16072 Watching for file changes with StatReloader
+INFO 2025-07-24 21:05:56,035 basehttp 7776 23740 "GET /email-analysis/ HTTP/1.1" 200 24165
+ERROR 2025-07-24 21:06:18,634 log 7776 5508 Not Implemented: /api/v1/email-analysis/analyses/generate_report/
+ERROR 2025-07-24 21:06:18,637 basehttp 7776 5508 "POST /api/v1/email-analysis/analyses/generate_report/ HTTP/1.1" 501 61
+INFO 2025-07-24 21:06:24,744 basehttp 7776 23068 "POST /api/v1/email-analysis/analyses/generate_report/ HTTP/1.1" 200 158
+INFO 2025-07-24 21:08:59,620 basehttp 7776 15192 "POST /api/v1/email-analysis/analyses/generate_report/ HTTP/1.1" 200 158
+INFO 2025-07-24 21:09:00,908 basehttp 7776 15192 "POST /api/v1/email-analysis/analyses/generate_report/ HTTP/1.1" 200 158
+INFO 2025-07-24 21:09:01,281 basehttp 7776 15192 "POST /api/v1/email-analysis/analyses/generate_report/ HTTP/1.1" 200 158
+INFO 2025-07-24 21:09:01,969 basehttp 7776 15192 "POST /api/v1/email-analysis/analyses/generate_report/ HTTP/1.1" 200 158
+INFO 2025-07-24 21:09:02,271 basehttp 7776 15192 "POST /api/v1/email-analysis/analyses/generate_report/ HTTP/1.1" 200 158
+INFO 2025-07-24 21:09:02,495 basehttp 7776 15192 "POST /api/v1/email-analysis/analyses/generate_report/ HTTP/1.1" 200 158
+INFO 2025-07-24 21:09:03,893 basehttp 7776 15192 "GET /email-analysis/ HTTP/1.1" 200 24166
+INFO 2025-07-24 21:09:19,240 basehttp 7776 15192 "POST /api/v1/email-analysis/analyses/generate_report/ HTTP/1.1" 200 158
+INFO 2025-07-24 21:09:20,276 basehttp 7776 15192 "POST /api/v1/email-analysis/analyses/generate_report/ HTTP/1.1" 200 158
+INFO 2025-07-24 21:09:20,811 basehttp 7776 15192 "POST /api/v1/email-analysis/analyses/generate_report/ HTTP/1.1" 200 158
+INFO 2025-07-24 21:09:21,292 basehttp 7776 15192 "POST /api/v1/email-analysis/analyses/generate_report/ HTTP/1.1" 200 158
+INFO 2025-07-24 21:09:21,584 basehttp 7776 15192 "POST /api/v1/email-analysis/analyses/generate_report/ HTTP/1.1" 200 158
+INFO 2025-07-24 21:09:21,867 basehttp 7776 15192 "POST /api/v1/email-analysis/analyses/generate_report/ HTTP/1.1" 200 158
+INFO 2025-07-24 21:09:22,918 basehttp 7776 15192 "POST /api/v1/email-analysis/analyses/generate_report/ HTTP/1.1" 200 158
+INFO 2025-07-24 21:09:23,359 basehttp 7776 15192 "POST /api/v1/email-analysis/analyses/generate_report/ HTTP/1.1" 200 158
+INFO 2025-07-24 21:09:23,670 basehttp 7776 15192 "POST /api/v1/email-analysis/analyses/generate_report/ HTTP/1.1" 200 158
+INFO 2025-07-24 21:09:24,152 basehttp 7776 15192 "POST /api/v1/email-analysis/analyses/generate_report/ HTTP/1.1" 200 158
+INFO 2025-07-24 21:09:24,318 basehttp 7776 15192 "POST /api/v1/email-analysis/analyses/generate_report/ HTTP/1.1" 200 158
+INFO 2025-07-24 21:09:24,687 basehttp 7776 15192 "POST /api/v1/email-analysis/analyses/generate_report/ HTTP/1.1" 200 158
+INFO 2025-07-24 21:09:24,936 basehttp 7776 15192 "POST /api/v1/email-analysis/analyses/generate_report/ HTTP/1.1" 200 158
+ERROR 2025-07-24 21:09:34,548 log 7776 15192 Not Implemented: /api/v1/email-analysis/analyses/generate_report/
+ERROR 2025-07-24 21:09:34,572 basehttp 7776 15192 "POST /api/v1/email-analysis/analyses/generate_report/ HTTP/1.1" 501 61
+INFO 2025-07-24 21:11:57,832 autoreload 22680 18712 Watching for file changes with StatReloader
+INFO 2025-07-24 21:12:10,971 basehttp 22680 21976 "GET /email-analysis/ HTTP/1.1" 200 24166
+INFO 2025-07-24 21:12:23,675 basehttp 22680 21976 "POST /api/v1/email-analysis/analyses/generate_report/ HTTP/1.1" 200 158
+INFO 2025-07-24 21:12:27,120 basehttp 22680 21976 "POST /api/v1/email-analysis/analyses/generate_report/ HTTP/1.1" 200 1476
+INFO 2025-07-24 21:12:27,970 basehttp 22680 12212 "POST /api/v1/email-analysis/analyses/generate_report/ HTTP/1.1" 200 1476
+INFO 2025-07-24 21:12:47,360 basehttp 22680 21976 - Broken pipe from ('127.0.0.1', 52612)
+INFO 2025-07-24 21:15:58,803 autoreload 22440 23884 Watching for file changes with StatReloader
+INFO 2025-07-24 21:16:07,786 basehttp 22440 5300 "GET /email-analysis/ HTTP/1.1" 200 25845
+INFO 2025-07-24 21:16:22,392 basehttp 22440 5300 "POST /api/v1/email-analysis/analyses/generate_report/ HTTP/1.1" 200 1476
+INFO 2025-07-24 21:16:41,581 basehttp 22440 5300 - Broken pipe from ('127.0.0.1', 53093)
+INFO 2025-07-24 21:18:52,626 basehttp 22440 6788 "POST /api/v1/email-analysis/analyses/generate_report/ HTTP/1.1" 200 1476
+INFO 2025-07-24 21:18:57,230 basehttp 22440 6628 "GET /email-analysis/ HTTP/1.1" 200 25416
+INFO 2025-07-24 21:19:11,675 basehttp 22440 6788 - Broken pipe from ('127.0.0.1', 53478)
+INFO 2025-07-24 21:19:17,357 basehttp 22440 6628 "POST /api/v1/email-analysis/analyses/generate_report/ HTTP/1.1" 200 158
+INFO 2025-07-24 21:19:32,402 basehttp 22440 6628 "POST /api/v1/email-analysis/analyses/generate_report/ HTTP/1.1" 200 1476
+INFO 2025-07-24 21:19:52,452 basehttp 22440 6628 - Broken pipe from ('127.0.0.1', 53479)
+INFO 2025-07-24 21:21:35,952 autoreload 22440 23884 C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\email_analysis\views.py changed, reloading.
+INFO 2025-07-24 21:21:38,330 autoreload 16532 3664 Watching for file changes with StatReloader
+INFO 2025-07-24 21:23:08,367 basehttp 16532 8984 "GET /email-analysis/ HTTP/1.1" 200 25416
+INFO 2025-07-24 21:24:01,596 basehttp 16532 8984 "POST /api/v1/email-analysis/analyses/generate_report/ HTTP/1.1" 200 1476
+INFO 2025-07-24 21:24:20,578 basehttp 16532 8984 - Broken pipe from ('127.0.0.1', 53874)
+INFO 2025-07-24 21:25:43,430 autoreload 16532 3664 C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\email_analysis\views.py changed, reloading.
+INFO 2025-07-24 21:26:03,773 autoreload 12688 1788 Watching for file changes with StatReloader
+INFO 2025-07-24 21:36:12,684 basehttp 12688 3716 "POST /api/v1/email-analysis/analyses/generate_report/ HTTP/1.1" 200 1724
+INFO 2025-07-24 21:36:32,331 basehttp 12688 3716 - Broken pipe from ('127.0.0.1', 54932)
+INFO 2025-07-24 21:40:22,239 autoreload 12688 1788 C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\email_analysis\views.py changed, reloading.
+INFO 2025-07-24 21:40:39,206 autoreload 11340 23336 Watching for file changes with StatReloader
+INFO 2025-07-24 21:43:20,500 autoreload 11664 15912 Watching for file changes with StatReloader
+INFO 2025-07-24 21:46:29,988 autoreload 23888 7052 Watching for file changes with StatReloader
+INFO 2025-07-24 21:46:44,992 basehttp 23888 10428 "POST /api/v1/email-analysis/analyses/generate_report/ HTTP/1.1" 200 1804
+INFO 2025-07-24 21:46:52,598 basehttp 23888 23664 "GET /email-analysis/ HTTP/1.1" 200 25416
+INFO 2025-07-24 21:46:55,927 basehttp 23888 23664 "GET /users/logout/ HTTP/1.1" 302 0
+INFO 2025-07-24 21:46:55,980 basehttp 23888 23664 "GET /users/login/ HTTP/1.1" 200 4301
+INFO 2025-07-24 21:47:00,433 basehttp 23888 23664 "POST /users/login/ HTTP/1.1" 302 0
+INFO 2025-07-24 21:47:00,596 basehttp 23888 23664 "GET /email-analysis/ HTTP/1.1" 200 25416
+INFO 2025-07-24 21:47:04,134 basehttp 23888 10428 - Broken pipe from ('127.0.0.1', 56160)
+INFO 2025-07-24 21:47:20,691 basehttp 23888 2424 "POST /api/v1/email-analysis/analyses/generate_report/ HTTP/1.1" 200 1804
+INFO 2025-07-24 21:47:39,855 basehttp 23888 2424 - Broken pipe from ('127.0.0.1', 56199)
+INFO 2025-07-24 21:53:02,037 autoreload 23888 7052 C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\email_analysis\views.py changed, reloading.
+INFO 2025-07-24 21:53:38,109 autoreload 3828 22500 Watching for file changes with StatReloader
+INFO 2025-07-24 21:54:48,393 basehttp 3828 21984 "GET /email-analysis/ HTTP/1.1" 200 25416
+INFO 2025-07-24 21:55:09,937 basehttp 3828 21984 "POST /api/v1/email-analysis/analyses/generate_report/ HTTP/1.1" 200 158
+INFO 2025-07-24 21:55:17,242 basehttp 3828 21984 "POST /api/v1/email-analysis/analyses/generate_report/ HTTP/1.1" 200 1855
+INFO 2025-07-24 21:55:36,364 basehttp 3828 21984 - Broken pipe from ('127.0.0.1', 56857)
+INFO 2025-07-24 21:57:47,671 autoreload 3828 22500 C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\email_analysis\views.py changed, reloading.
+INFO 2025-07-24 21:57:50,007 autoreload 9876 17448 Watching for file changes with StatReloader
+INFO 2025-07-24 21:57:58,173 autoreload 9876 17448 C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\phishing_analyzer\settings.py changed, reloading.
+INFO 2025-07-24 21:58:00,468 autoreload 12788 8244 Watching for file changes with StatReloader
+INFO 2025-07-24 21:59:54,390 basehttp 12788 5756 "POST /api/v1/email-analysis/analyses/generate_report/ HTTP/1.1" 200 56
+INFO 2025-07-24 22:03:13,594 basehttp 12788 9644 "POST /api/v1/email-analysis/analyses/generate_report/ HTTP/1.1" 200 56
+INFO 2025-07-24 22:03:28,760 basehttp 12788 9644 "GET /users/logout/ HTTP/1.1" 302 0
+INFO 2025-07-24 22:03:29,097 basehttp 12788 9644 "GET /users/login/ HTTP/1.1" 200 4301
+INFO 2025-07-24 22:03:33,142 basehttp 12788 9644 "POST /users/login/ HTTP/1.1" 302 0
+INFO 2025-07-24 22:03:33,359 basehttp 12788 9644 "GET /email-analysis/ HTTP/1.1" 200 24944
+INFO 2025-07-24 22:03:50,657 basehttp 12788 9644 "POST /api/v1/email-analysis/analyses/generate_report/ HTTP/1.1" 200 56
+INFO 2025-07-24 22:03:51,653 basehttp 12788 18444 "GET /media/reports/report-1753383830-admin.pdf HTTP/1.1" 200 1854
+INFO 2025-07-24 22:05:21,819 autoreload 8556 16172 Watching for file changes with StatReloader
+INFO 2025-07-24 22:05:29,962 basehttp 8556 9432 "GET /email-analysis/ HTTP/1.1" 200 24944
+INFO 2025-07-24 22:05:59,858 basehttp 8556 14024 "POST /api/v1/email-analysis/analyses/generate_report/ HTTP/1.1" 200 56
+INFO 2025-07-24 22:06:01,857 basehttp 8556 13664 "GET /media/reports/report-1753383959-admin.pdf HTTP/1.1" 200 1853

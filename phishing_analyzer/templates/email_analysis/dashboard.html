@@ -216,24 +216,23 @@
                 {% csrf_token %}
                 <div class="modal-body">
                     <div class="mb-3">
-                        <label for="reportFormat" class="form-label">Format</label>
-                        <select class="form-select" id="reportFormat" name="report_format" required>
+                        <label for="report_format" class="form-label">Format</label>
+                        <select class="form-select" id="report_format" name="report_format" required>
                             <option value="CSV">CSV</option>
                             <option value="PDF">PDF</option>
                             <option value="JSON">JSON</option>
                         </select>
                     </div>
                     <div class="mb-3">
-                        <label for="dateFrom" class="form-label">From</label>
-                        <input type="date" class="form-control" id="dateFrom" name="date_from">
+                        <label for="date_from" class="form-label">Date From</label>
+                        <input type="datetime-local" class="form-control" id="date_from" name="date_from">
                     </div>
                     <div class="mb-3">
-                        <label for="dateTo" class="form-label">To</label>
-                        <input type="date" class="form-control" id="dateTo" name="date_to">
+                        <label for="date_to" class="form-label">Date To</label>
+                        <input type="datetime-local" class="form-control" id="date_to" name="date_to">
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
                     <button type="submit" class="btn btn-primary">Export</button>
                 </div>
             </form>
@@ -380,54 +379,99 @@ document.getElementById('exportReportForm').addEventListener('submit', function(
     submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Exporting...';
     submitBtn.disabled = true;
     const format = formData.get('report_format');
-    // Safely get CSRF token
-    const csrfInput = form.querySelector('[name=csrfmiddlewaretoken]');
-    if (!csrfInput) {
-        alert('CSRF token missing. Please reload the page.');
-        submitBtn.innerHTML = originalText;
-        submitBtn.disabled = false;
-        return;
+
+    // Auto-fill date range if blank (last 30 days)
+    let dateFrom = form.querySelector('#date_from').value;
+    let dateTo = form.querySelector('#date_to').value;
+    const now = new Date();
+    const prior = new Date(now.getTime() - 29 * 24 * 60 * 60 * 1000); // last 30 days
+    // Format as yyyy-MM-ddTHH:mm (for datetime-local input)
+    const pad = n => n.toString().padStart(2, '0');
+    const toLocal = d => `${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}T${pad(d.getHours())}:${pad(d.getMinutes())}`;
+    if (!dateFrom && !dateTo) {
+        dateFrom = toLocal(prior);
+        dateTo = toLocal(now);
+        form.querySelector('#date_from').value = dateFrom;
+        form.querySelector('#date_to').value = dateTo;
+    } else if (!dateFrom) {
+        // If only dateFrom is blank, set to 30 days before dateTo
+        const dateToObj = new Date(dateTo);
+        const dateFromObj = new Date(dateToObj.getTime() - 29 * 24 * 60 * 60 * 1000);
+        dateFrom = toLocal(dateFromObj);
+        form.querySelector('#date_from').value = dateFrom;
+    } else if (!dateTo) {
+        // If only dateTo is blank, set to now (if after dateFrom), else 1 minute after dateFrom
+        const dateFromObj = new Date(dateFrom);
+        dateTo = toLocal(now > dateFromObj ? now : new Date(dateFromObj.getTime() + 60 * 1000));
+        form.querySelector('#date_to').value = dateTo;
     }
+    // Ensure dateTo is after dateFrom
+    if (new Date(dateTo) <= new Date(dateFrom)) {
+        const dateFromObj = new Date(dateFrom);
+        dateTo = toLocal(new Date(dateFromObj.getTime() + 60 * 1000));
+        form.querySelector('#date_to').value = dateTo;
+    }
+    // Convert to ISO string for API
+    const dateFromISO = new Date(dateFrom).toISOString();
+    const dateToISO = new Date(dateTo).toISOString();
+    formData.set('date_from', dateFromISO);
+    formData.set('date_to', dateToISO);
+
     fetch('/api/v1/email-analysis/analyses/generate_report/', {
         method: 'POST',
         body: formData,
         headers: {
-            'X-CSRFToken': csrfInput.value
+            'X-CSRFToken': form.querySelector('[name=csrfmiddlewaretoken]').value
         }
     })
     .then(response => {
-        if (format === 'CSV' || format === 'PDF') {
-            return response.blob().then(blob => {
-                const url = window.URL.createObjectURL(blob);
-                const a = document.createElement('a');
-                a.href = url;
-                a.download = format === 'PDF' ? 'email_analysis_report.pdf' : 'email_analysis_report.csv';
-                document.body.appendChild(a);
-                a.click();
-                a.remove();
-                window.URL.revokeObjectURL(url);
-                submitBtn.innerHTML = originalText;
-                submitBtn.disabled = false;
-                var modal = bootstrap.Modal.getInstance(document.getElementById('exportReportModal'));
-                if (modal) modal.hide();
-            });
-        } else if (format === 'JSON') {
-            return response.json().then(data => {
-                const jsonStr = JSON.stringify(data, null, 2);
-                const blob = new Blob([jsonStr], {type: 'application/json'});
-                const url = window.URL.createObjectURL(blob);
-                window.open(url, '_blank');
-                submitBtn.innerHTML = originalText;
-                submitBtn.disabled = false;
-                var modal = bootstrap.Modal.getInstance(document.getElementById('exportReportModal'));
-                if (modal) modal.hide();
-            });
+        if (format === 'PDF' || format === 'JSON') {
+            return response.json().then(data => ({data, response}));
         } else {
-            throw new Error('Unknown format');
+            return response.blob().then(blob => ({blob, response}));
+        }
+    })
+    .then(({data, blob, response}) => {
+        if (response.ok) {
+            if (format === 'JSON') {
+                const jsonStr = JSON.stringify(data, null, 2);
+                const win = window.open();
+                win.document.write('<pre>' + jsonStr + '</pre>');
+            } else if (format === 'CSV') {
+                blob.text().then(text => {
+                    const win = window.open();
+                    win.document.write('<pre>' + text.replace(/</g, '&lt;').replace(/>/g, '&gt;') + '</pre>');
+                    win.document.write('<hr><button id="downloadCsvBtn">Download CSV</button>');
+                    win.document.getElementById('downloadCsvBtn').onclick = function() {
+                        const url = window.URL.createObjectURL(blob);
+                        const a = win.document.createElement('a');
+                        a.href = url;
+                        a.download = 'email_analysis_report.csv';
+                        win.document.body.appendChild(a);
+                        a.click();
+                        a.remove();
+                        window.URL.revokeObjectURL(url);
+                    };
+                });
+            } else if (format === 'PDF') {
+                if (data && data.pdf_url) {
+                    window.open(data.pdf_url, '_blank');
+                } else {
+                    alert('PDF export failed: No URL returned.');
+                }
+            }
+        } else {
+            if ((format === 'JSON' || format === 'PDF') && data) {
+                alert('Export failed: ' + (data.error || JSON.stringify(data)));
+            } else {
+                alert('Export failed.');
+            }
         }
     })
     .catch(err => {
-        alert('Export failed: ' + err.message);
+        alert('Export failed: ' + err);
+    })
+    .finally(() => {
         submitBtn.innerHTML = originalText;
         submitBtn.disabled = false;
     });
