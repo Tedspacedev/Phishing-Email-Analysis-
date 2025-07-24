@@ -1094,3 +1094,23 @@ INFO 2025-07-24 23:08:52,218 autoreload 14448 18016 C:\Users\TED\Documents\GitHu
 INFO 2025-07-24 23:08:54,889 autoreload 20028 2056 Watching for file changes with StatReloader
 INFO 2025-07-24 23:09:09,676 basehttp 20028 5956 "POST /api/v1/email-analysis/analyses/generate_report/ HTTP/1.1" 200 56
 INFO 2025-07-24 23:09:10,264 basehttp 20028 12988 "GET /media/reports/report-1753387749-admin.pdf HTTP/1.1" 200 2208
+INFO 2025-07-25 00:36:39,540 autoreload 7660 7632 Watching for file changes with StatReloader
+INFO 2025-07-25 00:38:15,902 basehttp 7660 14032 "GET / HTTP/1.1" 302 0
+INFO 2025-07-25 00:38:16,182 basehttp 7660 14032 "GET /email-analysis/ HTTP/1.1" 200 24946
+INFO 2025-07-25 00:38:25,323 basehttp 7660 20332 "GET /email-analysis/analyses/ HTTP/1.1" 200 14944
+INFO 2025-07-25 00:38:25,450 basehttp 7660 20332 "GET /static/rest_framework/css/default.css HTTP/1.1" 304 0
+INFO 2025-07-25 00:38:25,450 basehttp 7660 15716 "GET /static/rest_framework/css/bootstrap.min.css HTTP/1.1" 304 0
+INFO 2025-07-25 00:38:25,450 basehttp 7660 24360 "GET /static/rest_framework/css/prettify.css HTTP/1.1" 304 0
+INFO 2025-07-25 00:38:25,469 basehttp 7660 20332 "GET /static/rest_framework/css/bootstrap-tweaks.css HTTP/1.1" 304 0
+INFO 2025-07-25 00:38:25,490 basehttp 7660 24360 "GET /static/rest_framework/js/csrf.js HTTP/1.1" 304 0
+INFO 2025-07-25 00:38:25,560 basehttp 7660 15716 "GET /static/rest_framework/js/prettify-min.js HTTP/1.1" 304 0
+INFO 2025-07-25 00:38:25,499 basehttp 7660 20332 "GET /static/rest_framework/js/jquery-3.7.1.min.js HTTP/1.1" 304 0
+INFO 2025-07-25 00:38:25,642 basehttp 7660 24360 "GET /static/rest_framework/js/ajax-form.js HTTP/1.1" 304 0
+INFO 2025-07-25 00:38:25,645 basehttp 7660 20332 "GET /static/rest_framework/js/bootstrap.min.js HTTP/1.1" 304 0
+INFO 2025-07-25 00:38:25,683 basehttp 7660 15716 "GET /static/rest_framework/js/default.js HTTP/1.1" 304 0
+INFO 2025-07-25 00:38:25,757 basehttp 7660 20332 "GET /static/rest_framework/fonts/glyphicons-halflings-regular.woff2 HTTP/1.1" 304 0
+INFO 2025-07-25 00:38:25,758 basehttp 7660 24360 "GET /static/rest_framework/js/load-ajax-form.js HTTP/1.1" 304 0
+INFO 2025-07-25 00:38:25,761 basehttp 7660 15716 "GET /static/rest_framework/img/grid.png HTTP/1.1" 304 0
+INFO 2025-07-25 00:38:30,045 basehttp 7660 15716 "GET /email-analysis/analyses/ HTTP/1.1" 200 14944
+INFO 2025-07-25 00:38:44,130 basehttp 7660 22340 "GET /email-analysis/ HTTP/1.1" 200 24946
+INFO 2025-07-25 00:38:45,843 basehttp 7660 22340 "GET /email-analysis/analyses/ HTTP/1.1" 200 14944
