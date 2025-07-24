@@ -39,3 +39,443 @@ INFO 2025-07-24 12:55:34,273 autoreload 12516 140375820357888 /workspace/phishin
 INFO 2025-07-24 12:55:34,535 autoreload 12604 140214016295168 Watching for file changes with StatReloader
 INFO 2025-07-24 12:55:49,819 autoreload 12604 140214016295168 /workspace/phishing_analyzer/user_management/urls.py changed, reloading.
 INFO 2025-07-24 12:55:50,071 autoreload 12734 140531916783872 Watching for file changes with StatReloader
+INFO 2025-07-24 16:47:41,943 autoreload 22572 22828 Watching for file changes with StatReloader
+INFO 2025-07-24 16:47:55,681 basehttp 22572 24484 "GET / HTTP/1.1" 302 0
+INFO 2025-07-24 16:47:55,851 basehttp 22572 24484 "GET /email-analysis/ HTTP/1.1" 302 0
+INFO 2025-07-24 16:47:55,966 basehttp 22572 24484 "GET /users/login/ HTTP/1.1" 200 4301
+INFO 2025-07-24 16:48:49,654 basehttp 22572 24484 "POST /users/login/ HTTP/1.1" 302 0
+INFO 2025-07-24 16:48:49,693 basehttp 22572 24484 "GET /email-analysis/ HTTP/1.1" 200 15985
+INFO 2025-07-24 16:49:26,620 basehttp 22572 24484 "GET /email-analysis/ HTTP/1.1" 200 15985
+ERROR 2025-07-24 16:49:31,645 log 22572 24484 Internal Server Error: /email-analysis/api/analyses/
+Traceback (most recent call last):
+  File "C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\pmail\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\pmail\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\pmail\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\pmail\Lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\pmail\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\pmail\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\pmail\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\pmail\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\pmail\Lib\site-packages\rest_framework\mixins.py", line 38, in list
+    queryset = self.filter_queryset(self.get_queryset())
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\pmail\Lib\site-packages\rest_framework\generics.py", line 154, in filter_queryset
+    queryset = backend().filter_queryset(self.request, queryset, self)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\pmail\Lib\site-packages\django_filters\rest_framework\backends.py", line 94, in filter_queryset
+    if not filterset.is_valid() and self.raise_exception:
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\pmail\Lib\site-packages\django_filters\filterset.py", line 212, in is_valid
+    return self.is_bound and self.form.is_valid()
+                             ^^^^^^^^^
+  File "C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\pmail\Lib\site-packages\django_filters\rest_framework\filterset.py", line 24, in form
+    form = super().form
+           ^^^^^^^^^^^^
+  File "C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\pmail\Lib\site-packages\django_filters\filterset.py", line 264, in form
+    Form = self.get_form_class()
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\pmail\Lib\site-packages\django_filters\filterset.py", line 254, in get_form_class
+    fields = OrderedDict([
+                         ^
+  File "C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\pmail\Lib\site-packages\django_filters\filterset.py", line 255, in <listcomp>
+    (name, filter_.field)
+           ^^^^^^^^^^^^^
+  File "C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\pmail\Lib\site-packages\django_filters\filters.py", line 137, in field
+    self._field = self.field_class(label=self.label, **field_kwargs)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\pmail\Lib\site-packages\django_filters\fields.py", line 278, in __init__
+    super().__init__(*args, **kwargs)
+  File "C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\pmail\Lib\site-packages\django_filters\fields.py", line 259, in __init__
+    super().__init__(*args, **kwargs)
+  File "C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\pmail\Lib\site-packages\django\forms\fields.py", line 895, in __init__
+    self.choices = choices
+    ^^^^^^^^^^^^
+  File "C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\pmail\Lib\site-packages\django_filters\fields.py", line 265, in _set_choices
+    super()._set_choices(value)
+    ^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'super' object has no attribute '_set_choices'
+ERROR 2025-07-24 16:49:31,653 basehttp 22572 24484 "GET /email-analysis/api/analyses/ HTTP/1.1" 500 153498
+INFO 2025-07-24 16:49:37,487 basehttp 22572 24484 "GET /users/profile/ HTTP/1.1" 200 10909
+INFO 2025-07-24 16:49:45,181 basehttp 22572 24484 "GET /email-analysis/ HTTP/1.1" 200 15985
+ERROR 2025-07-24 16:49:46,615 log 22572 24484 Internal Server Error: /email-analysis/api/analyses/
+Traceback (most recent call last):
+  File "C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\pmail\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\pmail\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\pmail\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\pmail\Lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\pmail\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\pmail\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\pmail\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\pmail\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\pmail\Lib\site-packages\rest_framework\mixins.py", line 38, in list
+    queryset = self.filter_queryset(self.get_queryset())
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\pmail\Lib\site-packages\rest_framework\generics.py", line 154, in filter_queryset
+    queryset = backend().filter_queryset(self.request, queryset, self)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\pmail\Lib\site-packages\django_filters\rest_framework\backends.py", line 94, in filter_queryset
+    if not filterset.is_valid() and self.raise_exception:
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\pmail\Lib\site-packages\django_filters\filterset.py", line 212, in is_valid
+    return self.is_bound and self.form.is_valid()
+                             ^^^^^^^^^
+  File "C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\pmail\Lib\site-packages\django_filters\rest_framework\filterset.py", line 24, in form
+    form = super().form
+           ^^^^^^^^^^^^
+  File "C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\pmail\Lib\site-packages\django_filters\filterset.py", line 264, in form
+    Form = self.get_form_class()
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\pmail\Lib\site-packages\django_filters\filterset.py", line 254, in get_form_class
+    fields = OrderedDict([
+                         ^
+  File "C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\pmail\Lib\site-packages\django_filters\filterset.py", line 255, in <listcomp>
+    (name, filter_.field)
+           ^^^^^^^^^^^^^
+  File "C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\pmail\Lib\site-packages\django_filters\filters.py", line 137, in field
+    self._field = self.field_class(label=self.label, **field_kwargs)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\pmail\Lib\site-packages\django_filters\fields.py", line 278, in __init__
+    super().__init__(*args, **kwargs)
+  File "C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\pmail\Lib\site-packages\django_filters\fields.py", line 259, in __init__
+    super().__init__(*args, **kwargs)
+  File "C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\pmail\Lib\site-packages\django\forms\fields.py", line 895, in __init__
+    self.choices = choices
+    ^^^^^^^^^^^^
+  File "C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\pmail\Lib\site-packages\django_filters\fields.py", line 265, in _set_choices
+    super()._set_choices(value)
+    ^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'super' object has no attribute '_set_choices'
+ERROR 2025-07-24 16:49:46,623 basehttp 22572 24484 "GET /email-analysis/api/analyses/ HTTP/1.1" 500 153498
+INFO 2025-07-24 16:51:20,180 autoreload 7896 21680 Watching for file changes with StatReloader
+INFO 2025-07-24 16:51:29,172 basehttp 7896 19540 "GET /email-analysis/ HTTP/1.1" 200 15985
+INFO 2025-07-24 16:51:32,585 basehttp 7896 19540 "GET /email-analysis/api/analyses/ HTTP/1.1" 200 14308
+INFO 2025-07-24 16:51:32,963 basehttp 7896 8692 "GET /static/rest_framework/css/bootstrap-tweaks.css HTTP/1.1" 200 3426
+INFO 2025-07-24 16:51:32,970 basehttp 7896 968 "GET /static/rest_framework/css/prettify.css HTTP/1.1" 200 817
+INFO 2025-07-24 16:51:32,981 basehttp 7896 11876 "GET /static/rest_framework/css/default.css HTTP/1.1" 200 1152
+INFO 2025-07-24 16:51:33,008 basehttp 7896 8692 "GET /static/rest_framework/js/csrf.js HTTP/1.1" 200 1793
+INFO 2025-07-24 16:51:33,014 basehttp 7896 12268 "GET /static/rest_framework/js/ajax-form.js HTTP/1.1" 200 3796
+INFO 2025-07-24 16:51:33,021 basehttp 7896 968 "GET /static/rest_framework/js/bootstrap.min.js HTTP/1.1" 200 39680
+INFO 2025-07-24 16:51:33,024 basehttp 7896 11876 "GET /static/rest_framework/js/prettify-min.js HTTP/1.1" 200 13632
+INFO 2025-07-24 16:51:33,025 basehttp 7896 19540 "GET /static/rest_framework/css/bootstrap.min.css HTTP/1.1" 200 121457
+INFO 2025-07-24 16:51:33,076 basehttp 7896 21348 "GET /static/rest_framework/js/jquery-3.7.1.min.js HTTP/1.1" 200 87533
+INFO 2025-07-24 16:51:33,079 basehttp 7896 8692 "GET /static/rest_framework/js/default.js HTTP/1.1" 200 1268
+INFO 2025-07-24 16:51:33,171 basehttp 7896 968 "GET /static/rest_framework/js/load-ajax-form.js HTTP/1.1" 200 59
+INFO 2025-07-24 16:51:33,281 basehttp 7896 21348 "GET /static/rest_framework/img/grid.png HTTP/1.1" 200 1458
+INFO 2025-07-24 16:51:33,362 basehttp 7896 8692 "GET /static/rest_framework/fonts/glyphicons-halflings-regular.woff2 HTTP/1.1" 200 18028
+INFO 2025-07-24 16:51:48,870 basehttp 7896 8692 "GET /admin/ HTTP/1.1" 302 0
+INFO 2025-07-24 16:51:48,979 basehttp 7896 8692 "GET /admin/login/?next=/admin/ HTTP/1.1" 200 3690
+INFO 2025-07-24 16:51:49,112 basehttp 7896 21348 "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 200 2810
+INFO 2025-07-24 16:51:49,112 basehttp 7896 19540 "GET /static/admin/css/dark_mode.css HTTP/1.1" 200 2808
+INFO 2025-07-24 16:51:49,113 basehttp 7896 11876 "GET /static/admin/js/theme.js HTTP/1.1" 200 1653
+INFO 2025-07-24 16:51:49,114 basehttp 7896 12268 "GET /static/admin/css/login.css HTTP/1.1" 200 951
+INFO 2025-07-24 16:51:49,115 basehttp 7896 968 "GET /static/admin/css/base.css HTTP/1.1" 200 22120
+INFO 2025-07-24 16:51:49,115 basehttp 7896 8692 "GET /static/admin/css/responsive.css HTTP/1.1" 200 16565
+INFO 2025-07-24 16:51:49,162 basehttp 7896 968 "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 200 3063
+INFO 2025-07-24 16:52:03,416 basehttp 7896 968 "POST /admin/login/?next=/admin/ HTTP/1.1" 302 0
+INFO 2025-07-24 16:52:03,528 basehttp 7896 968 "GET /admin/ HTTP/1.1" 200 18157
+INFO 2025-07-24 16:52:03,651 basehttp 7896 968 "GET /static/admin/css/dashboard.css HTTP/1.1" 200 441
+INFO 2025-07-24 16:52:03,735 basehttp 7896 12268 "GET /static/admin/img/icon-viewlink.svg HTTP/1.1" 200 581
+INFO 2025-07-24 16:52:03,746 basehttp 7896 968 "GET /static/admin/img/icon-addlink.svg HTTP/1.1" 200 331
+INFO 2025-07-24 16:52:03,750 basehttp 7896 8692 "GET /static/admin/img/icon-changelink.svg HTTP/1.1" 200 380
+INFO 2025-07-24 16:52:09,766 basehttp 7896 8692 "GET /admin/user_management/apikey/ HTTP/1.1" 200 19588
+INFO 2025-07-24 16:52:09,873 basehttp 7896 19540 "GET /static/admin/js/prepopulate.js HTTP/1.1" 200 1531
+INFO 2025-07-24 16:52:09,874 basehttp 7896 8692 "GET /static/admin/css/changelists.css HTTP/1.1" 200 6878
+INFO 2025-07-24 16:52:09,891 basehttp 7896 968 "GET /static/admin/js/actions.js HTTP/1.1" 200 8076
+INFO 2025-07-24 16:52:09,892 basehttp 7896 11876 "GET /static/admin/js/core.js HTTP/1.1" 200 6208
+INFO 2025-07-24 16:52:09,896 basehttp 7896 12268 "GET /static/admin/js/urlify.js HTTP/1.1" 200 7887
+INFO 2025-07-24 16:52:09,994 basehttp 7896 8692 "GET /static/admin/js/admin/RelatedObjectLookups.js HTTP/1.1" 200 9777
+INFO 2025-07-24 16:52:09,994 basehttp 7896 21348 "GET /admin/jsi18n/ HTTP/1.1" 200 3342
+INFO 2025-07-24 16:52:09,997 basehttp 7896 968 "GET /static/admin/js/jquery.init.js HTTP/1.1" 200 347
+INFO 2025-07-24 16:52:10,135 basehttp 7896 19540 "GET /static/admin/js/vendor/xregexp/xregexp.js HTTP/1.1" 200 325171
+INFO 2025-07-24 16:52:10,178 basehttp 7896 12268 "GET /static/admin/js/vendor/jquery/jquery.js HTTP/1.1" 200 285314
+INFO 2025-07-24 16:52:10,191 basehttp 7896 21348 "GET /static/admin/img/search.svg HTTP/1.1" 200 458
+INFO 2025-07-24 16:52:10,204 basehttp 7896 12268 "GET /static/admin/js/filters.js HTTP/1.1" 200 978
+INFO 2025-07-24 16:52:10,346 basehttp 7896 12268 "GET /static/admin/img/tooltag-add.svg HTTP/1.1" 200 331
+INFO 2025-07-24 16:53:05,179 basehttp 7896 12268 "GET / HTTP/1.1" 302 0
+INFO 2025-07-24 16:53:05,457 basehttp 7896 12268 "GET /email-analysis/ HTTP/1.1" 200 15986
+INFO 2025-07-24 16:54:08,570 basehttp 7896 12268 "GET /email-analysis/ HTTP/1.1" 200 15986
+INFO 2025-07-24 16:54:20,739 basehttp 7896 12268 "GET /email-analysis/ HTTP/1.1" 200 15986
+INFO 2025-07-24 16:54:22,191 basehttp 7896 12268 "GET /email-analysis/api/analyses/ HTTP/1.1" 200 14305
+INFO 2025-07-24 16:54:22,297 basehttp 7896 8692 "GET /static/rest_framework/js/jquery-3.7.1.min.js HTTP/1.1" 304 0
+INFO 2025-07-24 16:54:22,297 basehttp 7896 21348 "GET /static/rest_framework/css/bootstrap-tweaks.css HTTP/1.1" 304 0
+INFO 2025-07-24 16:54:22,297 basehttp 7896 12268 "GET /static/rest_framework/css/bootstrap.min.css HTTP/1.1" 304 0
+INFO 2025-07-24 16:54:22,297 basehttp 7896 19540 "GET /static/rest_framework/css/prettify.css HTTP/1.1" 304 0
+INFO 2025-07-24 16:54:22,297 basehttp 7896 968 "GET /static/rest_framework/css/default.css HTTP/1.1" 304 0
+INFO 2025-07-24 16:54:22,298 basehttp 7896 11876 "GET /static/rest_framework/js/ajax-form.js HTTP/1.1" 304 0
+INFO 2025-07-24 16:54:22,360 basehttp 7896 21348 "GET /static/rest_framework/js/csrf.js HTTP/1.1" 304 0
+INFO 2025-07-24 16:54:22,363 basehttp 7896 12268 "GET /static/rest_framework/js/bootstrap.min.js HTTP/1.1" 304 0
+INFO 2025-07-24 16:54:22,365 basehttp 7896 8692 "GET /static/rest_framework/js/prettify-min.js HTTP/1.1" 304 0
+INFO 2025-07-24 16:54:22,416 basehttp 7896 19540 "GET /static/rest_framework/js/default.js HTTP/1.1" 304 0
+INFO 2025-07-24 16:54:22,430 basehttp 7896 968 "GET /static/rest_framework/js/load-ajax-form.js HTTP/1.1" 304 0
+INFO 2025-07-24 16:54:22,494 basehttp 7896 8692 "GET /static/rest_framework/img/grid.png HTTP/1.1" 304 0
+INFO 2025-07-24 16:54:22,542 basehttp 7896 8692 "GET /static/rest_framework/fonts/glyphicons-halflings-regular.woff2 HTTP/1.1" 304 0
+ERROR 2025-07-24 16:54:39,020 services 7896 8692 Error during phishing analysis: list index out of range
+ERROR 2025-07-24 16:54:39,036 views 7896 8692 Analysis failed for email 1: list index out of range
+ERROR 2025-07-24 16:54:39,062 views 7896 8692 Error triggering analysis for 1: list index out of range
+INFO 2025-07-24 16:54:39,098 basehttp 7896 8692 "POST /email-analysis/api/analyses/ HTTP/1.1" 201 11611
+ERROR 2025-07-24 16:54:45,562 log 7896 8692 Internal Server Error: /email-analysis/api/analyses/
+Traceback (most recent call last):
+  File "C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\pmail\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\pmail\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\pmail\Lib\site-packages\django\views\decorators\csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\pmail\Lib\site-packages\rest_framework\viewsets.py", line 125, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\pmail\Lib\site-packages\rest_framework\views.py", line 515, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\pmail\Lib\site-packages\rest_framework\views.py", line 475, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\pmail\Lib\site-packages\rest_framework\views.py", line 486, in raise_uncaught_exception
+    raise exc
+  File "C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\pmail\Lib\site-packages\rest_framework\views.py", line 512, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\pmail\Lib\site-packages\rest_framework\mixins.py", line 43, in list
+    return self.get_paginated_response(serializer.data)
+                                       ^^^^^^^^^^^^^^^
+  File "C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\pmail\Lib\site-packages\rest_framework\serializers.py", line 797, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\pmail\Lib\site-packages\rest_framework\serializers.py", line 251, in data
+    self._data = self.to_representation(self.instance)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\pmail\Lib\site-packages\rest_framework\serializers.py", line 715, in to_representation
+    return [
+           ^
+  File "C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\pmail\Lib\site-packages\rest_framework\serializers.py", line 716, in <listcomp>
+    self.child.to_representation(item) for item in iterable
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\pmail\Lib\site-packages\rest_framework\serializers.py", line 525, in to_representation
+    for field in fields:
+  File "C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\pmail\Lib\site-packages\rest_framework\serializers.py", line 386, in _readable_fields
+    for field in self.fields.values():
+                 ^^^^^^^^^^^
+  File "C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\pmail\Lib\site-packages\django\utils\functional.py", line 47, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\pmail\Lib\site-packages\rest_framework\serializers.py", line 374, in fields
+    for key, value in self.get_fields().items():
+                      ^^^^^^^^^^^^^^^^^
+  File "C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\pmail\Lib\site-packages\rest_framework\serializers.py", line 1085, in get_fields
+    extra_kwargs = self.get_extra_kwargs()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\pmail\Lib\site-packages\rest_framework\serializers.py", line 1408, in get_extra_kwargs
+    raise TypeError(
+TypeError: The `read_only_fields` option must be a list or tuple. Got str.
+ERROR 2025-07-24 16:54:45,562 basehttp 7896 8692 "GET /email-analysis/api/analyses/ HTTP/1.1" 500 150887
+INFO 2025-07-24 16:57:06,166 autoreload 7896 21680 C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\email_analysis\serializers.py changed, reloading.
+INFO 2025-07-24 16:57:22,272 autoreload 23212 8724 Watching for file changes with StatReloader
+INFO 2025-07-24 16:57:57,399 autoreload 22392 14824 Watching for file changes with StatReloader
+INFO 2025-07-24 16:58:22,967 basehttp 22392 11356 "GET /email-analysis/ HTTP/1.1" 200 16824
+ERROR 2025-07-24 16:58:32,941 log 22392 15748 Internal Server Error: /email-analysis/analysis/1/
+Traceback (most recent call last):
+  File "C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\pmail\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\pmail\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\email_analysis\views.py", line 435, in analysis_detail
+    return render(request, 'email_analysis/analysis_detail.html', context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\pmail\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\pmail\Lib\site-packages\django\template\loader.py", line 61, in render_to_string
+    template = get_template(template_name, using=using)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\pmail\Lib\site-packages\django\template\loader.py", line 19, in get_template
+    raise TemplateDoesNotExist(template_name, chain=chain)
+django.template.exceptions.TemplateDoesNotExist: email_analysis/analysis_detail.html
+ERROR 2025-07-24 16:58:32,946 basehttp 22392 15748 "GET /email-analysis/analysis/1/ HTTP/1.1" 500 91024
+INFO 2025-07-24 17:00:11,107 autoreload 22392 14824 C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\manage.py changed, reloading.
+INFO 2025-07-24 17:00:12,786 autoreload 23332 1924 Watching for file changes with StatReloader
+INFO 2025-07-24 17:00:23,380 basehttp 23332 4208 "GET /email-analysis/analysis/1/ HTTP/1.1" 200 6685
+ERROR 2025-07-24 17:03:35,253 log 23332 4208 Internal Server Error: /email-analysis/analysis/1/
+Traceback (most recent call last):
+  File "C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\pmail\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\pmail\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\email_analysis\views.py", line 435, in analysis_detail
+    return render(request, 'email_analysis/analysis_detail.html', context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\pmail\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\pmail\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\pmail\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\pmail\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\pmail\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\pmail\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\pmail\Lib\site-packages\django\template\base.py", line 1016, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\pmail\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\pmail\Lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\pmail\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\pmail\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\pmail\Lib\site-packages\django\template\base.py", line 1016, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\pmail\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\pmail\Lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\pmail\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\pmail\Lib\site-packages\django\template\base.py", line 1016, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\pmail\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\pmail\Lib\site-packages\django\template\defaulttags.py", line 327, in render
+    return nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\pmail\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\pmail\Lib\site-packages\django\template\base.py", line 1016, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\pmail\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\pmail\Lib\site-packages\django\template\defaulttags.py", line 198, in render
+    values = list(values)
+             ^^^^^^^^^^^^
+TypeError: 'RelatedManager' object is not iterable
+ERROR 2025-07-24 17:03:35,267 basehttp 23332 4208 "GET /email-analysis/analysis/1/ HTTP/1.1" 500 187737
+INFO 2025-07-24 17:04:15,883 autoreload 23332 1924 C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\email_analysis\views.py changed, reloading.
+INFO 2025-07-24 17:04:18,098 autoreload 22900 19688 Watching for file changes with StatReloader
+INFO 2025-07-24 17:14:49,263 basehttp 22900 23672 "GET /email-analysis/analysis/1/ HTTP/1.1" 200 9275
+INFO 2025-07-24 17:15:03,149 basehttp 22900 19068 "GET /email-analysis/ HTTP/1.1" 200 16825
+INFO 2025-07-24 17:18:44,170 autoreload 22900 19688 C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\email_analysis\views.py changed, reloading.
+INFO 2025-07-24 17:18:51,866 autoreload 3740 8208 Watching for file changes with StatReloader
+INFO 2025-07-24 17:20:14,610 basehttp 3740 7464 "GET /email-analysis/ HTTP/1.1" 200 16825
+ERROR 2025-07-24 17:20:28,395 log 3740 7464 Internal Server Error: /users/logout/
+Traceback (most recent call last):
+  File "C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\pmail\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\pmail\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\pmail\Lib\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\user_management\views.py", line 509, in logout_view
+    return redirect('user_management:login')
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\pmail\Lib\site-packages\django\shortcuts.py", line 51, in redirect
+    resolve_url(to, *args, **kwargs),
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\pmail\Lib\site-packages\django\shortcuts.py", line 184, in resolve_url
+    return reverse(to, args=args, kwargs=kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\pmail\Lib\site-packages\django\urls\base.py", line 98, in reverse
+    resolved_url = resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\pmail\Lib\site-packages\django\urls\resolvers.py", line 831, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'login' not found. 'login' is not a valid view function or pattern name.
+ERROR 2025-07-24 17:20:28,407 basehttp 3740 7464 "GET /users/logout/ HTTP/1.1" 500 98737
+INFO 2025-07-24 17:24:15,686 basehttp 3740 7464 "GET /email-analysis/ HTTP/1.1" 302 0
+INFO 2025-07-24 17:24:15,710 basehttp 3740 7464 "GET /users/login/ HTTP/1.1" 200 4301
+INFO 2025-07-24 17:27:35,515 autoreload 3740 8208 C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\user_management\views.py changed, reloading.
+INFO 2025-07-24 17:27:38,857 autoreload 19088 8660 Watching for file changes with StatReloader
+INFO 2025-07-24 17:31:49,024 autoreload 19088 8660 C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\email_analysis\views.py changed, reloading.
+INFO 2025-07-24 17:31:53,130 autoreload 15240 6788 Watching for file changes with StatReloader
+INFO 2025-07-24 17:34:05,226 autoreload 23932 22804 Watching for file changes with StatReloader
+INFO 2025-07-24 17:36:49,533 basehttp 23932 1812 "POST /users/login/ HTTP/1.1" 302 0
+INFO 2025-07-24 17:36:49,755 basehttp 23932 1812 "GET /email-analysis/ HTTP/1.1" 200 15983
+INFO 2025-07-24 17:37:02,915 basehttp 23932 1812 "GET /email-analysis/api/analyses/ HTTP/1.1" 200 15026
+INFO 2025-07-24 17:37:03,075 basehttp 23932 1812 "GET /static/rest_framework/css/bootstrap.min.css HTTP/1.1" 304 0
+INFO 2025-07-24 17:37:03,084 basehttp 23932 23544 "GET /static/rest_framework/css/bootstrap-tweaks.css HTTP/1.1" 304 0
+INFO 2025-07-24 17:37:03,088 basehttp 23932 19560 "GET /static/rest_framework/css/prettify.css HTTP/1.1" 304 0
+INFO 2025-07-24 17:37:03,136 basehttp 23932 1812 "GET /static/rest_framework/js/ajax-form.js HTTP/1.1" 304 0
+INFO 2025-07-24 17:37:03,143 basehttp 23932 23544 "GET /static/rest_framework/js/jquery-3.7.1.min.js HTTP/1.1" 304 0
+INFO 2025-07-24 17:37:03,158 basehttp 23932 19560 "GET /static/rest_framework/css/default.css HTTP/1.1" 304 0
+INFO 2025-07-24 17:37:03,251 basehttp 23932 1812 "GET /static/rest_framework/js/csrf.js HTTP/1.1" 304 0
+INFO 2025-07-24 17:37:03,384 basehttp 23932 23544 "GET /static/rest_framework/js/bootstrap.min.js HTTP/1.1" 304 0
+INFO 2025-07-24 17:37:03,384 basehttp 23932 19560 "GET /static/rest_framework/js/prettify-min.js HTTP/1.1" 304 0
+INFO 2025-07-24 17:37:03,391 basehttp 23932 1812 "GET /static/rest_framework/js/default.js HTTP/1.1" 304 0
+INFO 2025-07-24 17:37:03,422 basehttp 23932 11784 "GET /static/rest_framework/js/load-ajax-form.js HTTP/1.1" 304 0
+INFO 2025-07-24 17:37:03,461 basehttp 23932 10696 "GET /static/rest_framework/img/grid.png HTTP/1.1" 304 0
+INFO 2025-07-24 17:37:03,624 basehttp 23932 3932 "GET /static/rest_framework/fonts/glyphicons-halflings-regular.woff2 HTTP/1.1" 304 0
+INFO 2025-07-24 17:37:16,940 basehttp 23932 3932 "GET /users/profile/ HTTP/1.1" 200 10909
+INFO 2025-07-24 17:37:23,789 basehttp 23932 3932 "GET /email-analysis/ HTTP/1.1" 200 15983
+INFO 2025-07-24 17:37:39,810 basehttp 23932 3932 "GET /email-analysis/ HTTP/1.1" 200 15983
+INFO 2025-07-24 17:38:01,874 basehttp 23932 3932 "GET /email-analysis/ HTTP/1.1" 200 15983
+INFO 2025-07-24 17:38:18,164 basehttp 23932 3932 "GET /users/logout/ HTTP/1.1" 302 0
+INFO 2025-07-24 17:38:18,202 basehttp 23932 3932 "GET /users/login/ HTTP/1.1" 200 4301
+WARNING 2025-07-24 17:38:34,567 log 23932 3932 Forbidden: /email-analysis/api/analyses/
+WARNING 2025-07-24 17:38:34,570 basehttp 23932 3932 "GET /email-analysis/api/analyses/ HTTP/1.1" 403 5268
+INFO 2025-07-24 17:38:38,057 basehttp 23932 3932 "GET /email-analysis/ HTTP/1.1" 302 0
+INFO 2025-07-24 17:38:52,034 basehttp 23932 3932 "POST /users/login/ HTTP/1.1" 302 0
+INFO 2025-07-24 17:38:52,082 basehttp 23932 3932 "GET /email-analysis/ HTTP/1.1" 200 16823
+INFO 2025-07-24 17:39:05,382 basehttp 23932 3932 "GET /email-analysis/api/analyses/ HTTP/1.1" 200 15023
+INFO 2025-07-24 17:39:11,881 basehttp 23932 3932 "GET /email-analysis/ HTTP/1.1" 200 16823
+INFO 2025-07-24 17:39:18,178 basehttp 23932 3932 "GET /email-analysis/analysis/1/ HTTP/1.1" 200 9275
+INFO 2025-07-24 17:39:23,329 basehttp 23932 3932 "GET /email-analysis/ HTTP/1.1" 200 16823
+INFO 2025-07-24 17:47:16,919 basehttp 23932 24364 "GET /email-analysis/ HTTP/1.1" 200 17280
+INFO 2025-07-24 17:47:33,072 basehttp 23932 24364 "GET /email-analysis/analysis/1/ HTTP/1.1" 200 9275

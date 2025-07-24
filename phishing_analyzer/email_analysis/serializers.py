@@ -152,7 +152,11 @@ class EmailAnalysisListSerializer(serializers.ModelSerializer):
             'analyzed_by_username', 'threat_count', 'created_at',
             'updated_at', 'analysis_duration'
         ]
-        read_only_fields = '__all__'
+        read_only_fields = [
+            'id', 'risk_level', 'phishing_score', 'is_phishing', 'status',
+            'analyzed_by_username', 'threat_count', 'created_at',
+            'updated_at', 'analysis_duration'
+        ]
 
 
 class EmailAnalysisStatsSerializer(serializers.Serializer):

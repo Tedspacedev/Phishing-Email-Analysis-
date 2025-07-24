@@ -1,0 +1,125 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="container mt-4">
+  <div class="row mb-4">
+    <div class="col-md-8">
+      <h2 class="mb-3">Email Analysis Detail</h2>
+      <div class="card mb-3">
+        <div class="card-body">
+          <h5 class="card-title">{{ analysis.email_subject }}</h5>
+          <h6 class="card-subtitle mb-2 text-muted">From: {{ analysis.sender_email }} &rarr; {{ analysis.recipient_email }}</h6>
+          <p class="mb-1"><strong>Status:</strong> <span class="badge bg-info">{{ analysis.status }}</span></p>
+          <p class="mb-1"><strong>Risk Level:</strong> <span class="badge bg-danger">{{ analysis.risk_level }}</span></p>
+          <p class="mb-1"><strong>Phishing Score:</strong> <span class="badge bg-warning text-dark">{{ analysis.phishing_score }}</span></p>
+          <p class="mb-1"><strong>Created At:</strong> {{ analysis.created_at }}</p>
+          <p class="mb-1"><strong>Updated At:</strong> {{ analysis.updated_at }}</p>
+        </div>
+      </div>
+      <div class="card mb-3">
+        <div class="card-header bg-light"><strong>Email Body</strong></div>
+        <div class="card-body">
+          <pre class="bg-light p-3">{{ analysis.email_body }}</pre>
+        </div>
+      </div>
+      <div class="card mb-3">
+        <div class="card-header bg-light"><strong>Threat Indicators</strong></div>
+        <div class="card-body">
+          {% if analysis.threat_indicators %}
+            <ul>
+              {% for indicator in analysis.threat_indicators %}
+                <li>{{ indicator }}</li>
+              {% endfor %}
+            </ul>
+          {% else %}
+            <span class="text-muted">None</span>
+          {% endif %}
+        </div>
+      </div>
+      <div class="card mb-3">
+        <div class="card-header bg-light"><strong>Analysis Summary</strong></div>
+        <div class="card-body">
+          <p>{{ analysis.analysis_summary|default:'No summary available.' }}</p>
+        </div>
+      </div>
+      <div class="card mb-3">
+        <div class="card-header bg-light"><strong>Recommendations</strong></div>
+        <div class="card-body">
+          <p>{{ analysis.recommendations|default:'No recommendations.' }}</p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="card mb-3">
+        <div class="card-header bg-light"><strong>Related URLs</strong></div>
+        <div class="card-body">
+          {% if url_analyses %}
+            <ul class="list-group">
+              {% for url in url_analyses %}
+                <li class="list-group-item">
+                  <strong>{{ url.original_url }}</strong><br>
+                  <span class="badge bg-secondary">{{ url.threat_level }}</span>
+                  {% if url.virustotal_detected %}<span class="badge bg-danger">VirusTotal: Detected</span>{% endif %}
+                </li>
+              {% endfor %}
+            </ul>
+          {% else %}
+            <span class="text-muted">No URLs analyzed.</span>
+          {% endif %}
+        </div>
+      </div>
+      <div class="card mb-3">
+        <div class="card-header bg-light"><strong>Attachments</strong></div>
+        <div class="card-body">
+          {% if attachment_analyses %}
+            <ul class="list-group">
+              {% for att in attachment_analyses %}
+                <li class="list-group-item">
+                  <strong>{{ att.filename }}</strong> ({{ att.file_type }})<br>
+                  <span class="badge bg-secondary">{{ att.threat_level }}</span>
+                  {% if att.virustotal_detected %}<span class="badge bg-danger">VirusTotal: Detected</span>{% endif %}
+                </li>
+              {% endfor %}
+            </ul>
+          {% else %}
+            <span class="text-muted">No attachments analyzed.</span>
+          {% endif %}
+        </div>
+      </div>
+      <div class="card mb-3">
+        <div class="card-header bg-light"><strong>Phishing Techniques</strong></div>
+        <div class="card-body">
+          {% if phishing_techniques %}
+            <ul class="list-group">
+              {% for tech in phishing_techniques %}
+                <li class="list-group-item">
+                  <strong>{{ tech.technique_name }}</strong> ({{ tech.technique_type }})<br>
+                  <span class="text-muted">{{ tech.description }}</span>
+                </li>
+              {% endfor %}
+            </ul>
+          {% else %}
+            <span class="text-muted">No phishing techniques detected.</span>
+          {% endif %}
+        </div>
+      </div>
+      <div class="card mb-3">
+        <div class="card-header bg-light"><strong>Email Header Analysis</strong></div>
+        <div class="card-body">
+          {% if header_analysis %}
+            <ul class="list-group">
+              <li class="list-group-item"><strong>SPF:</strong> {{ header_analysis.spf_result }}</li>
+              <li class="list-group-item"><strong>DKIM:</strong> {{ header_analysis.dkim_result }}</li>
+              <li class="list-group-item"><strong>DMARC:</strong> {{ header_analysis.dmarc_result }}</li>
+              <li class="list-group-item"><strong>Originating IP:</strong> {{ header_analysis.originating_ip }}</li>
+              <li class="list-group-item"><strong>Sender Country:</strong> {{ header_analysis.sender_country }}</li>
+            </ul>
+          {% else %}
+            <span class="text-muted">No header analysis available.</span>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+  <a href="{% url 'email_analysis:dashboard' %}" class="btn btn-secondary">&larr; Back to Dashboard</a>
+</div>
+{% endblock %} 

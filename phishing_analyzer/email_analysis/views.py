@@ -9,6 +9,14 @@ from rest_framework.parsers import MultiPartParser, JSONParser
 from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework.filters import SearchFilter, OrderingFilter
 import logging
+from django.http import HttpResponse, JsonResponse
+import csv
+import io
+try:
+    from reportlab.pdfgen import canvas
+    PDF_AVAILABLE = True
+except ImportError:
+    PDF_AVAILABLE = False
 
 from .models import (
     EmailAnalysis, EmailHeader, URLAnalysis, 
@@ -295,30 +303,69 @@ class EmailAnalysisViewSet(viewsets.ModelViewSet):
     
     @action(detail=False, methods=['post'])
     def generate_report(self, request):
-        """Generate analysis report"""
+        """Generate analysis report (CSV, JSON, PDF)"""
         serializer = EmailAnalysisReportSerializer(data=request.data)
-        
         if not serializer.is_valid():
             return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-        
-        # This would typically generate a report file
-        # For now, return a simple response
         validated_data = serializer.validated_data
-        
-        ActivityLog.log_activity(
-            user=request.user,
-            activity_type='REPORT_GENERATE',
-            description=f'Generated {validated_data["report_type"]} report',
-            ip_address=self.get_client_ip(),
-            additional_data=validated_data
-        )
-        
-        return Response({
-            'message': 'Report generation started',
-            'report_type': validated_data['report_type'],
-            'report_format': validated_data['report_format'],
-            'status': 'processing'
-        })
+
+        # Get analyses
+        if validated_data.get('analysis_ids'):
+            analyses = EmailAnalysis.objects.filter(id__in=validated_data['analysis_ids'])
+        else:
+            analyses = EmailAnalysis.objects.filter(
+                created_at__gte=validated_data['date_from'],
+                created_at__lte=validated_data['date_to']
+            )
+
+        # CSV Export
+        if validated_data['report_format'] == 'CSV':
+            response = HttpResponse(content_type='text/csv')
+            response['Content-Disposition'] = 'attachment; filename="email_analysis_report.csv"'
+            writer = csv.writer(response)
+            writer.writerow(['ID', 'Subject', 'Sender', 'Recipient', 'Risk Level', 'Phishing Score', 'Status', 'Created At'])
+            for a in analyses:
+                writer.writerow([a.id, a.email_subject, a.sender_email, a.recipient_email, a.risk_level, a.phishing_score, a.status, a.created_at])
+            return response
+
+        # JSON Export
+        if validated_data['report_format'] == 'JSON':
+            data = []
+            for a in analyses:
+                data.append({
+                    'id': a.id,
+                    'email_subject': a.email_subject,
+                    'sender_email': a.sender_email,
+                    'recipient_email': a.recipient_email,
+                    'risk_level': a.risk_level,
+                    'phishing_score': a.phishing_score,
+                    'status': a.status,
+                    'created_at': a.created_at,
+                })
+            return JsonResponse({'analyses': data}, safe=False)
+
+        # PDF Export (simple placeholder)
+        if validated_data['report_format'] == 'PDF':
+            if not PDF_AVAILABLE:
+                return Response({'error': 'PDF export requires reportlab. Please install it.'}, status=501)
+            buffer = io.BytesIO()
+            p = canvas.Canvas(buffer)
+            p.drawString(100, 800, "Email Analysis Report")
+            y = 780
+            for a in analyses:
+                p.drawString(100, y, f"ID: {a.id} | Subject: {a.email_subject} | Risk: {a.risk_level}")
+                y -= 20
+                if y < 50:
+                    p.showPage()
+                    y = 800
+            p.save()
+            buffer.seek(0)
+            response = HttpResponse(buffer, content_type='application/pdf')
+            response['Content-Disposition'] = 'attachment; filename="email_analysis_report.pdf"'
+            return response
+
+        # Not implemented
+        return Response({'error': f"Format {validated_data['report_format']} not implemented."}, status=501)
     
     def get_client_ip(self):
         """Get client IP address from request"""
@@ -394,10 +441,39 @@ def dashboard(request):
         is_phishing=True
     ).count()
     
+    # Accurate risk counts
+    high_risk_count = EmailAnalysis.objects.filter(analyzed_by=request.user, risk_level='HIGH').count()
+    medium_risk_count = EmailAnalysis.objects.filter(analyzed_by=request.user, risk_level='MEDIUM').count()
+    low_risk_count = EmailAnalysis.objects.filter(analyzed_by=request.user, risk_level='LOW').count()
+    
+    # Trend data for the last 6 months
+    from django.utils import timezone
+    from collections import OrderedDict
+    import calendar
+    now = timezone.now()
+    months = [(now.replace(day=1) - timezone.timedelta(days=30*i)).strftime('%b %Y') for i in reversed(range(6))]
+    month_labels = [m.split()[0] for m in months]
+    month_years = [m for m in months]
+    month_counts = OrderedDict((m, 0) for m in month_years)
+    high_risk_trend = OrderedDict((m, 0) for m in month_years)
+    analyses = EmailAnalysis.objects.filter(analyzed_by=request.user, created_at__gte=now - timezone.timedelta(days=180))
+    for a in analyses:
+        m = a.created_at.strftime('%b %Y')
+        if m in month_counts:
+            month_counts[m] += 1
+            if a.risk_level == 'HIGH':
+                high_risk_trend[m] += 1
+    
     context = {
         'recent_analyses': recent_analyses,
         'total_analyses': total_analyses,
         'phishing_detected': phishing_detected,
+        'high_risk_count': high_risk_count,
+        'medium_risk_count': medium_risk_count,
+        'low_risk_count': low_risk_count,
+        'trend_labels': list(month_labels),
+        'trend_total': list(month_counts.values()),
+        'trend_high': list(high_risk_trend.values()),
     }
     
     return render(request, 'email_analysis/dashboard.html', context)
@@ -427,9 +503,10 @@ def analysis_detail(request, analysis_id):
     
     context = {
         'analysis': analysis,
-        'url_analyses': analysis.url_analyses.all(),
-        'attachment_analyses': analysis.attachment_analyses.all(),
-        'phishing_techniques': analysis.phishing_techniques.all(),
+        'url_analyses': list(analysis.url_analyses.all()),
+        'attachment_analyses': list(analysis.attachment_analyses.all()),
+        'phishing_techniques': list(analysis.phishing_techniques.all()),
+        'header_analysis': getattr(analysis, 'header_analysis', None),
     }
     
     return render(request, 'email_analysis/analysis_detail.html', context)

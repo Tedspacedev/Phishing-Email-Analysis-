@@ -206,22 +206,29 @@
 {% endblock %}
 
 {% block extra_js %}
+{{ trend_labels|json_script:"trend-labels" }}
+{{ trend_total|json_script:"trend-total" }}
+{{ trend_high|json_script:"trend-high" }}
+
 <script>
 // Analysis Trends Chart
 const analysisCtx = document.getElementById('analysisChart').getContext('2d');
+const trendLabels = JSON.parse(document.getElementById('trend-labels').textContent);
+const trendTotal = JSON.parse(document.getElementById('trend-total').textContent);
+const trendHigh = JSON.parse(document.getElementById('trend-high').textContent);
 const analysisChart = new Chart(analysisCtx, {
     type: 'line',
     data: {
-        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun'],
+        labels: trendLabels,
         datasets: [{
             label: 'Total Analyses',
-            data: [12, 19, 3, 5, 2, 3],
+            data: trendTotal,
             borderColor: 'rgb(75, 192, 192)',
             backgroundColor: 'rgba(75, 192, 192, 0.2)',
             tension: 0.1
         }, {
             label: 'High Risk',
-            data: [2, 3, 1, 2, 1, 1],
+            data: trendHigh,
             borderColor: 'rgb(255, 99, 132)',
             backgroundColor: 'rgba(255, 99, 132, 0.2)',
             tension: 0.1

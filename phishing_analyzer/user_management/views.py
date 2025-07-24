@@ -506,7 +506,7 @@ def logout_view(request):
     )
     
     logout(request)
-    return redirect('user_management:login')
+    return redirect('user_management:user_login')
 
 
 @login_required
