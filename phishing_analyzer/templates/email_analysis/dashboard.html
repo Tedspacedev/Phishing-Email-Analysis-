@@ -165,36 +165,70 @@
 <div class="modal fade" id="analyzeEmailModal" tabindex="-1" aria-labelledby="analyzeEmailModalLabel" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="analyzeEmailModalLabel">Analyze Email</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <div class="modal-header bg-primary text-white">
+                <h5 class="modal-title" id="analyzeEmailModalLabel"><i class="fas fa-search me-2"></i>Analyze Email</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <form id="analyzeEmailForm" method="post" action="{% url 'email_analysis:emailanalysis-list' %}">
-                <div class="modal-body">
+                <div class="modal-body bg-light">
                     {% csrf_token %}
-                    <div class="mb-3">
-                        <label for="email_subject" class="form-label">Email Subject</label>
-                        <input type="text" class="form-control" id="email_subject" name="email_subject" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="sender_email" class="form-label">Sender Email</label>
-                        <input type="email" class="form-control" id="sender_email" name="sender_email" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="recipient_email" class="form-label">Recipient Email</label>
-                        <input type="email" class="form-control" id="recipient_email" name="recipient_email" required>
-                    </div>
-                    <div class="mb-3">
-                        <label for="email_body" class="form-label">Email Body</label>
-                        <textarea class="form-control" id="email_body" name="email_body" rows="5" required></textarea>
-                    </div>
-                    <div class="mb-3">
-                        <label for="raw_email" class="form-label">Raw Email (Optional)</label>
-                        <textarea class="form-control" id="raw_email" name="raw_email" rows="3" placeholder="Paste raw email headers and content here..."></textarea>
+                    <div class="row g-3 mb-2">
+                        <div class="col-md-6">
+                            <div class="form-floating mb-2">
+                                <input type="text" class="form-control" id="email_subject" name="email_subject" placeholder="Subject" required>
+                                <label for="email_subject"><i class="fas fa-heading me-1"></i>Subject</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-floating mb-2">
+                                <input type="email" class="form-control" id="sender_email" name="sender_email" placeholder="Sender Email" required>
+                                <label for="sender_email"><i class="fas fa-user me-1"></i>Sender Email</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-floating mb-2">
+                                <input type="email" class="form-control" id="recipient_email" name="recipient_email" placeholder="Recipient Email" required>
+                                <label for="recipient_email"><i class="fas fa-user-check me-1"></i>Recipient Email</label>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-floating mb-2">
+                                <textarea class="form-control" id="email_body" name="email_body" placeholder="Email Body" style="height: 100px" required></textarea>
+                                <label for="email_body"><i class="fas fa-align-left me-1"></i>Email Body</label>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="form-floating mb-2 position-relative">
+                                <textarea class="form-control" id="raw_email" name="raw_email" placeholder="Paste raw email headers and content here..." style="height: 70px"></textarea>
+                                <label for="raw_email"><i class="fas fa-code me-1"></i>Raw Email <span class="text-muted small">(Optional)</span></label>
+                                <span class="position-absolute top-0 end-0 mt-2 me-3 text-muted" data-bs-toggle="tooltip" title="Paste full email source if available."><i class="fas fa-info-circle"></i></span>
+                            </div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="input-group mb-2">
+                                <span class="input-group-text"><i class="fab fa-google"></i></span>
+                                <input type="url" class="form-control" id="gmail_link" name="gmail_link" placeholder="Paste Gmail message link here...">
+                                <button type="button" class="btn btn-outline-success" id="connectGmailBtn">Connect with Gmail</button>
+                            </div>
+                            <div class="form-text ms-1">Paste a Gmail message link and click Connect to autofill fields.</div>
+                        </div>
+                        <div class="col-md-12">
+                            <div class="input-group mb-2">
+                                <span class="input-group-text"><i class="fas fa-file-import"></i></span>
+                                <input type="file" class="form-control" id="eml_file" name="eml_file" accept=".eml">
+                            </div>
+                            <div class="form-text ms-1">Upload a .eml file to autofill the form fields.</div>
+                            <div id="emlLoadingSpinner" class="text-center mt-2" style="display:none;">
+                                <div class="spinner-border text-primary" role="status">
+                                    <span class="visually-hidden">Parsing...</span>
+                                </div>
+                                <div>Parsing .eml file, please wait...</div>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                <div class="modal-footer bg-light border-top-0">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"><i class="fas fa-times me-1"></i>Cancel</button>
                     <button type="submit" class="btn btn-primary">
                         <i class="fas fa-search me-2"></i>Analyze Email
                     </button>
@@ -208,32 +242,40 @@
 <div class="modal fade" id="exportReportModal" tabindex="-1" aria-labelledby="exportReportModalLabel" aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exportReportModalLabel">Export Report</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            <div class="modal-header bg-primary text-white">
+                <h5 class="modal-title" id="exportReportModalLabel"><i class="fas fa-download me-2"></i>Export Report</h5>
+                <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <form id="exportReportForm" method="post">
                 {% csrf_token %}
-                <div class="modal-body">
-                    <div class="mb-3">
-                        <label for="report_format" class="form-label">Format</label>
-                        <select class="form-select" id="report_format" name="report_format" required>
-                            <option value="CSV">CSV</option>
-                            <option value="PDF">PDF</option>
-                            <option value="JSON">JSON</option>
-                        </select>
-                    </div>
-                    <div class="mb-3">
-                        <label for="date_from" class="form-label">Date From</label>
-                        <input type="datetime-local" class="form-control" id="date_from" name="date_from">
-                    </div>
-                    <div class="mb-3">
-                        <label for="date_to" class="form-label">Date To</label>
-                        <input type="datetime-local" class="form-control" id="date_to" name="date_to">
+                <div class="modal-body bg-light">
+                    <div class="row g-3 mb-2">
+                        <div class="col-12">
+                            <div class="form-floating mb-2">
+                                <select class="form-select" id="report_format" name="report_format" required>
+                                    <option value="CSV">CSV</option>
+                                    <option value="PDF">PDF</option>
+                                    <option value="JSON">JSON</option>
+                                </select>
+                                <label for="report_format"><i class="fas fa-file-alt me-1"></i>Format</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-floating mb-2">
+                                <input type="datetime-local" class="form-control" id="date_from" name="date_from">
+                                <label for="date_from"><i class="fas fa-calendar-alt me-1"></i>Date From</label>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="form-floating mb-2">
+                                <input type="datetime-local" class="form-control" id="date_to" name="date_to">
+                                <label for="date_to"><i class="fas fa-calendar-check me-1"></i>Date To</label>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="modal-footer">
-                    <button type="submit" class="btn btn-primary">Export</button>
+                <div class="modal-footer bg-light border-top-0">
+                    <button type="submit" class="btn btn-primary"><i class="fas fa-download me-2"></i>Export</button>
                 </div>
             </form>
         </div>
@@ -330,7 +372,7 @@ document.getElementById('analyzeEmailForm').addEventListener('submit', function(
     const originalText = submitBtn.innerHTML;
     submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Analyzing...';
     submitBtn.disabled = true;
-
+    
     fetch(form.action, {
         method: 'POST',
         body: formData,
@@ -346,8 +388,32 @@ document.getElementById('analyzeEmailForm').addEventListener('submit', function(
         }
     })
     .then(data => {
-        alert('Email analysis started!');
-        window.location.reload();
+        submitBtn.innerHTML = originalText;
+        submitBtn.disabled = false;
+        // Show a pop-up suggestion to view results
+        if (data && data.id) {
+            var analysisUrl = '/email-analysis/analysis/' + data.id + '/';
+            var modalHtml = '<div class="modal fade" id="viewResultsModal" tabindex="-1" aria-labelledby="viewResultsModalLabel" aria-hidden="true">' +
+                '<div class="modal-dialog">' +
+                '<div class="modal-content">' +
+                '<div class="modal-header">' +
+                '<h5 class="modal-title" id="viewResultsModalLabel">Analysis Complete</h5>' +
+                '<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>' +
+                '</div>' +
+                '<div class="modal-body">' +
+                'Your email has been analyzed.<br>' +
+                '<a href="' + analysisUrl + '" class="btn btn-success mt-3">View Results</a>' +
+                '</div>' +
+                '</div>' +
+                '</div>' +
+                '</div>';
+            document.body.insertAdjacentHTML('beforeend', modalHtml);
+            var modal = new bootstrap.Modal(document.getElementById('viewResultsModal'));
+            modal.show();
+        } else {
+            alert('Email analysis started!');
+            window.location.reload();
+        }
     })
     .catch(error => {
         let msg = 'Error analyzing email.';
@@ -474,6 +540,75 @@ document.getElementById('exportReportForm').addEventListener('submit', function(
     .finally(() => {
         submitBtn.innerHTML = originalText;
         submitBtn.disabled = false;
+    });
+});
+
+document.getElementById('connectGmailBtn').addEventListener('click', function() {
+    const gmailLink = document.getElementById('gmail_link').value;
+    if (!gmailLink) {
+        alert('Please paste a Gmail message link.');
+        return;
+    }
+    // Try to fetch email details from backend
+    fetch('{% url 'email_analysis:gmail_fetch_email' %}', {
+        method: 'POST',
+        headers: {
+            'X-CSRFToken': document.querySelector('[name=csrfmiddlewaretoken]').value,
+            'Accept': 'application/json',
+        },
+        body: new URLSearchParams({ gmail_link: gmailLink })
+    })
+    .then(resp => resp.json())
+    .then(data => {
+        if (data.error) {
+            if (data.error.includes('Not authenticated')) {
+                // Start OAuth flow
+                window.location.href = '{% url 'email_analysis:gmail_auth' %}';
+            } else {
+                alert('Error: ' + data.error);
+            }
+        } else {
+            // Autofill form fields
+            document.getElementById('email_subject').value = data.subject || '';
+            document.getElementById('sender_email').value = data.sender || '';
+            document.getElementById('recipient_email').value = data.recipient || '';
+            document.getElementById('email_body').value = data.body || '';
+        }
+    })
+    .catch(err => alert('Failed to fetch email: ' + err));
+});
+</script>
+<script>
+document.getElementById('eml_file').addEventListener('change', function(event) {
+    const file = event.target.files[0];
+    if (!file) return;
+    const spinner = document.getElementById('emlLoadingSpinner');
+    spinner.style.display = 'block';
+    const formData = new FormData();
+    formData.append('eml_file', file);
+    fetch('{% url 'email_analysis:parse_eml_file' %}', {
+        method: 'POST',
+        headers: {
+            'X-CSRFToken': document.querySelector('[name=csrfmiddlewaretoken]').value
+        },
+        body: formData
+    })
+    .then(resp => resp.json())
+    .then(data => {
+        spinner.style.display = 'none';
+        if (data.error) {
+            alert('Error: ' + data.error);
+        } else {
+            document.getElementById('email_subject').value = data.subject || '';
+            document.getElementById('sender_email').value = data.sender || '';
+            document.getElementById('recipient_email').value = data.recipient || '';
+            document.getElementById('email_body').value = data.body || '';
+            document.getElementById('raw_email').value = data.raw || '';
+        }
+    })
+    .catch(err => {
+        spinner.style.display = 'none';
+        alert('Failed to parse .eml file: ' + err);
     });
 });
 </script>

@@ -39,6 +39,117 @@ from .serializers import (
 )
 from .services import EmailParser, PhishingAnalyzer
 from user_management.models import ActivityLog
+import json
+from django.conf import settings
+from django.urls import reverse
+from django.http import HttpResponseRedirect
+from django.contrib.sessions.backends.db import SessionStore
+from google_auth_oauthlib.flow import Flow
+from googleapiclient.discovery import build
+from google.oauth2.credentials import Credentials
+from email.utils import parseaddr
+from email import policy
+
+# Path to your client_secret.json
+GOOGLE_CLIENT_SECRET_PATH = os.path.join(settings.BASE_DIR, 'phishing_analyzer', 'client_secret_606597468691-2vdk8jvdhjr6oi5pmm5sstpji828jquq.apps.googleusercontent.com (8).json')
+GOOGLE_SCOPES = ['https://www.googleapis.com/auth/gmail.readonly']
+
+# Utility: Extract Gmail message ID from link
+import re
+def extract_gmail_message_id(link):
+    # Accepts links like https://mail.google.com/mail/u/0/#inbox/MSGID or https://mail.google.com/mail/u/0/#all/MSGID
+    match = re.search(r'/#(?:inbox|all)/([a-zA-Z0-9]+)', link)
+    if match:
+        return match.group(1)
+    return None
+
+# Step 1: Start OAuth flow
+from django.views.decorators.csrf import csrf_exempt
+@csrf_exempt
+def gmail_auth(request):
+    flow = Flow.from_client_secrets_file(
+        GOOGLE_CLIENT_SECRET_PATH,
+        scopes=GOOGLE_SCOPES,
+        redirect_uri=request.build_absolute_uri(reverse('email_analysis:gmail_callback')),
+    )
+    auth_url, state = flow.authorization_url(
+        access_type='offline',
+        include_granted_scopes='true',
+        prompt='consent',
+    )
+    request.session['oauth_state'] = state
+    return HttpResponseRedirect(auth_url)
+
+# Step 2: Handle OAuth callback
+@csrf_exempt
+def gmail_callback(request):
+    state = request.session.get('oauth_state')
+    flow = Flow.from_client_secrets_file(
+        GOOGLE_CLIENT_SECRET_PATH,
+        scopes=GOOGLE_SCOPES,
+        state=state,
+        redirect_uri=request.build_absolute_uri(reverse('email_analysis:gmail_callback')),
+    )
+    flow.fetch_token(authorization_response=request.build_absolute_uri())
+    credentials = flow.credentials
+    # Store credentials in session (for demo; for prod, use DB)
+    request.session['gmail_token'] = {
+        'token': credentials.token,
+        'refresh_token': credentials.refresh_token,
+        'token_uri': credentials.token_uri,
+        'client_id': credentials.client_id,
+        'client_secret': credentials.client_secret,
+        'scopes': credentials.scopes,
+    }
+    # Redirect to dashboard or fetch page
+    return redirect('email_analysis:dashboard')
+
+# Step 3: Fetch Gmail message by ID
+@csrf_exempt
+def gmail_fetch_email(request):
+    if request.method == 'POST':
+        gmail_link = request.POST.get('gmail_link')
+        message_id = extract_gmail_message_id(gmail_link)
+        if not message_id:
+            return JsonResponse({'error': 'Invalid Gmail link.'}, status=400)
+        token_data = request.session.get('gmail_token')
+        if not token_data:
+            return JsonResponse({'error': 'Not authenticated with Gmail.'}, status=401)
+        creds = Credentials(
+            token=token_data['token'],
+            refresh_token=token_data.get('refresh_token'),
+            token_uri=token_data['token_uri'],
+            client_id=token_data['client_id'],
+            client_secret=token_data['client_secret'],
+            scopes=token_data['scopes'],
+        )
+        service = build('gmail', 'v1', credentials=creds)
+        try:
+            msg = service.users().messages().get(userId='me', id=message_id, format='raw').execute()
+            import base64, email
+            raw_data = base64.urlsafe_b64decode(msg['raw'].encode('ASCII'))
+            mail = email.message_from_bytes(raw_data)
+            subject = mail.get('Subject')
+            sender = mail.get('From')
+            recipient = mail.get('To')
+            # Get body (simple version)
+            body = ''
+            if mail.is_multipart():
+                for part in mail.walk():
+                    if part.get_content_type() == 'text/plain':
+                        body = part.get_payload(decode=True).decode(errors='ignore')
+                        break
+            else:
+                body = mail.get_payload(decode=True).decode(errors='ignore')
+            return JsonResponse({
+                'subject': subject,
+                'sender': sender,
+                'recipient': recipient,
+                'body': body,
+            })
+        except Exception as e:
+            return JsonResponse({'error': str(e)}, status=500)
+    return JsonResponse({'error': 'POST required.'}, status=405)
 
 logger = logging.getLogger(__name__)
 
@@ -439,9 +550,9 @@ class EmailAnalysisViewSet(viewsets.ModelViewSet):
             if not analyses_list:
                 elements.append(Paragraph("No analyses found for the selected date range.", styles['MetaInfo']))
             else:
-                for a in analyses_list:
+                for idx, a in enumerate(analyses_list, start=1):
                     row = [
-                        Paragraph(str(a.id), styles['TableCell']),
+                        Paragraph(str(idx), styles['TableCell']),  # Sequential number
                         Paragraph(str(a.email_subject or '-')[:100], styles['TableCell']),
                         Paragraph(str(a.sender_email or '-')[:100], styles['TableCell']),
                         Paragraph(str(a.recipient_email or '-')[:100], styles['TableCell']),
@@ -659,3 +770,53 @@ def get_client_ip(request):
     if x_forwarded_for:
         return x_forwarded_for.split(',')[0]
     return request.META.get('REMOTE_ADDR')
+
+
+@csrf_exempt
+def parse_eml_file(request):
+    if request.method == 'POST' and request.FILES.get('eml_file'):
+        eml_file = request.FILES['eml_file']
+        try:
+            import email
+            raw_bytes = eml_file.read()
+            mail = email.message_from_bytes(raw_bytes, policy=policy.default)
+            subject = mail.get('Subject')
+            sender = parseaddr(mail.get('From'))[1]
+            recipient = parseaddr(mail.get('To'))[1]
+            # Get plain and HTML bodies
+            plain_body = ''
+            html_body = ''
+            if mail.is_multipart():
+                for part in mail.walk():
+                    ctype = part.get_content_type()
+                    if ctype == 'text/plain' and not plain_body:
+                        plain_body = part.get_content().strip()
+                    elif ctype == 'text/html' and not html_body:
+                        html_body = part.get_content().strip()
+            else:
+                ctype = mail.get_content_type()
+                if ctype == 'text/plain':
+                    plain_body = mail.get_content().strip()
+                elif ctype == 'text/html':
+                    html_body = mail.get_content().strip()
+            # List attachments
+            attachments = []
+            for part in mail.iter_attachments():
+                filename = part.get_filename()
+                if filename:
+                    attachments.append(filename)
+            # Parse headers
+            headers = {k: v for k, v in mail.items()}
+            return JsonResponse({
+                'subject': subject,
+                'sender': sender,
+                'recipient': recipient,
+                'body': plain_body or html_body,
+                'html_body': html_body,
+                'headers': headers,
+                'attachments': attachments,
+                'raw': raw_bytes.decode(errors='ignore'),
+            })
+        except Exception as e:
+            return JsonResponse({'error': str(e)}, status=500)
+    return JsonResponse({'error': 'POST with .eml file required.'}, status=400)

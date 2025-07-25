@@ -6,8 +6,10 @@
       <h2 class="mb-3">Email Analysis Detail</h2>
       <div class="card mb-3">
         <div class="card-body">
-          <h5 class="card-title">{{ analysis.email_subject }}</h5>
-          <h6 class="card-subtitle mb-2 text-muted">From: {{ analysis.sender_email }} &rarr; {{ analysis.recipient_email }}</h6>
+          <h5 class="card-title" title="{{ analysis.email_subject }}">{{ analysis.email_subject|truncatechars:80 }}</h5>
+          <h6 class="card-subtitle mb-2 text-muted" title="From: {{ analysis.sender_email }} To: {{ analysis.recipient_email }}">
+            From: {{ analysis.sender_email|truncatechars:40 }} &rarr; {{ analysis.recipient_email|truncatechars:40 }}
+          </h6>
           <p class="mb-1"><strong>Status:</strong> <span class="badge bg-info">{{ analysis.status }}</span></p>
           <p class="mb-1"><strong>Risk Level:</strong> <span class="badge bg-danger">{{ analysis.risk_level }}</span></p>
           <p class="mb-1"><strong>Phishing Score:</strong> <span class="badge bg-warning text-dark">{{ analysis.phishing_score }}</span></p>
@@ -18,7 +20,13 @@
       <div class="card mb-3">
         <div class="card-header bg-light"><strong>Email Body</strong></div>
         <div class="card-body">
-          <pre class="bg-light p-3">{{ analysis.email_body }}</pre>
+          <pre class="bg-light p-3" style="max-height: 300px; overflow: auto;">{{ analysis.email_body|truncatechars:500 }}</pre>
+          {% if analysis.email_body|length > 500 %}
+            <button class="btn btn-link p-0" type="button" data-bs-toggle="collapse" data-bs-target="#fullBody" aria-expanded="false" aria-controls="fullBody">Show Full Body</button>
+            <div class="collapse" id="fullBody">
+              <pre class="bg-light p-3 mt-2">{{ analysis.email_body }}</pre>
+            </div>
+          {% endif %}
         </div>
       </div>
       <div class="card mb-3">
@@ -53,15 +61,31 @@
         <div class="card-header bg-light"><strong>Related URLs</strong></div>
         <div class="card-body">
           {% if url_analyses %}
-            <ul class="list-group">
-              {% for url in url_analyses %}
-                <li class="list-group-item">
-                  <strong>{{ url.original_url }}</strong><br>
-                  <span class="badge bg-secondary">{{ url.threat_level }}</span>
-                  {% if url.virustotal_detected %}<span class="badge bg-danger">VirusTotal: Detected</span>{% endif %}
-                </li>
-              {% endfor %}
-            </ul>
+            {% with sorted_urls=url_analyses|dictsortreversed:"threat_level" %}
+              <ul class="list-group">
+                {% for url in sorted_urls|slice:":1" %}
+                  <li class="list-group-item">
+                    <strong title="{{ url.original_url }}">{{ url.original_url|truncatechars:60 }}</strong><br>
+                    <span class="badge bg-secondary">{{ url.threat_level }}</span>
+                    {% if url.virustotal_detected %}<span class="badge bg-danger">VirusTotal: Detected</span>{% endif %}
+                  </li>
+                {% endfor %}
+              </ul>
+              {% if sorted_urls|length > 1 %}
+                <button class="btn btn-link p-0" type="button" data-bs-toggle="collapse" data-bs-target="#allUrls" aria-expanded="false" aria-controls="allUrls">Show All URLs</button>
+                <div class="collapse" id="allUrls">
+                  <ul class="list-group mt-2">
+                    {% for url in sorted_urls|slice:"1:" %}
+                      <li class="list-group-item">
+                        <strong title="{{ url.original_url }}">{{ url.original_url|truncatechars:60 }}</strong><br>
+                        <span class="badge bg-secondary">{{ url.threat_level }}</span>
+                        {% if url.virustotal_detected %}<span class="badge bg-danger">VirusTotal: Detected</span>{% endif %}
+                      </li>
+                    {% endfor %}
+                  </ul>
+                </div>
+              {% endif %}
+            {% endwith %}
           {% else %}
             <span class="text-muted">No URLs analyzed.</span>
           {% endif %}
@@ -115,6 +139,34 @@
             </ul>
           {% else %}
             <span class="text-muted">No header analysis available.</span>
+          {% endif %}
+        </div>
+      </div>
+      <div class="card mb-3">
+        <div class="card-header bg-light"><strong>Parsed Attachments</strong></div>
+        <div class="card-body">
+          {% if analysis.attachments %}
+            <ul class="list-group">
+              {% for att in analysis.attachments %}
+                <li class="list-group-item">{{ att|truncatechars:60 }}</li>
+              {% endfor %}
+            </ul>
+          {% else %}
+            <span class="text-muted">No attachments found.</span>
+          {% endif %}
+        </div>
+      </div>
+      <div class="card mb-3">
+        <div class="card-header bg-light"><strong>Parsed Headers</strong></div>
+        <div class="card-body" style="max-height: 200px; overflow: auto;">
+          {% if analysis.headers %}
+            <ul class="list-group">
+              {% for k, v in analysis.headers.items %}
+                <li class="list-group-item"><strong>{{ k }}</strong>: {{ v|truncatechars:80 }}</li>
+              {% endfor %}
+            </ul>
+          {% else %}
+            <span class="text-muted">No headers found.</span>
           {% endif %}
         </div>
       </div>

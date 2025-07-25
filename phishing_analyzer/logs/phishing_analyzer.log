@@ -1149,3 +1149,201 @@ INFO 2025-07-25 01:36:02,964 basehttp 4188 2800 "POST /email-analysis/analyses/ 
 INFO 2025-07-25 01:36:05,033 basehttp 4188 2800 "GET /email-analysis/ HTTP/1.1" 200 27096
 INFO 2025-07-25 01:36:11,863 basehttp 4188 2800 "GET /email-analysis/analysis/12/ HTTP/1.1" 200 10869
 INFO 2025-07-25 01:36:35,430 basehttp 4188 2800 "GET /email-analysis/ HTTP/1.1" 200 27096
+INFO 2025-07-25 13:03:01,352 autoreload 16032 13240 Watching for file changes with StatReloader
+INFO 2025-07-25 13:03:26,310 basehttp 16032 16396 "GET / HTTP/1.1" 302 0
+INFO 2025-07-25 13:03:26,963 basehttp 16032 16396 "GET /email-analysis/ HTTP/1.1" 200 29153
+WARNING 2025-07-25 13:03:27,717 log 16032 16396 Not Found: /favicon.ico
+WARNING 2025-07-25 13:03:27,721 basehttp 16032 16396 "GET /favicon.ico HTTP/1.1" 404 3473
+INFO 2025-07-25 13:03:30,392 basehttp 16032 15912 "GET /users/logout/ HTTP/1.1" 302 0
+INFO 2025-07-25 13:03:30,434 basehttp 16032 15912 "GET /users/login/ HTTP/1.1" 200 4301
+INFO 2025-07-25 13:03:42,458 basehttp 16032 14300 "POST /users/login/ HTTP/1.1" 302 0
+INFO 2025-07-25 13:03:42,508 basehttp 16032 14300 "GET /email-analysis/ HTTP/1.1" 200 29153
+WARNING 2025-07-25 13:06:10,244 log 16032 17760 Bad Request: /email-analysis/gmail/fetch_email/
+WARNING 2025-07-25 13:06:10,248 basehttp 16032 17760 "POST /email-analysis/gmail/fetch_email/ HTTP/1.1" 400 32
+WARNING 2025-07-25 13:06:46,716 log 16032 17088 Bad Request: /email-analysis/gmail/fetch_email/
+WARNING 2025-07-25 13:06:46,717 basehttp 16032 17088 "POST /email-analysis/gmail/fetch_email/ HTTP/1.1" 400 32
+INFO 2025-07-25 13:11:54,696 autoreload 16032 13240 C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\email_analysis\views.py changed, reloading.
+INFO 2025-07-25 13:12:04,668 autoreload 10432 1664 Watching for file changes with StatReloader
+INFO 2025-07-25 13:13:02,012 basehttp 10432 15740 "GET /email-analysis/ HTTP/1.1" 200 30600
+INFO 2025-07-25 13:13:39,876 basehttp 10432 15740 "POST /email-analysis/parse_eml_file/ HTTP/1.1" 200 99578
+INFO 2025-07-25 13:16:54,734 autoreload 10432 1664 C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\email_analysis\views.py changed, reloading.
+INFO 2025-07-25 13:17:28,586 autoreload 21508 19484 Watching for file changes with StatReloader
+INFO 2025-07-25 13:18:14,130 basehttp 21508 2944 "GET /email-analysis/ HTTP/1.1" 200 30600
+INFO 2025-07-25 13:18:22,840 basehttp 21508 2944 "POST /email-analysis/parse_eml_file/ HTTP/1.1" 200 99551
+INFO 2025-07-25 13:19:52,417 services 21508 2944 Analysis completed for email 13 in 85.03s
+INFO 2025-07-25 13:19:52,740 basehttp 21508 2944 "POST /email-analysis/analyses/ HTTP/1.1" 201 168535
+INFO 2025-07-25 13:19:53,328 basehttp 21508 14112 "GET /email-analysis/ HTTP/1.1" 200 31353
+INFO 2025-07-25 13:21:50,880 autoreload 21508 19484 C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\email_analysis\views.py changed, reloading.
+INFO 2025-07-25 13:22:00,495 autoreload 13796 21332 Watching for file changes with StatReloader
+INFO 2025-07-25 13:24:40,671 basehttp 13796 10296 "GET /email-analysis/ HTTP/1.1" 200 31354
+INFO 2025-07-25 13:24:49,213 basehttp 13796 10296 "POST /email-analysis/parse_eml_file/ HTTP/1.1" 200 8811
+INFO 2025-07-25 13:24:53,600 services 13796 10296 Analysis completed for email 14 in 0.00s
+INFO 2025-07-25 13:24:53,609 basehttp 13796 10296 "POST /email-analysis/analyses/ HTTP/1.1" 201 136
+INFO 2025-07-25 13:24:57,508 basehttp 13796 10296 "GET /email-analysis/ HTTP/1.1" 200 32058
+INFO 2025-07-25 13:25:16,308 basehttp 13796 10296 "GET /email-analysis/analysis/13/ HTTP/1.1" 200 118916
+INFO 2025-07-25 13:25:27,638 basehttp 13796 10296 "GET /email-analysis/analysis/14/ HTTP/1.1" 200 9905
+INFO 2025-07-25 13:25:59,275 basehttp 13796 10296 "POST /api/v1/email-analysis/analyses/generate_report/ HTTP/1.1" 200 56
+INFO 2025-07-25 13:26:00,215 basehttp 13796 3540 "GET /media/reports/report-1753439159-admin.pdf HTTP/1.1" 200 2677
+INFO 2025-07-25 13:27:53,310 basehttp 13796 18392 "GET /email-analysis/analysis/13/ HTTP/1.1" 200 118916
+INFO 2025-07-25 13:28:26,389 basehttp 13796 18392 "GET /email-analysis/analysis/14/ HTTP/1.1" 200 9905
+INFO 2025-07-25 13:29:01,365 basehttp 13796 18392 "GET /email-analysis/analysis/14/ HTTP/1.1" 200 9905
+INFO 2025-07-25 13:29:13,996 basehttp 13796 18392 "GET /email-analysis/analysis/13/ HTTP/1.1" 200 118916
+INFO 2025-07-25 13:30:11,610 autoreload 13796 21332 C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\email_analysis\views.py changed, reloading.
+INFO 2025-07-25 13:30:15,773 autoreload 17144 10996 Watching for file changes with StatReloader
+INFO 2025-07-25 13:31:37,156 autoreload 17144 10996 C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\email_analysis\views.py changed, reloading.
+INFO 2025-07-25 13:31:47,656 autoreload 18896 376 Watching for file changes with StatReloader
+INFO 2025-07-25 13:33:54,441 autoreload 18896 376 C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\email_analysis\urls.py changed, reloading.
+INFO 2025-07-25 13:33:58,023 autoreload 6944 19880 Watching for file changes with StatReloader
+INFO 2025-07-25 13:34:19,940 basehttp 6944 8588 "POST /email-analysis/parse_eml_file/ HTTP/1.1" 200 8932
+INFO 2025-07-25 13:34:22,950 services 6944 8588 Analysis completed for email 15 in 0.00s
+INFO 2025-07-25 13:34:22,960 basehttp 6944 8588 "POST /email-analysis/analyses/ HTTP/1.1" 201 136
+ERROR 2025-07-25 13:34:24,897 log 6944 8588 Internal Server Error: /email-analysis/
+Traceback (most recent call last):
+  File "C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\pmail\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\pmail\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\email_analysis\views.py", line 621, in dashboard
+    return render(request, 'email_analysis/dashboard.html', context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\pmail\Lib\site-packages\django\shortcuts.py", line 25, in render
+    content = loader.render_to_string(template_name, context, request, using=using)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\pmail\Lib\site-packages\django\template\loader.py", line 62, in render_to_string
+    return template.render(context, request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\pmail\Lib\site-packages\django\template\backends\django.py", line 107, in render
+    return self.template.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\pmail\Lib\site-packages\django\template\base.py", line 171, in render
+    return self._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\pmail\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\pmail\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\pmail\Lib\site-packages\django\template\base.py", line 1016, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\pmail\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\pmail\Lib\site-packages\django\template\loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\pmail\Lib\site-packages\django\template\base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\pmail\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\pmail\Lib\site-packages\django\template\base.py", line 1016, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\pmail\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\pmail\Lib\site-packages\django\template\loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\pmail\Lib\site-packages\django\template\base.py", line 1016, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\pmail\Lib\site-packages\django\template\base.py", line 1016, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\pmail\Lib\site-packages\django\template\base.py", line 977, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\pmail\Lib\site-packages\django\template\defaulttags.py", line 480, in render
+    url = reverse(view_name, args=args, kwargs=kwargs, current_app=current_app)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\pmail\Lib\site-packages\django\urls\base.py", line 98, in reverse
+    resolved_url = resolver._reverse_with_prefix(view, prefix, *args, **kwargs)
+                   ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\pmail\Lib\site-packages\django\urls\resolvers.py", line 831, in _reverse_with_prefix
+    raise NoReverseMatch(msg)
+django.urls.exceptions.NoReverseMatch: Reverse for 'gmail_fetch_email' not found. 'gmail_fetch_email' is not a valid view function or pattern name.
+ERROR 2025-07-25 13:34:24,908 basehttp 6944 8588 "GET /email-analysis/ HTTP/1.1" 500 202157
+INFO 2025-07-25 13:37:06,682 autoreload 6944 19880 C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\email_analysis\views.py changed, reloading.
+INFO 2025-07-25 13:37:16,182 autoreload 14108 15344 Watching for file changes with StatReloader
+INFO 2025-07-25 13:37:28,976 basehttp 14108 12552 "GET /users/login/ HTTP/1.1" 200 4301
+INFO 2025-07-25 13:37:36,260 basehttp 14108 12552 "POST /users/login/ HTTP/1.1" 302 0
+INFO 2025-07-25 13:37:36,337 basehttp 14108 12552 "GET /email-analysis/ HTTP/1.1" 200 32767
+INFO 2025-07-25 13:37:47,488 basehttp 14108 12552 "POST /email-analysis/parse_eml_file/ HTTP/1.1" 200 99551
+INFO 2025-07-25 13:39:15,300 services 14108 12552 Analysis completed for email 16 in 85.82s
+INFO 2025-07-25 13:39:15,378 basehttp 14108 12552 "POST /email-analysis/analyses/ HTTP/1.1" 201 168535
+INFO 2025-07-25 13:39:45,115 basehttp 14108 12552 "GET /email-analysis/ HTTP/1.1" 200 33527
+INFO 2025-07-25 13:39:55,988 basehttp 14108 12552 "GET /email-analysis/analysis/16/ HTTP/1.1" 200 120553
+INFO 2025-07-25 13:43:08,437 basehttp 14108 12552 "POST /email-analysis/parse_eml_file/ HTTP/1.1" 200 99551
+INFO 2025-07-25 13:43:24,863 basehttp 14108 1796 "GET /email-analysis/ HTTP/1.1" 200 34885
+INFO 2025-07-25 13:43:30,657 basehttp 14108 1796 "GET /email-analysis/ HTTP/1.1" 200 34885
+INFO 2025-07-25 13:43:39,474 basehttp 14108 1796 "POST /email-analysis/parse_eml_file/ HTTP/1.1" 200 99551
+INFO 2025-07-25 13:44:34,392 services 14108 12552 Analysis completed for email 17 in 83.66s
+INFO 2025-07-25 13:44:34,505 basehttp 14108 12552 - Broken pipe from ('127.0.0.1', 52724)
+INFO 2025-07-25 13:45:01,109 services 14108 1796 Analysis completed for email 18 in 78.53s
+INFO 2025-07-25 13:45:01,195 basehttp 14108 1796 "POST /email-analysis/analyses/ HTTP/1.1" 201 168535
+INFO 2025-07-25 13:45:01,315 basehttp 14108 1796 "GET /email-analysis/ HTTP/1.1" 200 35645
+INFO 2025-07-25 13:45:16,910 basehttp 14108 1796 "POST /email-analysis/parse_eml_file/ HTTP/1.1" 200 51250
+INFO 2025-07-25 13:45:51,372 services 14108 1796 Analysis completed for email 19 in 30.51s
+INFO 2025-07-25 13:45:51,388 basehttp 14108 1796 "POST /email-analysis/analyses/ HTTP/1.1" 201 71377
+INFO 2025-07-25 13:45:58,231 basehttp 14108 1796 "GET /email-analysis/ HTTP/1.1" 200 35679
+INFO 2025-07-25 13:46:03,574 basehttp 14108 1796 "GET /email-analysis/analysis/19/ HTTP/1.1" 200 42101
+INFO 2025-07-25 13:49:35,597 autoreload 14108 15344 C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\email_analysis\views.py changed, reloading.
+INFO 2025-07-25 13:49:47,321 autoreload 22648 23396 Watching for file changes with StatReloader
+INFO 2025-07-25 13:53:58,819 basehttp 22648 9560 "POST /email-analysis/parse_eml_file/ HTTP/1.1" 200 78352
+INFO 2025-07-25 13:54:26,852 services 22648 9560 Analysis completed for email 20 in 17.70s
+INFO 2025-07-25 13:54:26,874 basehttp 22648 9560 "POST /email-analysis/analyses/ HTTP/1.1" 201 71377
+INFO 2025-07-25 13:54:32,970 basehttp 22648 9560 "GET /email-analysis/ HTTP/1.1" 200 35692
+INFO 2025-07-25 13:55:09,989 basehttp 22648 9560 "GET /email-analysis/analysis/20/ HTTP/1.1" 200 43726
+INFO 2025-07-25 14:00:34,409 basehttp 22648 11800 "GET /email-analysis/analysis/20/ HTTP/1.1" 200 45031
+INFO 2025-07-25 14:01:13,442 basehttp 22648 11800 "POST /email-analysis/parse_eml_file/ HTTP/1.1" 200 78352
+INFO 2025-07-25 14:01:35,359 services 22648 11800 Analysis completed for email 21 in 20.16s
+INFO 2025-07-25 14:01:35,383 basehttp 22648 11800 "POST /email-analysis/analyses/ HTTP/1.1" 201 71377
+INFO 2025-07-25 14:01:43,914 basehttp 22648 11800 "GET /email-analysis/ HTTP/1.1" 200 36991
+INFO 2025-07-25 14:01:50,333 basehttp 22648 11800 "GET /email-analysis/analysis/21/ HTTP/1.1" 200 45031
+INFO 2025-07-25 14:02:09,525 basehttp 22648 11800 "GET /email-analysis/ HTTP/1.1" 200 36991
+INFO 2025-07-25 14:03:54,913 autoreload 22648 23396 C:\Users\TED\Documents\GitHub\Phishing-Email-Analysis-\phishing_analyzer\email_analysis\views.py changed, reloading.
+INFO 2025-07-25 14:04:24,375 autoreload 14380 9828 Watching for file changes with StatReloader
+INFO 2025-07-25 14:05:18,191 basehttp 14380 20756 "POST /api/v1/email-analysis/analyses/generate_report/ HTTP/1.1" 200 56
+INFO 2025-07-25 14:05:18,791 basehttp 14380 24284 "GET /media/reports/report-1753441518-admin.pdf HTTP/1.1" 200 2886
+INFO 2025-07-25 14:08:14,600 basehttp 14380 22936 "GET /email-analysis/ HTTP/1.1" 200 38483
+INFO 2025-07-25 14:08:28,940 basehttp 14380 22936 "POST /email-analysis/parse_eml_file/ HTTP/1.1" 200 78352
+INFO 2025-07-25 14:10:01,083 basehttp 14380 22936 "GET /email-analysis/ HTTP/1.1" 200 39161
+INFO 2025-07-25 14:10:28,222 basehttp 14380 22936 "POST /api/v1/email-analysis/analyses/generate_report/ HTTP/1.1" 200 56
+INFO 2025-07-25 14:10:28,588 basehttp 14380 18848 "GET /media/reports/report-1753441828-admin.pdf HTTP/1.1" 200 1851
+INFO 2025-07-25 14:10:47,338 basehttp 14380 4072 "GET /email-analysis/ HTTP/1.1" 200 39161
+INFO 2025-07-25 14:10:49,497 basehttp 14380 4072 "GET /email-analysis/analyses/ HTTP/1.1" 200 25855
+INFO 2025-07-25 14:10:49,575 basehttp 14380 22632 "GET /static/rest_framework/css/prettify.css HTTP/1.1" 304 0
+INFO 2025-07-25 14:10:49,576 basehttp 14380 4072 "GET /static/rest_framework/js/jquery-3.7.1.min.js HTTP/1.1" 304 0
+INFO 2025-07-25 14:10:49,585 basehttp 14380 22632 "GET /static/rest_framework/css/bootstrap.min.css HTTP/1.1" 304 0
+INFO 2025-07-25 14:10:49,615 basehttp 14380 4072 "GET /static/rest_framework/css/bootstrap-tweaks.css HTTP/1.1" 304 0
+INFO 2025-07-25 14:10:49,661 basehttp 14380 22632 "GET /static/rest_framework/css/default.css HTTP/1.1" 304 0
+INFO 2025-07-25 14:10:49,695 basehttp 14380 4072 "GET /static/rest_framework/js/ajax-form.js HTTP/1.1" 304 0
+INFO 2025-07-25 14:10:49,699 basehttp 14380 22632 "GET /static/rest_framework/js/csrf.js HTTP/1.1" 304 0
+INFO 2025-07-25 14:10:49,764 basehttp 14380 4072 "GET /static/rest_framework/js/prettify-min.js HTTP/1.1" 304 0
+INFO 2025-07-25 14:10:49,798 basehttp 14380 22632 "GET /static/rest_framework/js/default.js HTTP/1.1" 304 0
+INFO 2025-07-25 14:10:49,821 basehttp 14380 4072 "GET /static/rest_framework/js/load-ajax-form.js HTTP/1.1" 304 0
+INFO 2025-07-25 14:10:49,848 basehttp 14380 4072 "GET /static/rest_framework/img/grid.png HTTP/1.1" 304 0
+INFO 2025-07-25 14:10:49,946 basehttp 14380 22632 "GET /static/rest_framework/js/bootstrap.min.js HTTP/1.1" 304 0
+INFO 2025-07-25 14:10:50,013 basehttp 14380 4072 "GET /static/rest_framework/fonts/glyphicons-halflings-regular.woff2 HTTP/1.1" 304 0
+INFO 2025-07-25 14:11:02,547 basehttp 14380 4072 "GET /users/logout/ HTTP/1.1" 302 0
+INFO 2025-07-25 14:11:02,568 basehttp 14380 4072 "GET /users/login/ HTTP/1.1" 200 4301
+INFO 2025-07-25 14:11:13,601 basehttp 14380 4072 "POST /users/login/ HTTP/1.1" 302 0
+INFO 2025-07-25 14:11:13,646 basehttp 14380 4072 "GET /email-analysis/ HTTP/1.1" 200 31614
+INFO 2025-07-25 14:11:25,897 basehttp 14380 4072 "POST /email-analysis/parse_eml_file/ HTTP/1.1" 200 78352
+INFO 2025-07-25 14:11:48,023 services 14380 4072 Analysis completed for email 22 in 16.73s
+INFO 2025-07-25 14:11:48,037 basehttp 14380 4072 "POST /email-analysis/analyses/ HTTP/1.1" 201 71377
+INFO 2025-07-25 14:11:51,944 basehttp 14380 4072 "GET /email-analysis/ HTTP/1.1" 200 32513
+INFO 2025-07-25 14:11:56,500 basehttp 14380 4072 "GET /email-analysis/analysis/22/ HTTP/1.1" 200 45030
+INFO 2025-07-25 14:12:14,533 basehttp 14380 4072 "GET /email-analysis/ HTTP/1.1" 200 32513
+INFO 2025-07-25 14:12:35,498 basehttp 14380 4072 "POST /email-analysis/parse_eml_file/ HTTP/1.1" 200 173731
+INFO 2025-07-25 14:13:59,979 services 14380 4072 Analysis completed for email 23 in 81.49s
+INFO 2025-07-25 14:14:00,039 basehttp 14380 4072 "POST /email-analysis/analyses/ HTTP/1.1" 201 168535
+INFO 2025-07-25 14:14:09,604 basehttp 14380 4072 "GET /email-analysis/ HTTP/1.1" 200 33266
+INFO 2025-07-25 14:14:16,696 basehttp 14380 4072 "GET /email-analysis/analysis/23/ HTTP/1.1" 200 126990
+INFO 2025-07-25 14:14:40,747 basehttp 14380 4072 "GET /email-analysis/ HTTP/1.1" 200 33267
